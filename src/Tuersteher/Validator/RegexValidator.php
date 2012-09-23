@@ -1,10 +1,10 @@
 <?php
 
 /**
- * This file is part of the FFUF Türsteher library.
+ * This file is part of the Türsteher library.
  */
 
-namespace FFUF\Tuersteher\Validator;
+namespace Tuersteher\Validator;
 
 /**
  * AbstractValidator
@@ -14,10 +14,10 @@ namespace FFUF\Tuersteher\Validator;
  * @author  Nils Abegg <rueckgrat@nilsabegg.de>
  * @version 0.1
  * @package Validator
- * @subpackage Custom
+ * @subpackage Regex
  * @category Validation
  */
-abstract class CustomValidator extends Validator
+abstract class RegexValidator extends Validator
 {
 
 

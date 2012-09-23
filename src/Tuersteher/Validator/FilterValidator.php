@@ -4,9 +4,7 @@
  * This file is part of the FFUF Türsteher library.
  */
 
-namespace FFUF\Tuersteher\Validator;
-
-use FFUF\Tuersteher\Exception as Exception;
+namespace Tuersteher\Validator;
 
 /**
  * FilterValidator
@@ -128,6 +126,23 @@ abstract class FilterValidator extends Validator
     {
 
         $this->options = $options;
+
+    }
+
+    public function validate($value)
+    {
+
+        $hasFlag = isset($this->flag);
+        $hasOptions = isseT($this->options[0]);
+        if ($hasFlag == true && $hasOptions == true) {
+
+        } else if ($hasFlag == true) {
+            $isValid = filter_var($value, $this->filter, $this->flag);
+        } else {
+            $isValid = filter_var($value, $this->filter);
+        }
+
+        return $isValid;
 
     }
 

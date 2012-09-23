@@ -1,10 +1,12 @@
 <?php
 
 /**
- * This file is part of the FFUF Türsteher library.
+ * This file is part of the Türsteher library.
  */
 
-namespace FFUF\Tuersteher;
+namespace Tuersteher;
+
+use Tuersteher\Exception as Exception;
 
 /**
  * Validator

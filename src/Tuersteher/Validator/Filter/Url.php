@@ -1,12 +1,12 @@
 <?php
 
 /**
- * This file is part of the FFUF Türsteher library.
+ * This file is part of the Türsteher library.
  */
 
-namespace FFUF\Tuersteher\Validator\Filter;
+namespace Tuersteher\Validator\Filter;
 
-use FFUF\Tuersteher\FilterValidator as FilterValidator;
+use Tuersteher\FilterValidator as FilterValidator;
 
 /**
  * Url
@@ -15,8 +15,8 @@ use FFUF\Tuersteher\FilterValidator as FilterValidator;
  *
  * @author  Nils Abegg <rueckgrat@nilsabegg.de>
  * @version 0.1
- * @package Türsteher
- * @subpackage Validator
+ * @package Validator
+ * @subpackage Filter
  * @category Validation
  */
 class Url extends FilterValidator
