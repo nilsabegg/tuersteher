@@ -56,13 +56,14 @@ class Url extends FilterValidator
      *
      *
      * @access public
+     * @param mixed $value
      * @return bool
      */
     public function validate($value)
     {
 
         $isValid = filter_var($value, $this->filter);
-        
+
         return $isValid;
 
     }

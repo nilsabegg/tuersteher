@@ -6,6 +6,8 @@
 
 namespace FFUF\Tuersteher;
 
+use FFUF\Tuersteher\Exception as Exception;
+
 /**
  * ValidationSchema
  *
@@ -33,7 +35,7 @@ class ValidationSchema
      * addValidator
      *
      *
-     * 
+     *
      * @access public
      * @param string $name
      * @param \Tuersteher\AbstractValidator $validator
@@ -55,4 +57,29 @@ class ValidationSchema
 
     }
 
+    /**
+     * setValidator
+     *
+     *
+     *
+     * @access public
+     * @param string $name
+     * @param \Tuersteher\AbstractValidator $validator
+     * @throws \Tuersteher\Exception
+     * @return void
+     */
+    public function setValidator($name, \Tuersteher\AbstractValidator $validator)
+    {
+
+        if ($name != '') {
+            if (key_exists($name, $this->validators) == true) {
+                $this->validators[$name] = $validator;
+            } else {
+                throw new Exception('Validator doesn\'t exists.');
+            }
+        } else {
+            throw new Exception('No name for Validator given.');
+        }
+
+    }
 }
