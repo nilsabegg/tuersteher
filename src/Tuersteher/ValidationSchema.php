@@ -26,8 +26,8 @@ class ValidationSchema
      *
      * Holds the validators in an array.
      *
-     * @access protected
-     * @var mixed
+     * @access  protected
+     * @var     array
      */
     protected $validators = array();
 
@@ -36,11 +36,11 @@ class ValidationSchema
      *
      *
      *
-     * @access public
-     * @param string $name
-     * @param \Tuersteher\AbstractValidator $validator
-     * @throws \Tuersteher\Exception
-     * @return void
+     * @access  public
+     * @param   string $name
+     * @param   \Tuersteher\AbstractValidator $validator
+     * @throws  \Tuersteher\Exception
+     * @return  void
      */
     public function addValidator($name, \Tuersteher\AbstractValidator $validator)
     {
@@ -62,11 +62,11 @@ class ValidationSchema
      *
      *
      *
-     * @access public
-     * @param string $name
-     * @param \Tuersteher\AbstractValidator $validator
-     * @throws \Tuersteher\Exception
-     * @return void
+     * @access  public
+     * @param   string $name
+     * @param   \Tuersteher\AbstractValidator $validator
+     * @throws  \Tuersteher\Exception
+     * @return  void
      */
     public function setValidator($name, \Tuersteher\AbstractValidator $validator)
     {

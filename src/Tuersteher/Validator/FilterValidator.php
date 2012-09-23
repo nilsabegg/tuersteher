@@ -30,7 +30,7 @@ abstract class FilterValidator extends Validator
      *
      * @access  protected
      * @link    http://php.net/manual/en/filter.filters.validate.php   PHP Documentation
-     * @var     int
+     * @var     integer
      */
     protected $filter = null;
 
@@ -41,7 +41,7 @@ abstract class FilterValidator extends Validator
      *
      * @access  protected
      * @link    http://php.net/manual/en/filter.filters.flags.php   PHP Documentation
-     * @var     int
+     * @var     integer
      */
     protected $flag = null;
 
@@ -53,7 +53,7 @@ abstract class FilterValidator extends Validator
      *
      * @access  protected
      * @link    http://php.net/manual/en/filter.filters.validate.php    PHP Documentation
-     * @var     mixed
+     * @var     array
      */
     protected $options = array();
 

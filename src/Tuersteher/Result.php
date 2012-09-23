@@ -6,19 +6,19 @@
 
 namespace Tuersteher;
 
+use Tuersteher\Exception as Exception;
+
 /**
- * Exception
+ * Result
  *
  * This class validates if a given value is a URL.
  *
  * @author      Nils Abegg <rueckgrat@nilsabegg.de>
  * @version     0.1
  * @package     Türsteher
- * @category    Exception Handling
+ * @category    Validation
  */
-class Exception extends \Exception
+class Result
 {
-
-
 
 }

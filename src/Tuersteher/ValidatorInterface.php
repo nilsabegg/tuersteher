@@ -5,6 +5,8 @@ namespace Tuersteher;
 interface ValidatorInterface
 {
 
+    public function getResult();
+    
     /**
      * validate
      *
