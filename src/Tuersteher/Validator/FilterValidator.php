@@ -16,7 +16,7 @@ namespace Tuersteher\Validator;
  * @package     Validator
  * @subpackage  Filter
  * @category    Validation
- * @see         http://php.net/manual/en/book.filter.php    PHP Documentation
+ * @link        http://php.net/manual/en/book.filter.php    PHP Documentation
  * @todo        Add support for messages for each option and flag.
  */
 abstract class FilterValidator extends Validator
@@ -29,7 +29,7 @@ abstract class FilterValidator extends Validator
      * the child class.
      *
      * @access  protected
-     * @see     http://php.net/manual/en/filter.filters.validate.php   PHP Documentation
+     * @link    http://php.net/manual/en/filter.filters.validate.php   PHP Documentation
      * @var     int
      */
     protected $filter = null;
@@ -40,7 +40,7 @@ abstract class FilterValidator extends Validator
      * Holds the flag for the filter_var call.
      *
      * @access  protected
-     * @see     http://php.net/manual/en/filter.filters.flags.php   PHP Documentation
+     * @link    http://php.net/manual/en/filter.filters.flags.php   PHP Documentation
      * @var     int
      */
     protected $flag = null;
@@ -52,7 +52,7 @@ abstract class FilterValidator extends Validator
      * in an array.
      *
      * @access  protected
-     * @see     http://php.net/manual/en/filter.filters.validate.php    PHP Documentation
+     * @link    http://php.net/manual/en/filter.filters.validate.php    PHP Documentation
      * @var     mixed
      */
     protected $options = array();

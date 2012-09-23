@@ -7,6 +7,7 @@
 namespace Tuersteher;
 
 use Tuersteher\Exception as Exception;
+use Tuersteher\ValidatorInterface as ValidatorInterface;
 
 /**
  * Validator
@@ -18,7 +19,7 @@ use Tuersteher\Exception as Exception;
  * @package Validator
  * @category Validation
  */
-abstract class Validator
+abstract class Validator implements ValidatorInterface
 {
 
     /**
@@ -127,15 +128,5 @@ abstract class Validator
         $this->messages = $messages;
 
     }
-
-    /**
-     * validate
-     *
-     *
-     *
-     * @abstract
-     * @access public
-     */
-    abstract public function validate();
 
 }

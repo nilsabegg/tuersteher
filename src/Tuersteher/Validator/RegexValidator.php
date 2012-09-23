@@ -20,6 +20,18 @@ namespace Tuersteher\Validator;
 abstract class RegexValidator extends Validator
 {
 
+    protected $regex = '';
 
+    protected $method = 'preg';
+
+    public function validate($value)
+    {
+
+    }
+
+    protected function validatePreg($value)
+    {
+
+    }
 
 }

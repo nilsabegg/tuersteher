@@ -18,8 +18,8 @@ use Tuersteher\FilterValidator as FilterValidator;
  * @package     Validator
  * @subpackage  Filter
  * @category    Validation
- * @see         http://php.net/manual/en/filter.filters.validate.php    PHP Documentation
- * @see         http://www.w3schools.com/php/filter_validate_url.asp    W3Schools Documentation
+ * @link        http://php.net/manual/en/filter.filters.validate.php    PHP Documentation
+ * @link        http://www.w3schools.com/php/filter_validate_url.asp    W3Schools Documentation
  */
 class Url extends FilterValidator
 {
@@ -30,8 +30,8 @@ class Url extends FilterValidator
      * Holds the filter id for filter_var.
      *
      * @access  protected
-     * @see     http://php.net/manual/en/filter.filters.validate.php    PHP Documentation
-     * @see     http://www.w3schools.com/php/filter_validate_url.asp    W3Schools Documentation
+     * @link    http://php.net/manual/en/filter.filters.validate.php    PHP Documentation
+     * @link    http://www.w3schools.com/php/filter_validate_url.asp    W3Schools Documentation
      * @var     int
      */
     protected $filter = \FILTER_VALIDATE_URL;

@@ -35,5 +35,7 @@ class Url extends RegexValidator
         'default' => 'The input was not an URL.'
     );
 
+    protected $regex = '';
+
 }
 
