@@ -45,6 +45,7 @@ class Tuersteher
      *
      *
      *
+     * @access public
      * @param type $name
      * @param type $namespace
      */
@@ -58,8 +59,9 @@ class Tuersteher
     /**
      * validate
      *
+     * 
      *
-     *
+     * @access public
      * @param mixed $value
      * @param \FFUF\Tuersteher\ValidationSchema $validationSchema
      */
