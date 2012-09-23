@@ -30,7 +30,10 @@ class ValidationSchema
     protected $validators = array();
 
     /**
+     * addValidator
      *
+     *
+     * 
      * @access public
      * @param string $name
      * @param \Tuersteher\AbstractValidator $validator
