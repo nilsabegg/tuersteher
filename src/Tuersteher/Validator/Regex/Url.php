@@ -29,12 +29,20 @@ class Url extends RegexValidator
      * an array.
      *
      * @access  protected
-     * @var     mixed
+     * @var     array
      */
     protected $messages = array(
         'default' => 'The input was not an URL.'
     );
 
+    /**
+     * regex
+     *
+     * Holds the Regular Expression.
+     *
+     * @access  protected
+     * @var     string
+     */
     protected $regex = '';
 
 }

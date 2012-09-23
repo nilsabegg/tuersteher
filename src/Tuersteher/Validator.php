@@ -14,10 +14,10 @@ use Tuersteher\ValidatorInterface as ValidatorInterface;
  *
  * This class validates if a given value is a URL.
  *
- * @author  Nils Abegg <rueckgrat@nilsabegg.de>
- * @version 0.1
- * @package Validator
- * @category Validation
+ * @author      Nils Abegg <rueckgrat@nilsabegg.de>
+ * @version     0.1
+ * @package     Validator
+ * @category    Validation
  */
 abstract class Validator implements ValidatorInterface
 {
@@ -28,8 +28,8 @@ abstract class Validator implements ValidatorInterface
      * Holds the messages for for invalid input in
      * an array.
      *
-     * @access protected
-     * @var mixed
+     * @access  protected
+     * @var     array
      */
     protected $messages = array();
 
@@ -38,11 +38,11 @@ abstract class Validator implements ValidatorInterface
      *
      *
      *
-     * @access public
-     * @param string $name
-     * @param string $message
-     * @throws Exception
-     * @return void
+     * @access  public
+     * @param   string $name
+     * @param   string $message
+     * @return  void
+     * @throws  \Tuersteher\Exception
      */
     public function addMessage($name, $message)
     {
@@ -60,10 +60,10 @@ abstract class Validator implements ValidatorInterface
      *
      *
      *
-     * @access public
-     * @param string $name
-     * @return string
-     * @throws Exception
+     * @access  public
+     * @param   string $name
+     * @return  string
+     * @throws  \Tuersteher\Exception
      */
     public function getMessage($name)
     {
@@ -81,8 +81,8 @@ abstract class Validator implements ValidatorInterface
      *
      *
      *
-     * @access public
-     * @return mixed
+     * @access  public
+     * @return  array
      */
     public function getMessages()
     {
@@ -111,11 +111,11 @@ abstract class Validator implements ValidatorInterface
      *
      *
      *
-     * @access public
-     * @param string $name
-     * @param string $message
-     * @return void
-     * @throws Exception
+     * @access  public
+     * @param   string $name
+     * @param   string $message
+     * @return  void
+     * @throws  \Tuersteher\Exception
      */
     public function setMessage($name, $message)
     {
@@ -133,9 +133,9 @@ abstract class Validator implements ValidatorInterface
      *
      *
      *
-     * @access public
-     * @param mixed $messages
-     * @return void
+     * @access  public
+     * @param   array   $messages
+     * @return  void
      */
     public function setMessages($messages)
     {

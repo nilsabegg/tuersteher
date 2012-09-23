@@ -32,7 +32,7 @@ class Url extends FilterValidator
      * @access  protected
      * @link    http://php.net/manual/en/filter.filters.validate.php    PHP Documentation
      * @link    http://www.w3schools.com/php/filter_validate_url.asp    W3Schools Documentation
-     * @var     int
+     * @var     integer
      */
     protected $filter = \FILTER_VALIDATE_URL;
 
@@ -42,8 +42,8 @@ class Url extends FilterValidator
      * Holds the messages for for invalid input in
      * an array.
      *
-     * @access protected
-     * @var mixed
+     * @access  protected
+     * @var     array
      */
     protected $messages = array(
         'default' => 'The input was not an URL.'

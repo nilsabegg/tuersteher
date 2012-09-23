@@ -87,7 +87,7 @@ class Result
      * Returns the result.
      *
      * @access  public
-     * @return  boolean
+     * @return  mixed
      */
     public function getResult()
     {
