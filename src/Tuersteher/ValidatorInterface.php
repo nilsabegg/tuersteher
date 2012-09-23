@@ -9,7 +9,12 @@ namespace Tuersteher;
 /**
  * ValidatorInterface
  *
- * This class validates if a given value is a URL.
+ * This is the interface for all validators.
+ *
+ * When you create validators which doesn't extend any
+ * of the Türsteher validators you need to implement
+ * this interface to make your validators compatible
+ * with Türsteher.
  *
  * @author      Nils Abegg <rueckgrat@nilsabegg.de>
  * @version     0.1
@@ -22,19 +27,19 @@ interface ValidatorInterface
     /**
      * getResult
      *
-     *
+     * Returns the result of the validator.
      *
      * @access  public
      */
     public function getResult();
 
     /**
-     * validate
+     * isValid
      *
-     *
+     * Checks if the input is valid.
      *
      * @access  public
      */
-    public function validate($value);
+    public function isValid($value);
 
 }

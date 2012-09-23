@@ -134,7 +134,16 @@ abstract class FilterValidator extends Validator
 
     }
 
-    public function validate($value)
+    /**
+     * isValid
+     *
+     * Checks if the input is valid.
+     *
+     * @access  public
+     * @param   mixed   $value
+     * @return  boolean
+     */
+    public function isValid($value)
     {
 
         $hasFlag = isset($this->flag);
