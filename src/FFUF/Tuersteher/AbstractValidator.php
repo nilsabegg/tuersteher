@@ -14,6 +14,7 @@ namespace FFUF\Tuersteher;
  * @author  Nils Abegg <rueckgrat@nilsabegg.de>
  * @version 0.1
  * @package Türsteher
+ * @subpackage Validator
  * @category Validation
  */
 abstract class AbstractValidator
@@ -23,7 +24,7 @@ abstract class AbstractValidator
      * validate
      *
      *
-     * 
+     *
      * @abstract
      * @access public
      */

@@ -20,6 +20,12 @@ class Tuersteher
 {
 
     /**
+     *
+     * @var mixed
+     */
+    protected $validatorNamespace = array();
+
+    /**
      * __construct
      *
      * Constructs the object.
@@ -30,7 +36,22 @@ class Tuersteher
     public function __construct()
     {
 
+        $this->validatorNamespace['default'] = '\\Tuersteher\\Validator';
 
+    }
+
+    /**
+     * addValidatorNamespace
+     *
+     *
+     *
+     * @param type $name
+     * @param type $namespace
+     */
+    public function addValidatorNamespace($name, $namespace)
+    {
+
+        $this->validatorNamespace[$name] = $namespace;
 
     }
 
@@ -38,7 +59,7 @@ class Tuersteher
      * validate
      *
      *
-     * 
+     *
      * @param mixed $value
      * @param \FFUF\Tuersteher\ValidationSchema $validationSchema
      */

@@ -19,4 +19,37 @@ namespace FFUF\Tuersteher;
 class ValidationSchema
 {
 
+    /**
+     * validators
+     *
+     * Holds the validators in an array.
+     *
+     * @access protected
+     * @var mixed
+     */
+    protected $validators = array();
+
+    /**
+     *
+     * @access public
+     * @param string $name
+     * @param \Tuersteher\AbstractValidator $validator
+     * @throws \Tuersteher\Exception
+     * @return void
+     */
+    public function addValidator($name, \Tuersteher\AbstractValidator $validator)
+    {
+
+        if ($name != '') {
+            if (key_exists($name, $this->validators) == false) {
+                $this->validators[$name] = $validator;
+            } else {
+                throw new Exception('Validator allready added.');
+            }
+        } else {
+            throw new Exception('No name for Validator given.');
+        }
+
+    }
+
 }
