@@ -54,7 +54,7 @@ class Url extends FilterValidator
      * validate
      *
      *
-     * 
+     *
      * @access public
      * @return bool
      */
@@ -62,6 +62,8 @@ class Url extends FilterValidator
     {
 
         $isValid = filter_var($value, $this->filter);
+        
+        return $isValid;
 
     }
 

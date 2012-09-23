@@ -20,12 +20,32 @@ namespace FFUF\Tuersteher;
 abstract class FilterValidator extends AbstractValidator
 {
 
+    /**
+     * filter
+     *
+     *
+     *
+     * @access protected
+     * @var Object
+     */
     protected $filter = null;
 
+    /**
+     * filterFlags
+     *
+     *
+     *
+     * @access protected
+     * @var mixed
+     */
     protected $filterFlags = array();
 
     /**
+     * type
      *
+     * 
+     *
+     * @access protected
      * @var string
      */
     protected $type = 'filter_var';
