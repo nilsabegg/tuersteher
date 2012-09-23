@@ -17,7 +17,7 @@ namespace FFUF\Tuersteher;
  * @subpackage Validator
  * @category Validation
  */
-abstract class CustomValidator
+abstract class CustomValidator extends AbstractValidator
 {
 
 }
