@@ -92,6 +92,21 @@ abstract class Validator implements ValidatorInterface
     }
 
     /**
+     * getResult
+     *
+     *
+     *
+     * @access  public
+     * @return  \Tuersteher\Result
+     */
+    public function getResult()
+    {
+
+        return $this->result;
+
+    }
+
+    /**
      * setMessage
      *
      *
@@ -129,4 +144,16 @@ abstract class Validator implements ValidatorInterface
 
     }
 
+    /**
+     * createResult
+     *
+     * @access  protected
+     * @return  void
+     */
+    protected function createResult()
+    {
+
+
+
+    }
 }
