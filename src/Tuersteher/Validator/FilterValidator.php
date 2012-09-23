@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the FFUF Türsteher library.
+ * This file is part of the Türsteher library.
  */
 
 namespace Tuersteher\Validator;
@@ -11,11 +11,13 @@ namespace Tuersteher\Validator;
  *
  * This class validates if a given value is a URL.
  *
- * @author  Nils Abegg <rueckgrat@nilsabegg.de>
- * @version 0.1
- * @package Validator
- * @subpackage Filter
- * @category Validation
+ * @author      Nils Abegg <rueckgrat@nilsabegg.de>
+ * @version     0.1
+ * @package     Validator
+ * @subpackage  Filter
+ * @category    Validation
+ * @see         http://php.net/manual/en/book.filter.php    PHP Documentation
+ * @todo        Add support for messages for each option and flag.
  */
 abstract class FilterValidator extends Validator
 {
@@ -26,8 +28,9 @@ abstract class FilterValidator extends Validator
      * Holds the filter which is defined in
      * the child class.
      *
-     * @access protected
-     * @var int
+     * @access  protected
+     * @see     http://php.net/manual/en/filter.filters.validate.php   PHP Documentation
+     * @var     int
      */
     protected $filter = null;
 
@@ -36,8 +39,9 @@ abstract class FilterValidator extends Validator
      *
      * Holds the flag for the filter_var call.
      *
-     * @access protected
-     * @var int
+     * @access  protected
+     * @see     http://php.net/manual/en/filter.filters.flags.php   PHP Documentation
+     * @var     int
      */
     protected $flag = null;
 
@@ -47,8 +51,9 @@ abstract class FilterValidator extends Validator
      * Holds the options for the filter_var call
      * in an array.
      *
-     * @access protected
-     * @var mixed
+     * @access  protected
+     * @see     http://php.net/manual/en/filter.filters.validate.php    PHP Documentation
+     * @var     mixed
      */
     protected $options = array();
 
@@ -57,8 +62,8 @@ abstract class FilterValidator extends Validator
      *
      * Specifies the type of the validator.
      *
-     * @access protected
-     * @var string
+     * @access  protected
+     * @var     string
      */
     protected $type = 'filter_var';
 

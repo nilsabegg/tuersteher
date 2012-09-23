@@ -13,16 +13,27 @@ use Tuersteher\RegexValidator as RegexValidator;
  *
  * This class validates if a given value is a URL.
  *
- * @author  Nils Abegg <rueckgrat@nilsabegg.de>
- * @version 0.1
- * @package Validator
- * @subpackage Regex
- * @category Validation
+ * @author      Nils Abegg <rueckgrat@nilsabegg.de>
+ * @version     0.1
+ * @package     Validator
+ * @subpackage  Regex
+ * @category    Validation
  */
 class Url extends RegexValidator
 {
 
-
+    /**
+     * messages
+     *
+     * Holds the messages for for invalid input in
+     * an array.
+     *
+     * @access  protected
+     * @var     mixed
+     */
+    protected $messages = array(
+        'default' => 'The input was not an URL.'
+    );
 
 }
 

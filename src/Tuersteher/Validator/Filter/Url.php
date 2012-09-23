@@ -13,14 +13,28 @@ use Tuersteher\FilterValidator as FilterValidator;
  *
  * This class validates if a given value is a URL.
  *
- * @author  Nils Abegg <rueckgrat@nilsabegg.de>
- * @version 0.1
- * @package Validator
- * @subpackage Filter
- * @category Validation
+ * @author      Nils Abegg <rueckgrat@nilsabegg.de>
+ * @version     0.1
+ * @package     Validator
+ * @subpackage  Filter
+ * @category    Validation
+ * @see         http://php.net/manual/en/filter.filters.validate.php    PHP Documentation
+ * @see         http://www.w3schools.com/php/filter_validate_url.asp    W3Schools Documentation
  */
 class Url extends FilterValidator
 {
+
+    /**
+     * filter
+     *
+     * Holds the filter id for filter_var.
+     *
+     * @access  protected
+     * @see     http://php.net/manual/en/filter.filters.validate.php    PHP Documentation
+     * @see     http://www.w3schools.com/php/filter_validate_url.asp    W3Schools Documentation
+     * @var     int
+     */
+    protected $filter = \FILTER_VALIDATE_URL;
 
     /**
      * messages
@@ -34,38 +48,5 @@ class Url extends FilterValidator
     protected $messages = array(
         'default' => 'The input was not an URL.'
     );
-
-    /**
-     * __construct
-     *
-     * Constructs the object.
-     *
-     * @access public
-     * @return void
-     */
-    public function __construct()
-    {
-
-
-
-    }
-
-    /**
-     * validate
-     *
-     *
-     *
-     * @access public
-     * @param mixed $value
-     * @return bool
-     */
-    public function validate($value)
-    {
-
-        $isValid = filter_var($value, $this->filter);
-
-        return $isValid;
-
-    }
 
 }
