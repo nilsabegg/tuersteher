@@ -39,6 +39,7 @@ interface ValidatorInterface
      * Checks if the input is valid.
      *
      * @access  public
+     * @param   mixed   $value
      */
     public function isValid($value);
 

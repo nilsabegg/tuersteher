@@ -11,7 +11,7 @@ use Tuersteher\Exception as Exception;
 /**
  * Result
  *
- * This class validates if a given value is a URL.
+ * This class is a result of Türsteher validator.
  *
  * @author      Nils Abegg <rueckgrat@nilsabegg.de>
  * @version     0.1
