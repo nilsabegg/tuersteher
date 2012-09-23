@@ -21,6 +21,104 @@ abstract class AbstractValidator
 {
 
     /**
+     * messages
+     *
+     * Holds the messages for for invalid input in
+     * an array.
+     *
+     * @access protected
+     * @var mixed
+     */
+    protected $messages = array();
+
+    /**
+     * addMessage
+     *
+     *
+     *
+     * @access public
+     * @param string $name
+     * @param string $message
+     * @return void
+     * @throws Exception
+     */
+    public function addMessage($name, $message)
+    {
+
+        if (key_exists($name, $this->messages) == false) {
+            $this->messages[$name] = $message;
+        } else {
+            throw new Exception();
+        }
+
+    }
+
+    /**
+     * getMessage
+     *
+     *
+     * @access public
+     * @param string $name
+     * @return string
+     * @throws Exception
+     */
+    public function getMessage($name)
+    {
+
+        if (key_exists($name, $this->messages) == true) {
+            return $this->messages[$name];
+        } else {
+            throw new Exception();
+        }
+
+    }
+
+    public function getMessages()
+    {
+
+        return $this->messages;
+
+    }
+
+    /**
+     * setMessage
+     *
+     *
+     *
+     * @access public
+     * @param string $name
+     * @param string $message
+     * @return void
+     * @throws Exception
+     */
+    public function setMessage($name, $message)
+    {
+
+        if (key_exists($name, $this->messages) == true) {
+            $this->messages[$name] = $message;
+        } else {
+            throw new Exception();
+        }
+
+    }
+
+    /**
+     * setMessages
+     *
+     *
+     *
+     * @access public
+     * @param mixed $messages
+     * @return void
+     */
+    public function setMessages($messages)
+    {
+
+        $this->messages = $messages;
+
+    }
+
+    /**
      * validate
      *
      *

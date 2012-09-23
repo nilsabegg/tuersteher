@@ -6,6 +6,8 @@
 
 namespace FFUF\Tuersteher\Validator;
 
+use FFUF\Tuersteher\FilterValidator as FilterValidator;
+
 /**
  * Url
  *
@@ -17,8 +19,21 @@ namespace FFUF\Tuersteher\Validator;
  * @subpackage Validator
  * @category Validation
  */
-class Url
+class Url extends FilterValidator
 {
+
+    /**
+     * messages
+     *
+     * Holds the messages for for invalid input in
+     * an array.
+     *
+     * @access protected
+     * @var mixed
+     */
+    protected $messages = array(
+        'default' => 'The input was not an URL.'
+    );
 
     /**
      * __construct
@@ -39,13 +54,14 @@ class Url
      * validate
      *
      *
+     * 
      * @access public
      * @return bool
      */
-    public function validate()
+    public function validate($value)
     {
 
-
+        $isValid = filter_var($value, $this->filter);
 
     }
 
