@@ -39,8 +39,8 @@ abstract class AbstractValidator
      * @access public
      * @param string $name
      * @param string $message
-     * @return void
      * @throws Exception
+     * @return void
      */
     public function addMessage($name, $message)
     {
@@ -55,6 +55,7 @@ abstract class AbstractValidator
 
     /**
      * getMessage
+     *
      *
      *
      * @access public
@@ -73,6 +74,14 @@ abstract class AbstractValidator
 
     }
 
+    /**
+     * getMessages
+     *
+     *
+     * 
+     * @access public
+     * @return mixed
+     */
     public function getMessages()
     {
 
