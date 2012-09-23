@@ -4,7 +4,7 @@
  * This file is part of the FFUF Türsteher library.
  */
 
-namespace FFUF\Tuersteher;
+namespace FFUF\Tuersteher\Validator;
 
 /**
  * AbstractValidator
@@ -13,11 +13,11 @@ namespace FFUF\Tuersteher;
  *
  * @author  Nils Abegg <rueckgrat@nilsabegg.de>
  * @version 0.1
- * @package Türsteher
- * @subpackage Validator
+ * @package Validator
+ * @subpackage Custom
  * @category Validation
  */
-abstract class RegexValidator extends AbstractValidator
+abstract class CustomValidator extends Validator
 {
 
 

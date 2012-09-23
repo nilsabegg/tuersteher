@@ -7,17 +7,16 @@
 namespace FFUF\Tuersteher;
 
 /**
- * AbstractValidator
+ * Validator
  *
  * This class validates if a given value is a URL.
  *
  * @author  Nils Abegg <rueckgrat@nilsabegg.de>
  * @version 0.1
- * @package Türsteher
- * @subpackage Validator
+ * @package Validator
  * @category Validation
  */
-abstract class AbstractValidator
+abstract class Validator
 {
 
     /**
@@ -78,7 +77,7 @@ abstract class AbstractValidator
      * getMessages
      *
      *
-     * 
+     *
      * @access public
      * @return mixed
      */

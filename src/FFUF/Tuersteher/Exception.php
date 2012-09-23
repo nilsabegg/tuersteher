@@ -14,7 +14,7 @@ namespace FFUF\Tuersteher;
  * @author  Nils Abegg <rueckgrat@nilsabegg.de>
  * @version 0.1
  * @package Türsteher
- * @category Validation
+ * @category Exception Handling
  */
 class Exception extends \Exception
 {

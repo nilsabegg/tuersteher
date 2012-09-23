@@ -4,7 +4,7 @@
  * This file is part of the FFUF Türsteher library.
  */
 
-namespace FFUF\Tuersteher\Validator;
+namespace FFUF\Tuersteher\Validator\Filter;
 
 use FFUF\Tuersteher\FilterValidator as FilterValidator;
 
