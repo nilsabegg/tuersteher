@@ -146,7 +146,7 @@ abstract class FilterValidator extends Validator
     public function getOptions()
     {
 
-        if (isset($this->options[0]) == true) {
+        if (count($this->options) > 0) {
             return $this->options;
         } else {
             throw new ValidatorException('No options set.');
@@ -237,7 +237,7 @@ abstract class FilterValidator extends Validator
     public function setOptions($options)
     {
 
-        if (is_array($options) == true || $options == null) {
+        if (is_array($options) == true) {
             $this->options = $options;
         } else {
             throw new ValidatorException();
