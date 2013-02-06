@@ -1,9 +1,9 @@
 {
-    "name": "ffuf/validator",
+    "name": "nilsabegg/tuersteher",
     "type": "framework",
     "description": "A Validation Library.",
     "keywords": ["validation"],
-    "homepage": "http://github.com/nilsabegg/validation",
+    "homepage": "http://github.com/nilsabegg/tuersteher",
     "license": "MIT",
     "authors": [
         {

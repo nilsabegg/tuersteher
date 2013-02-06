@@ -78,6 +78,7 @@ abstract class FilterValidator extends Validator
      * @link    http://php.net/manual/en/filter.filters.validate.php   PHP Documentation
      * @param   string  $name
      * @param   mixed   $option
+     * @return  void
      * @throw   \Tuersteher\Exception
      */
     public function addOption($name, $option)
@@ -166,7 +167,7 @@ abstract class FilterValidator extends Validator
     {
 
         $hasFlag = isset($this->flag);
-        $hasOptions = isseT($this->options[0]);
+        $hasOptions = isset($this->options[0]);
         if ($hasFlag == true && $hasOptions == true) {
             $isValid = filter_var($value, $this->filter, $this->options, $this->flag);
         } else if ($hasFlag == true) {
