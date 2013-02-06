@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/Autloader.php';
+require_once __DIR__.'/Autoloader.php';
 
 $appDir = __DIR__ . '../src';
 $appLoader = new Autoloader('Tuersteher', $appDir);
