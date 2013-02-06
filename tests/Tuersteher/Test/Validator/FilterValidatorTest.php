@@ -18,17 +18,20 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
 
     }
 
-    public function testSetOption()
+    public function testGetAndSetOption()
     {
 
         $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
         $validator->addOption('option1', 1234);
         $validator->setOption('option1', '4321');
         $this->assertEquals($validator->getOption('option1'), '4321');
+        $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
+        $validator->setOption('option2', '4321');
+        $validator->getOption('option2');
 
     }
 
-    public function testSetOptions()
+    public function testGetAndSetOptions()
     {
 
         $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
@@ -38,6 +41,10 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
         );
         $validator->setOptions($options);
         $this->assertEquals($validator->getOptions(), $options);
+        $this->setOptions(array());
+        $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
+        $this->getOptions();
+        $this->setOptions('no array');
 
     }
 //    public function testConcreteMethod()
