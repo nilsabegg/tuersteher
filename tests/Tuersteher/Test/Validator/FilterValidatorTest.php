@@ -15,6 +15,29 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($validator->getOption('option2'), '4321');
 
     }
+
+    public function testSetOption()
+    {
+
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
+        $validator->addOption('option1', 1234);
+        $validator->setOption('option1', '4321');
+        $this->assertEquals($validator->getOption('option1'), '4321');
+
+    }
+
+    public function testSetOptions()
+    {
+
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
+        $options = array(
+            'option1' => 1234,
+            'option2' => '4321'
+        );
+        $validator->setOptions($options);
+        $this->assertEquals($validator->getOptions(), $options);
+
+    }
 //    public function testConcreteMethod()
 //    {
 //        $stub = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
