@@ -86,7 +86,7 @@ abstract class FilterValidator extends Validator
         if (key_exists($name, $this->options) == false) {
             $this->options[$name] = $option;
         } else {
-            throw new Exception('Option "' . $name . '" allready exists');
+            throw new ValidatorException('Option "' . $name . '" allready exists');
         }
     }
 
@@ -106,7 +106,7 @@ abstract class FilterValidator extends Validator
         if (isset($this->flag) == true) {
             return $this->flag;
         } else {
-            throw new Exception('There is not flag set.');
+            throw new ValidatorException('There is not flag set.');
         }
 
     }
@@ -128,7 +128,7 @@ abstract class FilterValidator extends Validator
         if (key_exists($name, $this->options) == true) {
             return $this->options[$name];
         } else {
-            throw new Exception('Option "' . $name . '" doesn\'t exist');
+            throw new ValidatorException('Option "' . $name . '" doesn\'t exist');
         }
 
     }
@@ -149,7 +149,7 @@ abstract class FilterValidator extends Validator
         if (isset($this->options[0]) == true) {
             return $this->options;
         } else {
-            throw new Exception('No options set.');
+            throw new ValidatorException('No options set.');
         }
 
     }
@@ -218,7 +218,7 @@ abstract class FilterValidator extends Validator
         if (key_exists($name, $this->options) == true) {
             $this->options[$name] = $option;
         } else {
-            throw new Exception('Option "' . $name . '" doesn\'t exist');
+            throw new ValidatorException('Option "' . $name . '" doesn\'t exist');
         }
 
     }
@@ -240,7 +240,7 @@ abstract class FilterValidator extends Validator
         if (is_array($options) == true || $options == null) {
             $this->options = $options;
         } else {
-            throw new Exception();
+            throw new ValidatorException();
         }
 
     }
