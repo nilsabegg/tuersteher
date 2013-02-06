@@ -41,10 +41,10 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
         );
         $validator->setOptions($options);
         $this->assertEquals($validator->getOptions(), $options);
-        $this->setOptions(array());
+        $validator->setOptions(array());
         $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
-        $this->getOptions();
-        $this->setOptions('no array');
+        $validator->getOptions();
+        $validator->setOptions('no array');
 
     }
 //    public function testConcreteMethod()
