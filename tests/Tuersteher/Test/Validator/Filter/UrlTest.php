@@ -11,7 +11,7 @@ class UrlTest extends \PHPUnit_Framework_TestCase
         $isValid = $urlValidator->isValid('dsfdfsdff');
         $this->assertFalse($isValid);
         $isValid2 = $urlValidator->isValid('http://dsfdfsdff.de');
-        $this->assertFalse($isValid2);
+        $this->assertTrue($isValid2);
     }
 
 }
