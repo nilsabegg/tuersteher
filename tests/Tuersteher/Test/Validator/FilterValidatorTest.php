@@ -79,7 +79,7 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
         $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
         $flag = 22;
         $validator->setFlag($flag);
-        $this->assertEqual($validator->getFlag(), $flag);
+        $this->assertEquals($validator->getFlag(), $flag);
         $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
         $validator->setFlag('no integer');
 
