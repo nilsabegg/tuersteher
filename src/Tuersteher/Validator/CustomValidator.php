@@ -6,6 +6,8 @@
 
 namespace Tuersteher\Validator;
 
+use Tuersteher\Validator as Validator;
+
 /**
  * CustomValidator
  *

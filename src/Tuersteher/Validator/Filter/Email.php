@@ -9,9 +9,9 @@ namespace Tuersteher\Validator\Filter;
 use Tuersteher\Validator\FilterValidator as FilterValidator;
 
 /**
- * Url
+ * Email
  *
- * This class validates if a given value is a URL.
+ * This class validates if a given value is a E-Mail address.
  *
  * @author      Nils Abegg <rueckgrat@nilsabegg.de>
  * @version     0.1
@@ -21,7 +21,7 @@ use Tuersteher\Validator\FilterValidator as FilterValidator;
  * @link        http://php.net/manual/en/filter.filters.validate.php    PHP Documentation
  * @link        http://www.w3schools.com/php/filter_validate_url.asp    W3Schools Documentation
  */
-class Url extends FilterValidator
+class Email extends FilterValidator
 {
 
     /**
@@ -34,7 +34,7 @@ class Url extends FilterValidator
      * @link    http://www.w3schools.com/php/filter_validate_url.asp    W3Schools Documentation
      * @var     integer
      */
-    protected $filter = \FILTER_VALIDATE_URL;
+    protected $filter = \FILTER_VALIDATE_EMAIL;
 
     /**
      * messages
@@ -46,7 +46,7 @@ class Url extends FilterValidator
      * @var     array
      */
     protected $messages = array(
-        'default' => 'The input was not an URL.'
+        'default' => 'The input was not an valid E-Mail address.'
     );
 
 }

@@ -2,10 +2,10 @@
 
 <project name="name-of-project" default="build">
  <target name="build"
-   depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdoc,phpcb,phpdoc-error"/>
+   depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpunit,phpdoc,phpcb,phpdoc-error"/>
 
  <target name="build-parallel"
-   depends="prepare,lint,tools-parallel,phpcb"/>
+   depends="prepare,lint,tools-parallel,phpcb,phpunit"/>
 
  <target name="tools-parallel" description="Run tools in parallel">
   <parallel threadCount="2">
@@ -25,6 +25,7 @@
   <delete dir="${basedir}/doc"/>
   <delete dir="${basedir}/build/code-browser"/>
   <delete dir="${basedir}/build/logs"/>
+  <delete dir="${basedir}/build/coverage"/>
   <delete dir="${basedir}/build/pdepend"/>
   <delete dir="${basedir}/build/doc"/>
  </target>
@@ -33,6 +34,7 @@
   <mkdir dir="${basedir}/doc"/>
   <mkdir dir="${basedir}/build/code-browser"/>
   <mkdir dir="${basedir}/build/logs"/>
+  <mkdir dir="${basedir}/build/coverage"/>
   <mkdir dir="${basedir}/build/pdepend"/>
   <mkdir dir="${basedir}/build/doc"/>
  </target>
@@ -121,9 +123,9 @@
  </exec>
 </target>
 
-<!-- <target name="phpunit" description="Run unit tests with PHPUnit">
+ <target name="phpunit" description="Run unit tests with PHPUnit">
   <exec executable="phpunit" failonerror="true"/>
- </target>-->
+ </target>
 
  <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
   <exec executable="phpcb">

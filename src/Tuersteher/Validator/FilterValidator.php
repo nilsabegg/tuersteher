@@ -6,6 +6,8 @@
 
 namespace Tuersteher\Validator;
 
+use Tuersteher\Validator as Validator;
+
 /**
  * FilterValidator
  *
@@ -172,9 +174,12 @@ abstract class FilterValidator extends Validator
         } else {
             $isValid = filter_var($value, $this->filter);
         }
+        if ($isValid != false) {
+            //$returnValue = $isValid;
+            $isValid = true;
+        }
 
         return $isValid;
-
     }
 
     /**
