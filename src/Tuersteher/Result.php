@@ -49,7 +49,6 @@ class Result
      *
      * @access  public
      * @return  string
-     * @throws  \Tuersteher\Exception
      */
     public function __toString()
     {
@@ -61,7 +60,7 @@ class Result
         } else if ($this->isValid == false) {
             return 'Is not valid.';
         } else {
-            throw new Exception();
+//            throw new Exception();
         }
 
     }
