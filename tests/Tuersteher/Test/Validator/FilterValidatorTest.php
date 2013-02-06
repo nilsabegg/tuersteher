@@ -13,6 +13,8 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
         $validator->addOption('option2', '4321');
         $this->assertEquals($validator->getOption('option1'), 1234);
         $this->assertEquals($validator->getOption('option2'), '4321');
+        $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
+        $validator->addOption('option1', 1234);
 
     }
 
