@@ -192,11 +192,16 @@ abstract class FilterValidator extends Validator
      * @link    http://php.net/manual/en/filter.filters.flags.php   PHP Documentation
      * @param   integer $flag
      * @return  void
+     * @throw   \Tuersteher\Validator\ValidatorException
      */
     public function setFlag($flag)
     {
 
-        $this->flag = $flag;
+        if (is_integer($flag) == true) {
+            $this->flag = $flag;
+        } else {
+            throw new ValidatorException('The flag is not an integer.');
+        }
 
     }
 

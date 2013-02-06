@@ -18,7 +18,16 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
 
     }
 
-    public function testGetAndSetOption()
+    public function testGetOption()
+    {
+
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
+        $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
+        $validator->getOption('option2');
+
+    }
+
+    public function testSetOption()
     {
 
         $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
@@ -27,11 +36,19 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($validator->getOption('option1'), '4321');
         $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
         $validator->setOption('option2', '4321');
-        $validator->getOption('option2');
 
     }
 
-    public function testGetAndSetOptions()
+    public function testGetOptions()
+    {
+
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
+        $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
+        $validator->getOptions();
+
+    }
+
+    public function testSetOptions()
     {
 
         $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
@@ -43,18 +60,29 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($validator->getOptions(), $options);
         $validator->setOptions(array());
         $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
-        $validator->getOptions();
         $validator->setOptions('no array');
 
     }
-//    public function testConcreteMethod()
-//    {
-//        $stub = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
-//        $stub->expects($this->any())
-//             ->method('abstractMethod')
-//             ->will($this->returnValue(TRUE));
-//
-//        $this->assertTrue($stub->concreteMethod());
-//    }
+
+    public function testGetFlag()
+    {
+
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
+        $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
+        $validator->getFlag();
+
+    }
+
+    public function testSetFlag()
+    {
+
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
+        $flag = 22;
+        $validator->setFlag($flag);
+        $this->assertEqual($validator->getFlag(), $flag);
+        $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
+        $validator->setFlag('no integer');
+
+    }
 
 }
