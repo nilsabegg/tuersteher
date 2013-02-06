@@ -10,6 +10,6 @@ $appLoader->register();
 //$testLoader = new Autoloader('Tuersteher\\Test', $testDir);
 //$testLoader->register();
 
-require_once __DIR__.'/Tuersteher/Test/Validator/Filter/UrlTest.php';
+//require_once __DIR__.'/Tuersteher/Test/Validator/Filter/UrlTest.php';
 //require_once __DIR__.'/Tuersteher/Test/Invokable.php';
 //require_once __DIR__.'/Tuersteher/Test/NonInvokable.php';
