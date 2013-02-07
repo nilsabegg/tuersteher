@@ -16,7 +16,7 @@ namespace Tuersteher\Validator;
  * @package     Türsteher
  * @category    Exception Handling
  */
-class ValidatorException extends \Exception
+class Exception extends \Exception
 {
 
 
