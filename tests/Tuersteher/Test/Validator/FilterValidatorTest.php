@@ -68,7 +68,7 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
     {
 
         $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
-        $this->setExpectedException('\\Tuersteher\\Validator\\Exception');
+        $this->setExpectedException('\\Tuersteher\\Exception\\Filter');
         $validator->getFlag();
 
     }
