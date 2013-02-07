@@ -9,11 +9,15 @@ class RegularExpressionTest extends \PHPUnit_Framework_TestCase
     {
 
         $validator = new \Tuersteher\Validator\Filter\RegularExpression();
-        $isValid = $validator->isValid('/^def/');
+        $options = array(
+            'regexp' => '/^M(.*)/'
+        );
+        $validator->setOptions($options);
+        $isValid = $validator->isValid('Match');
         $this->assertTrue($isValid);
-        $isValid2 = $validator->isValid('/(?P<name>\w+): (?P<zahl>\d+)/');
+        $isValid2 = $validator->isValid('Milchgesicht');
         $this->assertTrue($isValid2);
-        $isValid3 = $validator->isValid(500);
+        $isValid3 = $validator->isValid('Schweinebacke');
         $this->assertFalse($isValid3);
 
     }

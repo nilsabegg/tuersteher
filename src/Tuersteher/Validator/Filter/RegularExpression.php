@@ -11,7 +11,7 @@ use Tuersteher\Validator\FilterValidator as FilterValidator;
 /**
  * Email
  *
- * This class validates if a given value is a PERL-compatible regular expression.
+ * This class validates if a given value is matched by a PERL-compatible regular expression.
  *
  * @author      Nils Abegg <rueckgrat@nilsabegg.de>
  * @version     0.1
@@ -46,7 +46,7 @@ class RegularExpression extends FilterValidator
      * @var     array
      */
     protected $messages = array(
-        'default' => 'The input was not a valid PERL-compatible regular expression.'
+        'default' => 'The input was not valid.'
     );
 
 }
