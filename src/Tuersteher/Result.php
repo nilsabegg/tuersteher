@@ -102,7 +102,7 @@ class Result
      * @access  public
      * @return  mixed
      */
-    public function getResult()
+    public function getIsValid()
     {
 
         return $this->isValid;
