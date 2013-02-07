@@ -4,8 +4,9 @@
  * This file is part of the Türsteher library.
  */
 
-namespace Tuersteher\Validator;
+namespace Tuersteher\Exception;
 
+use \Tuersteher\Exception as Exception;
 /**
  * Exception
  *
@@ -16,7 +17,7 @@ namespace Tuersteher\Validator;
  * @package     Türsteher
  * @category    Exception Handling
  */
-class Exception extends \Exception
+class Result extends Exception
 {
 
 

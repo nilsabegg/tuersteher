@@ -2,7 +2,7 @@
 
 namespace Tuersteher\Test;
 
-class ValidatorTest extends \PHPUnit_Framework_TestCase
+class ResultTest extends \PHPUnit_Framework_TestCase
 {
 
     public function testConstruct()
@@ -14,7 +14,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($isValid, $result->getIsValid());
         $this->assertEquals($message, $result->getMessage());
         $isValid2 = 324;
-        $this->setExpectedException('\\Tuersteher\\Exception');
+        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
         new \Tuersteher\Result($isValid2);
 
     }
@@ -28,7 +28,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("$result", 'Is not valid.');
         $result->setMessage('Blabla');
         $this->assertEquals("$result", 'Blabla');
-        $this->setExpectedException('\\Tuersteher\\Exception');
+        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
         new \Tuersteher\Result(true, array());
 
     }
@@ -43,7 +43,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $result->setIsValid($isValid2);
         $this->assertEquals($isValid2, $result->getIsValid());
         $isValid3 = 'dsfsfsddf';
-        $this->setExpectedException('\\Tuersteher\\Exception');
+        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
         $result->setIsValid($isValid3);
 
     }
@@ -58,7 +58,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $result->setMessage($message2);
         $this->assertEquals($message2, $result->getMessage());
         $message3 = array();
-        $this->setExpectedException('\\Tuersteher\\Exception');
+        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
         $result->setMessage($message3);
 
     }
@@ -73,7 +73,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $result->setIsValid($isValid2);
         $this->assertEquals($isValid2, $result->isValid());
         $result2 = new \Tuersteher\Result();
-        $this->setExpectedException('\\Tuersteher\\Exception');
+        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
         $result2->isValid();
 
     }

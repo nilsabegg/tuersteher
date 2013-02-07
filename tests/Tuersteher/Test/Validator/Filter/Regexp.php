@@ -2,13 +2,13 @@
 
 namespace Tuersteher\Test\Validator\Filter;
 
-class RegularExpressionTest extends \PHPUnit_Framework_TestCase
+class RegexpTest extends \PHPUnit_Framework_TestCase
 {
 
     public function testIsRegularExpression()
     {
 
-        $validator = new \Tuersteher\Validator\Filter\RegularExpression();
+        $validator = new \Tuersteher\Validator\Filter\Regexp();
         $options = array(
             'regexp' => '/^M(.*)/'
         );

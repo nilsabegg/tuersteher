@@ -6,7 +6,7 @@
 
 namespace Tuersteher;
 
-use Tuersteher\Exception as Exception;
+use Tuersteher\Exception\Result as Exception;
 
 /**
  * Result

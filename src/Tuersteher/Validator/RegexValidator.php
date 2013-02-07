@@ -72,7 +72,11 @@ abstract class RegexValidator extends Validator
     public function setMethod($method)
     {
 
-        $this->method = $method;
+        if ($method == 'preg' || $method == 'filter') {
+            $this->method = $method;
+        } else {
+            throw new ValidatorException('');
+        }
 
     }
 

@@ -21,7 +21,7 @@ use Tuersteher\Validator\FilterValidator as FilterValidator;
  * @link        http://php.net/manual/en/filter.filters.validate.php    PHP Documentation
  * @link        http://www.w3schools.com/php/filter_validate_regexp.asp W3Schools Documentation
  */
-class RegularExpression extends FilterValidator
+class Regexp extends FilterValidator
 {
 
     /**
