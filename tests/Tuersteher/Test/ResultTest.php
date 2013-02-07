@@ -24,7 +24,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
 
     public function testToString()
     {
-        
+
         $this->setExpectedException('\\Tuersteher\\Exception');
         $result = new \Tuersteher\Result(true, array());
 
@@ -39,9 +39,9 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $isValid2 = false;
         $result->setIsValid($isValid2);
         $this->assertEquals($isValid2, $result->getIsValid());
-        $isValid2 = 'dsfsfsddf';
+        $isValid3 = 'dsfsfsddf';
         $this->setExpectedException('\\Tuersteher\\Exception');
-        $result->setIsValid($isValid2);
+        $result->setIsValid($isValid3);
 
     }
 
@@ -72,8 +72,6 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $result2 = new \Tuersteher\Result();
         $this->setExpectedException('\\Tuersteher\\Exception');
         $result2->isValid();
-
-
 
     }
 
