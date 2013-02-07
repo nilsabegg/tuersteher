@@ -169,7 +169,7 @@ abstract class FilterValidator extends Validator
         $hasFlag = isset($this->flag);
         $optionsCount = count($this->options);
         if ($hasFlag == true && $optionsCount > 0) {
-            $isValid = filter_var($value, $this->filter, array('options' => $this->options, 'flag' => $this->flag));
+            $isValid = filter_var($value, $this->filter, array('options' => $this->options, 'flags' => $this->flag));
         } else if ($hasFlag == true) {
             $isValid = filter_var($value, $this->filter, $this->flag);
         } else if ($optionsCount > 0) {

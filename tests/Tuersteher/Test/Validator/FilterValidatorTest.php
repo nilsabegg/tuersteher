@@ -85,4 +85,12 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
 
     }
 
+    public function testIsValid()
+    {
+
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
+
+
+    }
+
 }

@@ -7,6 +7,7 @@ class IntegerTest extends \PHPUnit_Framework_TestCase
 
     public function testIsInteger()
     {
+        
         $validator = new \Tuersteher\Validator\Filter\Integer();
         $isValid = $validator->isValid(257);
         $this->assertTrue($isValid);

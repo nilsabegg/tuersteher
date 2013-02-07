@@ -7,6 +7,7 @@ class EmailTest extends \PHPUnit_Framework_TestCase
 
     public function testIsEmail()
     {
+
         $emailValidator = new \Tuersteher\Validator\Filter\Email();
         $isValid = $emailValidator->isValid('dsfdfsdff');
         $this->assertFalse($isValid);
@@ -16,6 +17,7 @@ class EmailTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($isValid3);
         $isValid4 = $emailValidator->isValid('test@text.com');
         $this->assertTrue($isValid4);
+        
     }
 
 }
