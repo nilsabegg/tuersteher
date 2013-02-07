@@ -10,10 +10,10 @@ class IntegerTest extends \PHPUnit_Framework_TestCase
         $validator = new \Tuersteher\Validator\Filter\Integer();
         $isValid = $validator->isValid(257);
         $this->assertTrue($isValid);
-        $options = array('options' => array(
-                'min_range' => 0,
-                'max_range' => 256
-            ));
+        $options = array(
+            'min_range' => 0,
+            'max_range' => 256
+        );
         $validator->setOptions($options);
         $isValid2 = $validator->isValid(244);
         $this->assertTrue($isValid2);
