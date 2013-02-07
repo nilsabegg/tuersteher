@@ -18,10 +18,10 @@ class FloatTest extends \PHPUnit_Framework_TestCase
             'decimal' => ','
         );
         $validator->setOptions($options);
-        $isValid3 = $validator->isValid('10.000,12');
-        $this->assertTrue($isValid3);
         $isValid4 = $validator->isValid('10,000.12');
         $this->assertFalse($isValid4);
+        $isValid3 = $validator->isValid('10.000,12');
+        $this->assertTrue($isValid3);
     }
 
 }
