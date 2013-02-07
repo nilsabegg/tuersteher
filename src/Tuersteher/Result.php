@@ -130,7 +130,7 @@ class Result
     public function isValid()
     {
 
-        if ($this->isValid != null) {
+        if ($this->isValid !== null) {
             return $this->isValid;
         } else {
             throw new Exception('There is no result set.');
