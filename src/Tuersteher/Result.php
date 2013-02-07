@@ -41,7 +41,16 @@ class Result
      */
     protected $message = '';
 
-
+    /**
+     * __construct
+     *
+     * Constructs the object.
+     *
+     * @access public
+     * @param  boolean  $isValid
+     * @param  string   $message
+     * @return void
+     */
     public function __construct($isValid = null, $message = '')
     {
 
