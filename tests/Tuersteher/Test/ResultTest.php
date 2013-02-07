@@ -49,7 +49,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     {
 
         $message = 'Valid.';
-        $result = $result = new \Tuersteher\Result(true, $message);
+        $result = new \Tuersteher\Result(true, $message);
         $this->assertEquals($message, $result->getMessage());
         $message2 = 'Not Valid.';
         $result->setMessage($message2);
@@ -64,7 +64,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     {
 
         $isValid = true;
-        $result = $result = new \Tuersteher\Result($isValid, 'Valid.');
+        $result = new \Tuersteher\Result($isValid, 'Valid.');
         $this->assertEquals($result->isValid(), $isValid);
         $isValid2 = false;
         $result->setIsValid($isValid2);
