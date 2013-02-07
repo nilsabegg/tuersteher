@@ -26,7 +26,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     {
 
     }
-    
+
     public function testGetAndSetIsValid()
     {
 
@@ -46,7 +46,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     {
 
         $message = 'Valid.';
-        $result = $result = new \Tuersteher\Result($message);
+        $result = $result = new \Tuersteher\Result(true, $message);
         $this->assertEquals($message, $result->getMessage());
         $message2 = 'Not Valid.';
         $result->setMessage($message2);
