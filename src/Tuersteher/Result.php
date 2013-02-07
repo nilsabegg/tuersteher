@@ -11,7 +11,7 @@ use Tuersteher\Exception as Exception;
 /**
  * Result
  *
- * This class is a result of Türsteher validator.
+ * This class is a result of a Türsteher validator.
  *
  * @author      Nils Abegg <rueckgrat@nilsabegg.de>
  * @version     0.1
@@ -41,6 +41,22 @@ class Result
      */
     protected $message = '';
 
+
+    public function __construct($isValid = null, $message = '')
+    {
+
+        if (is_bool($isValid) == true || $isValid == null) {
+            $this->isValid = $isValid;
+        } else {
+            throw new Exception('The given result is not a boolean');
+        }
+        if (is_string($message) == true || $message == '') {
+            $this->message = $message;
+        } else {
+            throw new Exception('The given message is not a string or integer.');
+        }
+
+    }
     /**
      * __toString
      *
@@ -59,8 +75,6 @@ class Result
             return 'Is valid.';
         } else if ($this->isValid == false) {
             return 'Is not valid.';
-        } else {
-            // throw new Exception();
         }
 
     }
@@ -110,7 +124,7 @@ class Result
         if ($this->isValid != null) {
             return $this->isValid;
         } else {
-            throw new Exception();
+            throw new Exception('There is no result set.');
         }
 
     }
@@ -126,9 +140,11 @@ class Result
      */
     public function setMessage($message)
     {
-
-        $this->message = $message;
-
+        if (is_string($message) == true) {
+            $this->message = $message;
+        } else {
+            throw new Exception('The given message is not a string or integer.');
+        }
     }
 
     /**
@@ -137,16 +153,16 @@ class Result
      * Set the result.
      *
      * @access  public
-     * @param   boolean $result
+     * @param   boolean $isValid
      * @throws  \Tuersteher\Exception
      */
-    public function setResult($result)
+    public function setIsValid($isValid)
     {
 
-        if (is_bool($result)) {
-            $this->result = $result;
+        if (is_bool($isValid)) {
+            $this->isValid = $isValid;
         } else {
-            throw new Exception();
+            throw new Exception('The given result is not a boolean');
         }
 
     }

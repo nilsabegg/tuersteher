@@ -13,7 +13,7 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
         $validator->addOption('option2', '4321');
         $this->assertEquals($validator->getOption('option1'), 1234);
         $this->assertEquals($validator->getOption('option2'), '4321');
-        $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
+        $this->setExpectedException('\\Tuersteher\\Validator\\Exception');
         $validator->addOption('option1', 1234);
 
     }
@@ -22,7 +22,7 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
     {
 
         $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
-        $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
+        $this->setExpectedException('\\Tuersteher\\Validator\\Exception');
         $validator->getOption('option2');
 
     }
@@ -34,7 +34,7 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
         $validator->addOption('option1', 1234);
         $validator->setOption('option1', '4321');
         $this->assertEquals($validator->getOption('option1'), '4321');
-        $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
+        $this->setExpectedException('\\Tuersteher\\Validator\\Exception');
         $validator->setOption('option2', '4321');
 
     }
@@ -43,7 +43,7 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
     {
 
         $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
-        $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
+        $this->setExpectedException('\\Tuersteher\\Validator\\Exception');
         $validator->getOptions();
 
     }
@@ -59,7 +59,7 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
         $validator->setOptions($options);
         $this->assertEquals($validator->getOptions(), $options);
         $validator->setOptions(array());
-        $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
+        $this->setExpectedException('\\Tuersteher\\Validator\\Exception');
         $validator->setOptions('no array');
 
     }
@@ -68,7 +68,7 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
     {
 
         $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\FilterValidator');
-        $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
+        $this->setExpectedException('\\Tuersteher\\Validator\\Exception');
         $validator->getFlag();
 
     }
@@ -80,7 +80,7 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
         $flag = 22;
         $validator->setFlag($flag);
         $this->assertEquals($validator->getFlag(), $flag);
-        $this->setExpectedException('\\Tuersteher\\Validator\\ValidatorException');
+        $this->setExpectedException('\\Tuersteher\\Validator\\Exception');
         $validator->setFlag('no integer');
 
     }
