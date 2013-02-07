@@ -179,11 +179,11 @@ abstract class FilterValidator extends Validator
             $isValid = filter_var($value, $this->filter);
         }
         if ($isValid != false) {
-            //$returnValue = $isValid;
             $isValid = true;
         }
 
         return $isValid;
+        
     }
 
     /**
