@@ -7,7 +7,7 @@ class FloatTest extends \PHPUnit_Framework_TestCase
 
     public function testIsFloat()
     {
-        $validator = new \Tuersteher\Validator\Filter\Integer();
+        $validator = new \Tuersteher\Validator\Filter\Float();
         $isValid = $validator->isValid(10000.12);
         $this->assertTrue($isValid);
         $flag = \FILTER_FLAG_ALLOW_THOUSAND;
