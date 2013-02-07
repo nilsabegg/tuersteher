@@ -26,7 +26,13 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     {
 
         $this->setExpectedException('\\Tuersteher\\Exception');
-        $result = new \Tuersteher\Result(true, array());
+        new \Tuersteher\Result(true, array());
+        $result = new \Tuersteher\Result(true);
+        $this->assertEquals("$result", 'Is valid.');
+        $result->setIsValid(false);
+        $this->assertEquals("$result", 'Is not valid.');
+        $result->setMessage('Blabla');
+        $this->assertEquals("$result", 'Blabla');
 
     }
 
