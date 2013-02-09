@@ -178,8 +178,11 @@ abstract class FilterValidator extends Validator
         } else {
             $isValid = filter_var($value, $this->filter);
         }
-        $this->result = $this->createResult($isValid, $this->messages['default']);
-        
+        if ($isValid != false) {
+            $this->result = $this->createResult(true, $this->messages['default']);
+        } else {
+            $this->result = $this->createResult(false, $this->messages['default']);
+        }
         return $this->result;
 
     }
