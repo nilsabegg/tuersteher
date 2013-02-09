@@ -97,22 +97,11 @@ abstract class Validator implements ValidatorInterface
     public function getMessages()
     {
 
-        return $this->messages;
-
-    }
-
-    /**
-     * getResult
-     *
-     *
-     *
-     * @access  public
-     * @return  \Tuersteher\Result
-     */
-    public function getResult()
-    {
-
-        return $this->result;
+        if (count($this->messages) > 0) {
+            return $this->messages;
+        } else {
+            throw new ValidatorException('No messages set.');
+        }
 
     }
 
@@ -150,7 +139,11 @@ abstract class Validator implements ValidatorInterface
     public function setMessages($messages)
     {
 
-        $this->messages = $messages;
+        if (is_array($messages) == true) {
+            $this->messages = $messages;
+        } else {
+            throw new ValidatorException('The messages are expected as array');
+        }
 
     }
 
