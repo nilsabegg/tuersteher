@@ -6,9 +6,8 @@
 
 namespace Tuersteher;
 
-use Tuersteher\Exception\Validator as Exception;
-
 use Tuersteher\ValidatorInterface as ValidatorInterface;
+use Tuersteher\Exception\Validator as ValidatorException;
 
 /**
  * Validator
@@ -61,7 +60,7 @@ abstract class Validator implements ValidatorInterface
         if (key_exists($name, $this->messages) == false) {
             $this->messages[$name] = $message;
         } else {
-            throw new Exception('Message "' . $name . '" allready exists');
+            throw new ValidatorException('Message "' . $name . '" allready exists');
         }
 
     }
@@ -82,7 +81,7 @@ abstract class Validator implements ValidatorInterface
         if (key_exists($name, $this->messages) == true) {
             return $this->messages[$name];
         } else {
-            throw new Exception('Message "' . $name . '" doesn\'t exist');
+            throw new ValidatorException('Message "' . $name . '" doesn\'t exist');
         }
 
     }
@@ -134,7 +133,7 @@ abstract class Validator implements ValidatorInterface
         if (key_exists($messageKey, $this->messages) == true) {
             $this->messages[$messageKey] = $message;
         } else {
-            throw new Exception();
+            throw new ValidatorException();
         }
 
     }
