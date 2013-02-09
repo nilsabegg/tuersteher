@@ -110,7 +110,7 @@ abstract class RegexValidator extends Validator
      *
      * @access  protected
      * @param   mixed   $value
-     * @return  boolean
+     * @return  \Tuersteher\Result
      */
     protected function isValidFilter($value)
     {
@@ -133,13 +133,15 @@ abstract class RegexValidator extends Validator
      *
      * @access  protected
      * @param   mixed   $value
+     * @return  \Tuersteher\Result
      */
     protected function isValidPreg($value)
     {
 
-        $isValid = $value;
+        $isValid = preg_match($this->regex, $value);
+        $this->result = $this->createResult($isValid, $this->messages['default']);
 
-        return $isValid;
+        return $this->result;
 
     }
 
