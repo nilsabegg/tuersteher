@@ -122,8 +122,8 @@ abstract class Validator implements ValidatorInterface
      *
      *
      * @access  public
-     * @param   string $name
      * @param   string $message
+     * @param   string $messageKey
      * @return  void
      * @throws  \Tuersteher\Exception\Validator
      */
