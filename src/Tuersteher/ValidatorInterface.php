@@ -31,7 +31,7 @@ interface ValidatorInterface
      *
      * @access  public
      */
-    public function getResult();
+    public function isValid();
 
     /**
      * validate

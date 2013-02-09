@@ -79,6 +79,7 @@ abstract class Validator implements ValidatorInterface
     {
 
         if (key_exists($name, $this->messages) == true) {
+            
             return $this->messages[$name];
         } else {
             throw new ValidatorException('Message "' . $name . '" doesn\'t exist');
@@ -98,13 +99,25 @@ abstract class Validator implements ValidatorInterface
     {
 
         if (count($this->messages) > 0) {
+
             return $this->messages;
         } else {
             throw new ValidatorException('No messages set.');
         }
 
     }
+    public function isValid($value = '')
+    {
 
+        if ($value === '') {
+
+            return $this->result->isValid();
+        } else {
+
+            return $this->validate($value)->isValid();
+        }
+
+    }
     /**
      * setMessage
      *
