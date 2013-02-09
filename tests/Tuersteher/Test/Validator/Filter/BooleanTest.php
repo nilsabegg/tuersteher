@@ -12,7 +12,7 @@ class BooleanTest extends \PHPUnit_Framework_TestCase
         $isValid = $validator->validate(true);
         $this->assertTrue($isValid());
         $this->assertTrue($validator->isValid());
-        $validator->setMessage('default', 'This is message1');
+        $validator->setMessage('This is message1');
         $isValid2 = $validator->validate('yes');
         $this->assertTrue($validator->isValid('yes'));
         $this->assertTrue($isValid2());
