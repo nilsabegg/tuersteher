@@ -9,12 +9,12 @@ class BooleanTest extends \PHPUnit_Framework_TestCase
     {
 
         $validator = new \Tuersteher\Validator\Filter\Boolean();
-        $isValid = $validator->isValid(true);
-        $this->assertTrue($isValid);
-        $isValid2 = $validator->isValid('yes');
-        $this->assertTrue($isValid2);
-        $isValid3 = $validator->isValid(500);
-        $this->assertFalse($isValid3);
+        $isValid = $validator->validate(true);
+        $this->assertTrue($isValid());
+        $isValid2 = $validator->validate('yes');
+        $this->assertTrue($isValid2());
+        $isValid3 = $validator->validate(500);
+        $this->assertFalse($isValid3());
 
     }
 

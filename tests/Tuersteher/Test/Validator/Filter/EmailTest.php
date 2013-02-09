@@ -9,15 +9,15 @@ class EmailTest extends \PHPUnit_Framework_TestCase
     {
 
         $emailValidator = new \Tuersteher\Validator\Filter\Email();
-        $isValid = $emailValidator->isValid('dsfdfsdff');
-        $this->assertFalse($isValid);
-        $isValid2 = $emailValidator->isValid('http://dsfdfsdff.de');
-        $this->assertFalse($isValid2);
-        $isValid3 = $emailValidator->isValid('test@.com');
-        $this->assertFalse($isValid3);
-        $isValid4 = $emailValidator->isValid('test@text.com');
-        $this->assertTrue($isValid4);
-        
+        $isValid = $emailValidator->validate('dsfdfsdff');
+        $this->assertFalse($isValid());
+        $isValid2 = $emailValidator->validate('http://dsfdfsdff.de');
+        $this->assertFalse($isValid2());
+        $isValid3 = $emailValidator->validate('test@.com');
+        $this->assertFalse($isValid3());
+        $isValid4 = $emailValidator->validate('test@text.com');
+        $this->assertTrue($isValid4());
+
     }
 
 }

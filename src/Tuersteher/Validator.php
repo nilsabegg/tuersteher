@@ -34,6 +34,16 @@ abstract class Validator implements ValidatorInterface
     protected $messages = array();
 
     /**
+     * result
+     *
+     * Holds the result object of the validator.
+     *
+     * @access  protected
+     * @var     \Tuersteher\Result
+     */
+    protected $result = null;
+
+    /**
      * addMessage
      *
      *
@@ -147,13 +157,22 @@ abstract class Validator implements ValidatorInterface
     /**
      * createResult
      *
+     *
+     *
      * @access  protected
-     * @return  void
+     * @param   boolean $isValid
+     * @param   string  $message
+     * @return  \Tuersteher\Result
      */
-    protected function createResult()
+    protected function createResult($isValid, $message = '')
     {
 
+        $result = new \Tuersteher\Result();
+        $result->setIsValid($isValid);
+        $result->setMessage($message);
 
+        return $result;
 
     }
+    
 }

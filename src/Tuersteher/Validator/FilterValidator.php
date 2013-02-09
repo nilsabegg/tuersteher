@@ -164,7 +164,7 @@ abstract class FilterValidator extends Validator
      * @param   mixed   $value
      * @return  boolean
      */
-    public function isValid($value)
+    public function validate($value)
     {
 
         $hasFlag = isset($this->flag);
@@ -178,12 +178,10 @@ abstract class FilterValidator extends Validator
         } else {
             $isValid = filter_var($value, $this->filter);
         }
-        if ($isValid != false) {
-            $isValid = true;
-        }
-
-        return $isValid;
+        $this->result = $this->createResult($isValid, $this->messages['default']);
         
+        return $this->result;
+
     }
 
     /**

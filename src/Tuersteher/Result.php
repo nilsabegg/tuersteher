@@ -66,6 +66,7 @@ class Result
         }
 
     }
+
     /**
      * __toString
      *
@@ -85,6 +86,26 @@ class Result
         } else if ($this->isValid == false) {
             return 'Is not valid.';
         }
+
+    }
+    /**
+     * __invoke
+     *
+     * Returns the wheter the result is valid or not valid
+     * when the result object is used as method.
+     * <code>
+     * if ($result()) {
+     *  //do blabla
+     * }
+     * </code>
+     *
+     * @access  public
+     * @return  boolean
+     */
+    public function __invoke()
+    {
+
+        return $this->isValid();
 
     }
 
