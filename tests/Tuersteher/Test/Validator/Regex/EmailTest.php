@@ -17,6 +17,11 @@ class EmailTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($isValid3());
         $isValid4 = $emailValidator->validate('test@text.com');
         $this->assertTrue($isValid4());
+        $method = $emailValidator->getMethod();
+        $emailValidator->setMethod($method);
+        $method2 = 'custom';
+        $this->setExpectedException('\\Tuersteher\\Exception\\Regex');
+        $emailValidator->setMethod($method2);
 
     }
 

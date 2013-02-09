@@ -7,7 +7,7 @@
 namespace Tuersteher\Validator;
 
 use Tuersteher\Validator as Validator;
-
+use Tuersteher\Exception\Regex as RegexException;
 /**
  * RegexValidator
  *
@@ -75,7 +75,7 @@ abstract class RegexValidator extends Validator
         if ($method == 'preg' || $method == 'filter') {
             $this->method = $method;
         } else {
-            throw new ValidatorException('Method must be "filter" or "preg".');
+            throw new RegexException('Method must be "filter" or "preg".');
         }
 
     }
@@ -96,8 +96,6 @@ abstract class RegexValidator extends Validator
             $result = $this->isValidPreg($value);
         } elseif ($this->method == 'filter') {
             $result = $this->isValidFilter($value);
-        } else {
-            throw new Exception('Validation method "' . $this->method . '" is unknown.');
         }
         $this->result = $result;
 
