@@ -5,6 +5,10 @@ namespace Tuersteher\Test\Validator;
 class RegexValidatorTest extends \PHPUnit_Framework_TestCase
 {
 
+    public function testConstruct()
+    {
 
+
+    }
 
 }

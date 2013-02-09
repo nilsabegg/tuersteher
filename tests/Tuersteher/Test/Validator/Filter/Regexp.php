@@ -13,12 +13,12 @@ class RegexpTest extends \PHPUnit_Framework_TestCase
             'regexp' => '/^M(.*)/'
         );
         $validator->setOptions($options);
-        $isValid = $validator->isValid('Match');
-        $this->assertTrue($isValid);
-        $isValid2 = $validator->isValid('Milchgesicht');
-        $this->assertTrue($isValid2);
-        $isValid3 = $validator->isValid('Schweinebacke');
-        $this->assertFalse($isValid3);
+        $isValid = $validator->validate('Match');
+        $this->assertTrue($isValid());
+        $isValid2 = $validator->validate('Milchgesicht');
+        $this->assertTrue($isValid2());
+        $isValid3 = $validator->validate('Schweinebacke');
+        $this->assertFalse($isValid3());
 
     }
 

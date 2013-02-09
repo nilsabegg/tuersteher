@@ -9,13 +9,13 @@ class UrlTest extends \PHPUnit_Framework_TestCase
     {
 
         $urlValidator = new \Tuersteher\Validator\Filter\Url();
-        $isValid = $urlValidator->isValid('dsfdfsdff');
-        $this->assertFalse($isValid);
-        $isValid2 = $urlValidator->isValid('http://dsfdfsdff.de');
-        $this->assertTrue($isValid2);
+        $isValid = $urlValidator->validate('dsfdfsdff');
+        $this->assertFalse($isValid());
+        $isValid2 = $urlValidator->validate('http://dsfdfsdff.de');
+        $this->assertTrue($isValid2());
         $urlValidator->setFlag(FILTER_FLAG_QUERY_REQUIRED);
-        $isValid3 = $urlValidator->isValid('http://example.com');
-        $this->assertFalse($isValid3);
+        $isValid3 = $urlValidator->validate('http://example.com');
+        $this->assertFalse($isValid3());
 
     }
 
