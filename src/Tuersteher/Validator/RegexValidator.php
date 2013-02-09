@@ -75,7 +75,7 @@ abstract class RegexValidator extends Validator
         if ($method == 'preg' || $method == 'filter') {
             $this->method = $method;
         } else {
-            throw new ValidatorException('');
+            throw new ValidatorException('Method must be "filter" or "preg".');
         }
 
     }
@@ -89,18 +89,19 @@ abstract class RegexValidator extends Validator
      * @return  boolean
      * @throws  \Tuersteher\Validator\Exception
      */
-    public function isValid($value)
+    public function validate($value)
     {
 
         if ($this->method == 'preg') {
-            $isValid = $this->isValidPreg($value);
+            $result = $this->isValidPreg($value);
         } elseif ($this->method == 'filter') {
-            $isValid = $this->isValidFilter($value);
+            $result = $this->isValidFilter($value);
         } else {
             throw new Exception('Validation method "' . $this->method . '" is unknown.');
         }
+        $this->result = $result;
 
-        return $isValid;
+        return $this->result;
 
     }
 
@@ -116,9 +117,14 @@ abstract class RegexValidator extends Validator
     protected function isValidFilter($value)
     {
 
-        $isValid = $value;
+        $validator = new \Tuersteher\Validator\Filter\Regexp;
+        $options = array(
+            'regexp' => $this->regex
+        );
+        $validator->setOptions($options);
+        $result = $validator->validate($value);
 
-        return $isValid;
+        return $result;
 
     }
 
