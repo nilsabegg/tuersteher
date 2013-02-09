@@ -6,7 +6,7 @@
 
 namespace Tuersteher;
 
-use Tuersteher\Exception as Exception;
+use Tuersteher\Exception\Validator as Exception;
 use Tuersteher\ValidatorInterface as ValidatorInterface;
 
 /**
@@ -52,7 +52,7 @@ abstract class Validator implements ValidatorInterface
      * @param   string $name
      * @param   string $message
      * @return  void
-     * @throws  \Tuersteher\Exception
+     * @throws  \Tuersteher\Exception\Validator
      */
     public function addMessage($name, $message)
     {
@@ -60,7 +60,7 @@ abstract class Validator implements ValidatorInterface
         if (key_exists($name, $this->messages) == false) {
             $this->messages[$name] = $message;
         } else {
-            throw new Exception();
+            throw new Exception('Message "' . $name . '" allready exists');
         }
 
     }
@@ -73,7 +73,7 @@ abstract class Validator implements ValidatorInterface
      * @access  public
      * @param   string $name
      * @return  string
-     * @throws  \Tuersteher\Exception
+     * @throws  \Tuersteher\Exception\Validator
      */
     public function getMessage($name)
     {
@@ -81,7 +81,7 @@ abstract class Validator implements ValidatorInterface
         if (key_exists($name, $this->messages) == true) {
             return $this->messages[$name];
         } else {
-            throw new Exception();
+            throw new Exception('Message "' . $name . '" doesn\'t exist');
         }
 
     }
@@ -125,13 +125,13 @@ abstract class Validator implements ValidatorInterface
      * @param   string $name
      * @param   string $message
      * @return  void
-     * @throws  \Tuersteher\Exception
+     * @throws  \Tuersteher\Exception\Validator
      */
-    public function setMessage($name, $message)
+    public function setMessage($message, $messageKey = 'default')
     {
 
-        if (key_exists($name, $this->messages) == true) {
-            $this->messages[$name] = $message;
+        if (key_exists($messageKey, $this->messages) == true) {
+            $this->messages[$messageKey] = $message;
         } else {
             throw new Exception();
         }
@@ -174,5 +174,5 @@ abstract class Validator implements ValidatorInterface
         return $result;
 
     }
-    
+
 }

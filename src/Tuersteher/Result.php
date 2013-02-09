@@ -50,6 +50,7 @@ class Result
      * @param  boolean  $isValid
      * @param  string   $message
      * @return void
+     * @throws \Tuersteher\Exception\Result
      */
     public function __construct($isValid = null, $message = '')
     {
@@ -80,14 +81,17 @@ class Result
     {
 
         if ($this->message != '') {
-            return $this->message;
+            $string = $this->message;
         } elseif ($this->isValid == true) {
-            return 'Is valid.';
+            $string = 'Is valid.';
         } else if ($this->isValid == false) {
-            return 'Is not valid.';
+            $string = 'Is not valid.';
         }
 
+        return $string;
+
     }
+
     /**
      * __invoke
      *
@@ -146,7 +150,7 @@ class Result
      *
      * @access  public
      * @return  boolean
-     * @throws  \Tuersteher\Exception
+     * @throws  \Tuersteher\Exception\Result
      */
     public function isValid()
     {
@@ -167,6 +171,7 @@ class Result
      * @access  public
      * @param   string  $message
      * @return  void
+     * @throws  \Tuersteher\Exception\Result
      */
     public function setMessage($message)
     {
@@ -184,7 +189,7 @@ class Result
      *
      * @access  public
      * @param   boolean $isValid
-     * @throws  \Tuersteher\Exception
+     * @throws  \Tuersteher\Exception\Result
      */
     public function setIsValid($isValid)
     {
