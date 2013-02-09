@@ -7,6 +7,7 @@
 namespace Tuersteher;
 
 use Tuersteher\Exception\Validator as Exception;
+
 use Tuersteher\ValidatorInterface as ValidatorInterface;
 
 /**
