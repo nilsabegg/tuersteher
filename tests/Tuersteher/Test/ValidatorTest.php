@@ -12,7 +12,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $message1 = 'This is message1';
         $validator->addMessage('message1', $message1);
         $message2 = 'This is message2';
-        $validator->addOption('message2', $message2);
+        $validator->addMessage('message2', $message2);
         $this->assertEquals($validator->getMessage('message1'), $message1);
         $this->assertEquals($validator->getMessage('message2'), $message2);
         $this->setExpectedException('\\Tuersteher\\Exception\\Validator');
