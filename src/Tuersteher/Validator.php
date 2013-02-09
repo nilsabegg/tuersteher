@@ -79,7 +79,7 @@ abstract class Validator implements ValidatorInterface
     {
 
         if (key_exists($name, $this->messages) == true) {
-            
+
             return $this->messages[$name];
         } else {
             throw new ValidatorException('Message "' . $name . '" doesn\'t exist');
@@ -94,6 +94,7 @@ abstract class Validator implements ValidatorInterface
      *
      * @access  public
      * @return  array
+     * @throws  \Tuersteher\Exception\Validator
      */
     public function getMessages()
     {
@@ -106,6 +107,17 @@ abstract class Validator implements ValidatorInterface
         }
 
     }
+
+    /**
+     * isValid
+     *
+     *
+     *
+     * @access  public
+     * @param   mixed $value
+     * @return  boolean
+     * @throws  \Tuersteher\Exception\Validator
+     */
     public function isValid($value = '')
     {
 
