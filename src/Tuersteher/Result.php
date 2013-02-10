@@ -18,7 +18,7 @@ use Tuersteher\Exception\Result as Exception;
  * @package     Türsteher
  * @category    Validation
  */
-class Result
+class Result implements ResultInterface
 {
 
     /**
