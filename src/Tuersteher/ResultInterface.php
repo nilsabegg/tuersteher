@@ -32,7 +32,7 @@ interface ResultInterface
      * @access  public
      */
     public function getMessage();
-    public function setIsValid();
+    public function setIsValid($isValid);
     /**
      * getResult
      *
@@ -40,7 +40,7 @@ interface ResultInterface
      *
      * @access  public
      */
-    public function setMessage();
+    public function setMessage($message);
     /**
      * validate
      *
