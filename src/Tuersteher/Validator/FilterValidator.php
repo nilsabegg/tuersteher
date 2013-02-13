@@ -192,15 +192,14 @@ abstract class FilterValidator extends Validator
         $hasFlag = isset($this->flag);
         $optionsCount = count($this->options);
         if ($hasFlag == true && $optionsCount > 0) {
-            $isValid = filter_var($value, $this->filter, array('options' => $this->options, 'flags' => $this->flags));
+            $isValid = filter_var($value, $this->filter, array('options' => $this->options, 'flags' => $this->flags[0]));
+        } else if ($hasFlag == true) {
+            $isValid = filter_var($value, $this->filter, $this->flags[0]);
+        } else if ($optionsCount > 0) {
+            $isValid = filter_var($value, $this->filter, array('options' => $this->options));
+        } else {
+            $isValid = filter_var($value, $this->filter);
         }
-//        } else if ($hasFlag == true) {
-//            $isValid = filter_var($value, $this->filter, $this->flag);
-//        } else if ($optionsCount > 0) {
-//            $isValid = filter_var($value, $this->filter, array('options' => $this->options));
-//        } else {
-//            $isValid = filter_var($value, $this->filter);
-//        }
         if ($isValid != false) {
             $this->result = $this->createResult(true, $this->messages['default']);
         } else {
