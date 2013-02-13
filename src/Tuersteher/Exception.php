@@ -16,7 +16,7 @@ namespace Tuersteher;
  * @package     Türsteher
  * @category    Exception Handling
  */
-class Exception extends \Exception
+class Exception extends \Exception implements ExceptionInterface
 {
 
 

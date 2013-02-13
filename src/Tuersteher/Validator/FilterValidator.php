@@ -39,15 +39,15 @@ abstract class FilterValidator extends Validator
     protected $filter = null;
 
     /**
-     * flag
+     * flags
      *
-     * Holds the flag for the filter_var call.
+     * Holds the flags for the filter_var call.
      *
      * @access  protected
      * @link    http://php.net/manual/en/filter.filters.flags.php   PHP Documentation
      * @var     integer
      */
-    protected $flag = null;
+    protected $flags = array();
 
     /**
      * options
@@ -99,16 +99,38 @@ abstract class FilterValidator extends Validator
      *
      * @access  public
      * @link    http://php.net/manual/en/filter.filters.flags.php   PHP Documentation
+     * @param   string $name
      * @return  integer
      * @throw   \Tuersteher\Validator\FilterException
      */
-    public function getFlag()
+    public function getFlag($name)
     {
 
-        if (isset($this->flag) == true) {
-            return $this->flag;
+        if (isset($this->flags[$name]) == true) {
+            return $this->flags[$name];
         } else {
-            throw new FilterException('There is not flag set.');
+            throw new FilterException('Flag "' . $name . '" is not set.');
+        }
+
+    }
+
+    /**
+     * getOptions
+     *
+     * Returns the options of the validator.
+     *
+     * @access  public
+     * @link    http://php.net/manual/en/filter.filters.validate.php   PHP Documentation
+     * @return  array
+     * @throw   \Tuersteher\Validator\FilterException
+     */
+    public function getFlags()
+    {
+
+        if (count($this->options) > 0) {
+            return $this->options;
+        } else {
+            throw new FilterException('No options set.');
         }
 
     }
@@ -171,14 +193,15 @@ abstract class FilterValidator extends Validator
         $hasFlag = isset($this->flag);
         $optionsCount = count($this->options);
         if ($hasFlag == true && $optionsCount > 0) {
-            $isValid = filter_var($value, $this->filter, array('options' => $this->options, 'flags' => $this->flag));
-        } else if ($hasFlag == true) {
-            $isValid = filter_var($value, $this->filter, $this->flag);
-        } else if ($optionsCount > 0) {
-            $isValid = filter_var($value, $this->filter, array('options' => $this->options));
-        } else {
-            $isValid = filter_var($value, $this->filter);
+            $isValid = filter_var($value, $this->filter, array('options' => $this->options, 'flags' => $this->flags));
         }
+//        } else if ($hasFlag == true) {
+//            $isValid = filter_var($value, $this->filter, $this->flag);
+//        } else if ($optionsCount > 0) {
+//            $isValid = filter_var($value, $this->filter, array('options' => $this->options));
+//        } else {
+//            $isValid = filter_var($value, $this->filter);
+//        }
         if ($isValid != false) {
             $this->result = $this->createResult(true, $this->messages['default']);
         } else {
