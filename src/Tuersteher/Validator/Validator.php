@@ -185,7 +185,7 @@ abstract class Validator implements ValidatorInterface
     protected function createResult($isValid, $message = '')
     {
 
-        $result = new \Tuersteher\Result();
+        $result = new \Tuersteher\Result\Validator();
         $result->setIsValid($isValid);
         $result->setMessage($message);
 
