@@ -42,7 +42,7 @@ interface Result
      *
      * @access  public
      */
-    public function getMessage($name = '');
+    public function getMessage();
 
     /**
      * isValid
