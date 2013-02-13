@@ -22,7 +22,7 @@ use Tuersteher\Exception\Filter as FilterException;
  * @link        http://php.net/manual/en/book.filter.php    PHP Documentation
  * @todo        Add support for multiple flags.
  */
-abstract class FilterValidator extends Validator
+abstract class Filter extends Validator
 {
 
     /**
