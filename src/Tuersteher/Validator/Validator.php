@@ -4,9 +4,9 @@
  * This file is part of the Türsteher library.
  */
 
-namespace Tuersteher;
+namespace Tuersteher\Validator;
 
-use Tuersteher\ValidatorInterface as ValidatorInterface;
+use Tuersteher\Interfaces\Validator as ValidatorInterface;
 use Tuersteher\Exception\Validator as ValidatorException;
 
 /**
