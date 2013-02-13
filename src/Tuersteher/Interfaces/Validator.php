@@ -24,6 +24,7 @@ namespace Tuersteher\Interfaces;
  */
 interface Validator
 {
+    
     /**
      * getResult
      *
@@ -44,7 +45,7 @@ interface Validator
      * @return  boolean
      */
     public function isValid($value = '');
-    
+
     /**
      * validate
      *

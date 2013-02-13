@@ -6,8 +6,9 @@
 
 namespace Tuersteher\Validator;
 
-use Tuersteher\Validator\Validator as Validator;
-use Tuersteher\Exception\Filter as FilterException;
+use \Tuersteher\Validator\Validator as Validator;
+use \Tuersteher\Exception\Filter as FilterException;
+use \Tuersteher\Exception\InvalidArgument as InvalidArgumentException;
 
 /**
  * FilterValidator
@@ -80,14 +81,14 @@ abstract class Filter extends Validator
      * @param   string  $name
      * @param   mixed   $option
      * @return  void
-     * @throw   \Tuersteher\Exception\Filter
+     * @throw   \Tuersteher\Exception\InvalidArgument
      */
     public function addOption($name, $option)
     {
         if (key_exists($name, $this->options) == false) {
             $this->options[$name] = $option;
         } else {
-            throw new FilterException('Option "' . $name . '" allready exists');
+            throw new InvalidArgumentException('Option "' . $name . '" allready exists');
         }
     }
 
@@ -100,7 +101,7 @@ abstract class Filter extends Validator
      * @link    http://php.net/manual/en/filter.filters.flags.php   PHP Documentation
      * @param   string $name
      * @return  integer
-     * @throw   \Tuersteher\Exception\Filter
+     * @throw   \Tuersteher\Exception\InvalidArgument
      */
     public function getFlag($name)
     {
@@ -108,7 +109,7 @@ abstract class Filter extends Validator
         if (isset($this->flags[$name]) == true) {
             return $this->flags[$name];
         } else {
-            throw new FilterException('Flag "' . $name . '" is not set.');
+            throw new InvalidArgumentException('Flag "' . $name . '" is not set.');
         }
 
     }
@@ -143,7 +144,7 @@ abstract class Filter extends Validator
      * @link    http://php.net/manual/en/filter.filters.validate.php   PHP Documentation
      * @param   string  $name
      * @return  mixed
-     * @throw   \Tuersteher\Exception\Filter
+     * @throw   \Tuersteher\Exception\InvalidArgument
      */
     public function getOption($name)
     {
@@ -151,7 +152,7 @@ abstract class Filter extends Validator
         if (key_exists($name, $this->options) == true) {
             return $this->options[$name];
         } else {
-            throw new FilterException('Option "' . $name . '" doesn\'t exist');
+            throw new InvalidArgumentException('Option "' . $name . '" doesn\'t exist');
         }
 
     }
@@ -219,7 +220,7 @@ abstract class Filter extends Validator
      * @param   string  $name
      * @param   integer $flag
      * @return  void
-     * @throw   \Tuersteher\Exception\Filter
+     * @throw   \Tuersteher\Exception\InvalidArgument
      */
     public function setFlag($name, $flag)
     {
@@ -228,9 +229,9 @@ abstract class Filter extends Validator
             $this->flags[$name] = $flag;
         } else {
             if (is_integer($flag) == false) {
-                throw new FilterException('The flag "' . $flag . '" is not an integer.');
+                throw new InvalidArgumentException('The flag "' . $flag . '" is not an integer.');
             } else {
-                throw new FilterException('The flag "' . $name . '" doesn\'t exist.');
+                throw new InvalidArgumentException('The flag "' . $name . '" doesn\'t exist.');
             }
 
         }
@@ -254,7 +255,7 @@ abstract class Filter extends Validator
         if (is_array($flags) == true) {
             $this->flags = $flags;
         } else {
-            throw new FilterException();
+            throw new InvalidArgumentException('The flags are expected as array');
         }
 
     }
@@ -269,7 +270,7 @@ abstract class Filter extends Validator
      * @param   string  $name
      * @param   mixed   $option
      * @return  void
-     * @throw   \Tuersteher\Exception\Filter
+     * @throw   \Tuersteher\Exception\InvalidArgument
      */
     public function setOption($name, $option)
     {
@@ -277,7 +278,7 @@ abstract class Filter extends Validator
         if (key_exists($name, $this->options) == true) {
             $this->options[$name] = $option;
         } else {
-            throw new FilterException('Option "' . $name . '" doesn\'t exist');
+            throw new InvalidArgumentException('Option "' . $name . '" doesn\'t exist');
         }
 
     }
@@ -291,7 +292,7 @@ abstract class Filter extends Validator
      * @link    http://php.net/manual/en/filter.filters.validate.php   PHP Documentation
      * @param   array   $options
      * @return  void
-     * @throw   \Tuersteher\Exception\Filter
+     * @throw   \Tuersteher\Exception\InvalidArgument
      */
     public function setOptions($options)
     {
@@ -299,7 +300,7 @@ abstract class Filter extends Validator
         if (is_array($options) == true) {
             $this->options = $options;
         } else {
-            throw new FilterException();
+            throw new InvalidArgumentException('The options are expected as array');
         }
 
     }

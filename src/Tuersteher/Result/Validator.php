@@ -6,6 +6,7 @@
 
 namespace Tuersteher\Result;
 
+use \Tuersteher\Exception\InvalidArgument as InvalidArgumentException;
 use \Tuersteher\Exception\Result as ResultException;
 use \Tuersteher\Interfaces\Result as ResultInterface;
 
@@ -25,7 +26,7 @@ class Validator implements ResultInterface
     /**
      * isValid
      *
-     * Holds the actual result of the result.
+     * Holds the actual result of the result object.
      *
      * @access  protected
      * @var     boolean
@@ -35,7 +36,7 @@ class Validator implements ResultInterface
     /**
      * message
      *
-     * Holds the message of the result.
+     * Holds the message of the result object.
      *
      * @access  protected
      * @var     string
@@ -51,20 +52,20 @@ class Validator implements ResultInterface
      * @param  boolean  $isValid
      * @param  string   $message
      * @return void
-     * @throws \Tuersteher\Exception\Result
+     * @throws \Tuersteher\Exception\InvalidArgument
      */
     public function __construct($isValid = null, $message = '')
     {
 
-        if (is_bool($isValid) == true || $isValid == null) {
+        if (is_bool($isValid) == true || $isValid === null) {
             $this->isValid = $isValid;
         } else {
-            throw new ResultException('The given result is not a boolean');
+            throw new InvalidArgumentException('The given result is not a boolean');
         }
-        if (is_string($message) == true || $message == '') {
+        if (is_string($message) == true || $message === '') {
             $this->message = $message;
         } else {
-            throw new ResultException('The given message is not a string or integer.');
+            throw new InvalidArgumentException('The given message is not a string.');
         }
 
     }
@@ -96,7 +97,7 @@ class Validator implements ResultInterface
     /**
      * __invoke
      *
-     * Returns the wheter the result is valid or not valid
+     * Returns the the result is valid or not valid
      * when the result object is used as method.
      * <code>
      * if ($result()) {
@@ -115,39 +116,55 @@ class Validator implements ResultInterface
     }
 
     /**
+     * getIsValid
+     *
+     * Returns the actual result of the result object.
+     *
+     * @access  public
+     * @return  mixed
+     * @throws  \Tuersteher\Exception\Result
+     */
+    public function getIsValid()
+    {
+
+       if ($this->isValid !== null) {
+            return $this->isValid;
+        } else {
+            throw new ResultException('There is no result set.');
+        }
+
+    }
+
+    /**
      * getMessage
      *
      * Returns the message of the result.
      *
      * @access  public
      * @return  string
+     * @throws  \Tuersteher\Exception\Result
      */
     public function getMessage()
     {
 
-        return $this->message;
+        if ($this->message != '') {
+            $message = $this->message;
+        } elseif ($this->isValid === true) {
+            $message = 'Is valid.';
+        } else if ($this->isValid === false) {
+            $message = 'Is not valid.';
+        } else {
+            throw new ResultException('The result object is missing a message and the actual result');
+        }
 
-    }
-
-    /**
-     * getResult
-     *
-     * Returns the result.
-     *
-     * @access  public
-     * @return  mixed
-     */
-    public function getIsValid()
-    {
-
-        return $this->isValid;
+        return $message;
 
     }
 
     /**
      * isValid
      *
-     * Returns the result if it is set.
+     * Returns the actual result if it is set.
      *
      * @access  public
      * @return  boolean
@@ -165,32 +182,14 @@ class Validator implements ResultInterface
     }
 
     /**
-     * setMessage
+     * setIsValid
      *
-     * Set the message of the result.
-     *
-     * @access  public
-     * @param   string  $message
-     * @return  void
-     * @throws  \Tuersteher\Exception\Result
-     */
-    public function setMessage($message)
-    {
-        if (is_string($message) == true) {
-            $this->message = $message;
-        } else {
-            throw new ResultException('The given message is not a string or integer.');
-        }
-    }
-
-    /**
-     * setResult
-     *
-     * Set the result.
+     * Set the actual result of the result object.
      *
      * @access  public
      * @param   boolean $isValid
-     * @throws  \Tuersteher\Exception\Result
+     * @return  void
+     * @throws  \Tuersteher\Exception\InvalidArgument
      */
     public function setIsValid($isValid)
     {
@@ -198,7 +197,28 @@ class Validator implements ResultInterface
         if (is_bool($isValid)) {
             $this->isValid = $isValid;
         } else {
-            throw new ResultException('The given result is not a boolean');
+            throw new InvalidArgumentException('The given result is not a boolean');
+        }
+
+    }
+
+    /**
+     * setMessage
+     *
+     * Set the message of the result.
+     *
+     * @access  public
+     * @param   string  $message
+     * @return  void
+     * @throws  Tuersteher\Exception\InvalidArgument
+     */
+    public function setMessage($message)
+    {
+
+        if (is_string($message) == true) {
+            $this->message = $message;
+        } else {
+            throw new InvalidArgumentException('The given message is not a string.');
         }
 
     }
