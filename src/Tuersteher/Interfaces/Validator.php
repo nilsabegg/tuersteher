@@ -24,16 +24,27 @@ namespace Tuersteher\Interfaces;
  */
 interface Validator
 {
-
     /**
      * getResult
      *
      * Returns the result of the validator.
      *
      * @access  public
+     * @return  \Tuersteher\Interfaces\Result
      */
-    public function isValid();
+    public function getResult();
 
+    /**
+     * isValid
+     *
+     * Returns the result of the validator.
+     *
+     * @access  public
+     * @param   mixed   $value
+     * @return  boolean
+     */
+    public function isValid($value = '');
+    
     /**
      * validate
      *
@@ -41,6 +52,7 @@ interface Validator
      *
      * @access  public
      * @param   mixed   $value
+     * @return  \Tuersteher\Interfaces\Result
      */
     public function validate($value);
 

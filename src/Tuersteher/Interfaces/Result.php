@@ -24,32 +24,47 @@ namespace Tuersteher\Interfaces;
  */
 interface Result
 {
+
+    /**
+     * getIsValid
+     *
+     *
+     *
+     * @access public
+     * @return boolean
+     */
     public function getIsValid();
+
     /**
-     * getResult
+     * getMessage
      *
      * Returns the result of the validator.
      *
      * @access  public
      */
-    public function getMessage();
-    public function setIsValid($isValid);
+    public function getMessage($name = '');
+
     /**
-     * getResult
-     *
-     * Returns the result of the validator.
-     *
-     * @access  public
-     */
-    public function setMessage($message);
-    /**
-     * validate
+     * isValid
      *
      * Checks if the input is valid.
      *
      * @access  public
-     * @param   mixed   $value
+     * @return  boolean
      */
     public function isValid();
+
+
+    public function setIsValid($isValid);
+
+    /**
+     * getMessage
+     *
+     * Returns the result of the validator.
+     *
+     * @access  public
+     * @return  void Description
+     */
+    public function setMessage();
 
 }

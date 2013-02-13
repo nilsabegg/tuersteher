@@ -8,6 +8,7 @@ namespace Tuersteher\Result;
 
 use \Tuersteher\Exception\Result as ResultException;
 use \Tuersteher\Interfaces\Result as ResultInterface;
+
 /**
  * Validator
  *

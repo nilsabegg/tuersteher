@@ -34,26 +34,12 @@ class Tuersteher
 
     }
 
+
     public function newValidator($className)
     {
         $validator = new $className();
 
         return $validator;
-    }
-    /**
-     * validate
-     *
-     *
-     *
-     * @access public
-     * @param mixed $value
-     * @param \FFUF\Tuersteher\ValidationSchema $validationSchema
-     */
-    public function validate($value, $validationSchema)
-    {
-
-        $this->value = $value;
-        $this->validationSchema = $validationSchema;
     }
 
 }
