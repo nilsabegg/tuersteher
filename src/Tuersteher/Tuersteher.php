@@ -34,6 +34,10 @@ class Tuersteher
 
     }
 
+    public function newValidator($className)
+    {
+        new $className();
+    }
     /**
      * validate
      *

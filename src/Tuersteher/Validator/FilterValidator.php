@@ -7,7 +7,6 @@
 namespace Tuersteher\Validator;
 
 use Tuersteher\Validator as Validator;
-
 use Tuersteher\Exception\Filter as FilterException;
 
 /**
@@ -222,11 +221,11 @@ abstract class FilterValidator extends Validator
      * @return  void
      * @throw   \Tuersteher\Validator\FilterException
      */
-    public function setFlag($flag)
+    public function setFlag($name, $flag)
     {
 
-        if (is_integer($flag) == true) {
-            $this->flag = $flag;
+        if (is_integer($flag) == true && isset($this->flags[$name]) == true) {
+            $this->flags[$name] = $flag;
         } else {
             throw new FilterException('The flag is not an integer.');
         }
