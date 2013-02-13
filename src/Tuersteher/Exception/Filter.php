@@ -6,15 +6,17 @@
 
 namespace Tuersteher\Exception;
 
-use \Tuersteher\Exception as Exception;
+use \Tuersteher\Exception\Exception as Exception;
+
 /**
- * Exception
+ * Filter
  *
- * This class validates if a given value is a URL.
+ * This is the exception thrown by the filter validators.
  *
  * @author      Nils Abegg <rueckgrat@nilsabegg.de>
  * @version     0.1
  * @package     Türsteher
+ * @subpackage  Filter Validator
  * @category    Exception Handling
  */
 class Filter extends Exception

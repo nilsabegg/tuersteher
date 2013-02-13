@@ -12,7 +12,7 @@ use Tuersteher\Exception\Filter as FilterException;
 /**
  * FilterValidator
  *
- * This class validates if a given value is a URL.
+ * This class is the parent class of all filter validators.
  *
  * @author      Nils Abegg <rueckgrat@nilsabegg.de>
  * @version     0.1
@@ -20,7 +20,7 @@ use Tuersteher\Exception\Filter as FilterException;
  * @subpackage  Filter
  * @category    Validation
  * @link        http://php.net/manual/en/book.filter.php    PHP Documentation
- * @todo        Add support for messages for each option and flag.
+ * @todo        Add support for multiple flags.
  */
 abstract class FilterValidator extends Validator
 {
@@ -44,7 +44,7 @@ abstract class FilterValidator extends Validator
      *
      * @access  protected
      * @link    http://php.net/manual/en/filter.filters.flags.php   PHP Documentation
-     * @var     integer
+     * @var     array
      */
     protected $flags = array();
 
@@ -80,7 +80,7 @@ abstract class FilterValidator extends Validator
      * @param   string  $name
      * @param   mixed   $option
      * @return  void
-     * @throw   \Tuersteher\Validator\FilterException
+     * @throw   \Tuersteher\Exception\Filter
      */
     public function addOption($name, $option)
     {
@@ -100,7 +100,7 @@ abstract class FilterValidator extends Validator
      * @link    http://php.net/manual/en/filter.filters.flags.php   PHP Documentation
      * @param   string $name
      * @return  integer
-     * @throw   \Tuersteher\Validator\FilterException
+     * @throw   \Tuersteher\Exception\Filter
      */
     public function getFlag($name)
     {
@@ -114,14 +114,14 @@ abstract class FilterValidator extends Validator
     }
 
     /**
-     * getOptions
+     * getFlags
      *
-     * Returns the options of the validator.
+     * Returns the flags of the validator.
      *
      * @access  public
      * @link    http://php.net/manual/en/filter.filters.validate.php   PHP Documentation
      * @return  array
-     * @throw   \Tuersteher\Validator\FilterException
+     * @throw   \Tuersteher\Exception\Filter
      */
     public function getFlags()
     {
@@ -143,7 +143,7 @@ abstract class FilterValidator extends Validator
      * @link    http://php.net/manual/en/filter.filters.validate.php   PHP Documentation
      * @param   string  $name
      * @return  mixed
-     * @throw   \Tuersteher\Validator\FilterException
+     * @throw   \Tuersteher\Exception\Filter
      */
     public function getOption($name)
     {
@@ -164,7 +164,7 @@ abstract class FilterValidator extends Validator
      * @access  public
      * @link    http://php.net/manual/en/filter.filters.validate.php   PHP Documentation
      * @return  array
-     * @throw   \Tuersteher\Validator\FilterException
+     * @throw   \Tuersteher\Exception\Filter
      */
     public function getOptions()
     {
@@ -216,9 +216,10 @@ abstract class FilterValidator extends Validator
      *
      * @access  public
      * @link    http://php.net/manual/en/filter.filters.flags.php   PHP Documentation
+     * @param   string  $name
      * @param   integer $flag
      * @return  void
-     * @throw   \Tuersteher\Validator\FilterException
+     * @throw   \Tuersteher\Exception\Filter
      */
     public function setFlag($name, $flag)
     {
@@ -226,7 +227,34 @@ abstract class FilterValidator extends Validator
         if (is_integer($flag) == true && isset($this->flags[$name]) == true) {
             $this->flags[$name] = $flag;
         } else {
-            throw new FilterException('The flag is not an integer.');
+            if (is_integer($flag) == false) {
+                throw new FilterException('The flag "' . $flag . '" is not an integer.');
+            } else {
+                throw new FilterException('The flag "' . $name . '" doesn\'t exist.');
+            }
+
+        }
+
+    }
+
+    /**
+     * setFlags
+     *
+     * Sets the options of the validator.
+     *
+     * @access  public
+     * @link    http://php.net/manual/en/filter.filters.flags.php   PHP Documentation
+     * @param   array   $flags
+     * @return  void
+     * @throw   \Tuersteher\Exception\Filter
+     */
+    public function setFlags($flags)
+    {
+
+        if (is_array($flags) == true) {
+            $this->flags = $flags;
+        } else {
+            throw new FilterException();
         }
 
     }
@@ -241,7 +269,7 @@ abstract class FilterValidator extends Validator
      * @param   string  $name
      * @param   mixed   $option
      * @return  void
-     * @throw   \Tuersteher\Validator\FilterException
+     * @throw   \Tuersteher\Exception\Filter
      */
     public function setOption($name, $option)
     {
@@ -263,7 +291,7 @@ abstract class FilterValidator extends Validator
      * @link    http://php.net/manual/en/filter.filters.validate.php   PHP Documentation
      * @param   array   $options
      * @return  void
-     * @throw   \Tuersteher\Validator\FilterException
+     * @throw   \Tuersteher\Exception\Filter
      */
     public function setOptions($options)
     {

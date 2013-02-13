@@ -38,11 +38,11 @@ class ValidationSchema
      *
      * @access  public
      * @param   string $name
-     * @param   \Tuersteher\AbstractValidator $validator
+     * @param   \Tuersteher\ValidatorInterface $validator
      * @throws  \Tuersteher\Exception
      * @return  void
      */
-    public function addValidator($name, \Tuersteher\AbstractValidator $validator)
+    public function addValidator($name, \Tuersteher\ValidatorInterface $validator)
     {
 
         if ($name != '') {
@@ -68,7 +68,7 @@ class ValidationSchema
      * @throws  \Tuersteher\Exception
      * @return  void
      */
-    public function setValidator($name, \Tuersteher\AbstractValidator $validator)
+    public function setValidator($name, \Tuersteher\ValidatorInterface $validator)
     {
 
         if ($name != '') {

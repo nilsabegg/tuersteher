@@ -6,20 +6,20 @@
 
 namespace Tuersteher\Exception;
 
-use \Tuersteher\Exception as Exception;
+use \Tuersteher\Interfaces\Exception as ExceptionInterface;
 
 /**
- * Validator
+ * Exception
  *
- * This is the exception thrown by the validators.
+ * This is the parent class for all exceptions of the Türsteher library.
  *
  * @author      Nils Abegg <rueckgrat@nilsabegg.de>
  * @version     0.1
  * @package     Türsteher
- * @subpackage  Validator
+ * @subpackage  Exception
  * @category    Exception Handling
  */
-class Validator extends Exception
+abstract class Exception extends \Exception implements ExceptionInterface
 {
 
 

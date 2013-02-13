@@ -4,19 +4,22 @@
  * This file is part of the Türsteher library.
  */
 
-namespace Tuersteher;
+namespace Tuersteher\Exception\Schema;
+
+use \Tuersteher\Exception as Exception;
 
 /**
- * Exception
+ * Validator
  *
- * This class validates if a given value is a URL.
+ * This is the exception thrown by the validators.
  *
  * @author      Nils Abegg <rueckgrat@nilsabegg.de>
  * @version     0.1
  * @package     Türsteher
+ * @subpackage  Validator
  * @category    Exception Handling
  */
-class Exception extends \Exception implements ExceptionInterface
+class Validator extends Exception
 {
 
 

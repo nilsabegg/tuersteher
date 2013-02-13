@@ -4,9 +4,9 @@
  * This file is part of the Türsteher library.
  */
 
-namespace Tuersteher;
+namespace Tuersteher\Validator;
 
-use Tuersteher\Exception as Exception;
+use Tuersteher\Exception\Schema\Validator as Exception;
 
 /**
  * SchemaValidator
@@ -18,7 +18,7 @@ use Tuersteher\Exception as Exception;
  * @package Türsteher
  * @category Validation
  */
-class SchemaValidator
+class Schema
 {
 
 }

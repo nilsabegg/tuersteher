@@ -4,24 +4,21 @@
  * This file is part of the Türsteher library.
  */
 
-namespace Tuersteher\Exception;
-
-use \Tuersteher\Exception as Exception;
+namespace Tuersteher\Interfaces;
 
 /**
- * Validator
+ * Exception
  *
- * This is the exception thrown by the validators.
+ * This is the interface for all exceptions thrown by
+ * the Türsteher library.
  *
  * @author      Nils Abegg <rueckgrat@nilsabegg.de>
  * @version     0.1
  * @package     Türsteher
- * @subpackage  Validator
+ * @subpackage  Exception
  * @category    Exception Handling
  */
-class Validator extends Exception
+interface Exception
 {
-
-
 
 }

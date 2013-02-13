@@ -4,7 +4,7 @@
  * This file is part of the Türsteher library.
  */
 
-namespace Tuersteher;
+namespace Tuersteher\Interfaces;
 
 /**
  * ValidatorInterface
@@ -18,10 +18,11 @@ namespace Tuersteher;
  *
  * @author      Nils Abegg <rueckgrat@nilsabegg.de>
  * @version     0.1
- * @package     Validator
+ * @package     Türsteher
+ * @subpackage  Result
  * @category    Validation
  */
-interface ResultInterface
+interface Result
 {
     public function getIsValid();
     /**

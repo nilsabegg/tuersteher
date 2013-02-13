@@ -1,6 +1,6 @@
 <?php
 
-namespace Tuersteher\Test;
+namespace Tuersteher\Test\Validator;
 
 class ValidatorTest extends \PHPUnit_Framework_TestCase
 {
@@ -8,7 +8,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     public function testAddMessage()
     {
 
-        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator');
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\Validator');
         $message1 = 'This is message1';
         $validator->addMessage('message1', $message1);
         $message2 = 'This is message2';
@@ -23,7 +23,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     public function testGetMessage()
     {
 
-        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator');
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\Validator');
         $this->setExpectedException('\\Tuersteher\\Exception\\Validator');
         $validator->getMessage('message1');
 
@@ -32,7 +32,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     public function testGetMessages()
     {
 
-        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator');
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\Validator');
         $messages = array (
             'message1' => 'This is message1',
             'message2' => 'This is message2'
@@ -40,7 +40,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $validator->setMessages($messages);
         $this->assertEquals($validator->getMessages(), $messages);
         $this->setExpectedException('\\Tuersteher\\Exception\\Validator');
-        $validator2 = $this->getMockForAbstractClass('\\Tuersteher\\Validator');
+        $validator2 = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\Validator');
         $validator2->getMessages();
 
     }
@@ -48,7 +48,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     public function testSetMessage()
     {
 
-        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator');
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\Validator');
         $this->setExpectedException('\\Tuersteher\\Exception\\Validator');
         $validator->setMessage('message1', 'This is message1');
 
@@ -57,7 +57,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     public function testSetMessages()
     {
 
-        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator');
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\Validator');
         $this->setExpectedException('\\Tuersteher\\Exception\\Validator');
         $messages = 'This is message1';
         $validator->setMessages($messages);

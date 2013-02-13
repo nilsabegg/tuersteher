@@ -8,18 +8,6 @@ class IntegerTest extends \PHPUnit_Framework_TestCase
     public function testIsInteger()
     {
 
-        $validator = new \Tuersteher\Validator\Filter\Integer();
-        $isValid = $validator->validate(257);
-        $this->assertTrue($isValid());
-        $options = array(
-            'min_range' => 0,
-            'max_range' => 256
-        );
-        $validator->setOptions($options);
-        $isValid2 = $validator->validate(244);
-        $this->assertTrue($isValid2());
-        $isValid3 = $validator->validate(500);
-        $this->assertFalse($isValid3());
 
     }
 

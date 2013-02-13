@@ -4,12 +4,12 @@
  * This file is part of the Türsteher library.
  */
 
-namespace Tuersteher;
+namespace Tuersteher\Result;
 
-use Tuersteher\Exception as Exception;
+use \Tuersteher\Exception\Result as ResultException;
 
 /**
- * SchemaResult
+ * Schema
  *
  * This class validates if a given value is a URL.
  *
@@ -18,7 +18,7 @@ use Tuersteher\Exception as Exception;
  * @package     Türsteher
  * @category    Validation
  */
-class SchemaResult
+class Schema
 {
 
 }

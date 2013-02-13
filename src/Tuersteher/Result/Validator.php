@@ -4,12 +4,12 @@
  * This file is part of the Türsteher library.
  */
 
-namespace Tuersteher;
+namespace Tuersteher\Result;
 
-use Tuersteher\Exception\Result as Exception;
-
+use Tuersteher\Exception\Result as ResultException;
+use Tuersteher\Interfaces\Result as ResultInterface;
 /**
- * Result
+ * Validator
  *
  * This class is a result of a Türsteher validator.
  *
@@ -18,7 +18,7 @@ use Tuersteher\Exception\Result as Exception;
  * @package     Türsteher
  * @category    Validation
  */
-class Result implements ResultInterface
+class Validator implements ResultInterface
 {
 
     /**
@@ -58,12 +58,12 @@ class Result implements ResultInterface
         if (is_bool($isValid) == true || $isValid == null) {
             $this->isValid = $isValid;
         } else {
-            throw new Exception('The given result is not a boolean');
+            throw new ResultException('The given result is not a boolean');
         }
         if (is_string($message) == true || $message == '') {
             $this->message = $message;
         } else {
-            throw new Exception('The given message is not a string or integer.');
+            throw new ResultException('The given message is not a string or integer.');
         }
 
     }
@@ -158,7 +158,7 @@ class Result implements ResultInterface
         if ($this->isValid !== null) {
             return $this->isValid;
         } else {
-            throw new Exception('There is no result set.');
+            throw new ResultException('There is no result set.');
         }
 
     }
@@ -178,7 +178,7 @@ class Result implements ResultInterface
         if (is_string($message) == true) {
             $this->message = $message;
         } else {
-            throw new Exception('The given message is not a string or integer.');
+            throw new ResultException('The given message is not a string or integer.');
         }
     }
 
@@ -197,7 +197,7 @@ class Result implements ResultInterface
         if (is_bool($isValid)) {
             $this->isValid = $isValid;
         } else {
-            throw new Exception('The given result is not a boolean');
+            throw new ResultException('The given result is not a boolean');
         }
 
     }
