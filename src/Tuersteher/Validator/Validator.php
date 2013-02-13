@@ -85,7 +85,7 @@ abstract class Validator implements ValidatorInterface
      * @return  string
      * @throws  \InvalidArgumentException
      */
-    public function getMessage($name)
+    public function getMessage($name = 'default')
     {
 
         if (key_exists($name, $this->messages) == true) {
