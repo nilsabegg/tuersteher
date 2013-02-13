@@ -6,7 +6,7 @@
 
 namespace Tuersteher\Validator;
 
-use Tuersteher\Validator as Validator;
+use Tuersteher\Validator\Validator as Validator;
 use Tuersteher\Exception\Filter as FilterException;
 
 /**
