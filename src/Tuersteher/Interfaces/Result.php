@@ -35,7 +35,7 @@ interface Result
      * @return  string
      */
     public function __toString();
-    
+
     /**
      * __invoke
      *
@@ -70,7 +70,7 @@ interface Result
      * @access  public
      * @return  string
      */
-    public function getMessage($name = '');
+    public function getMessage();
 
     /**
      * isValid
