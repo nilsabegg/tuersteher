@@ -19,11 +19,11 @@ class UrlTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($isValid2());
         $validator->setQueryRequired(true);
         $isValid3 = $validator->validate($url1);
-        $this->assertFalse($isValid3);
+        $this->assertFalse($isValid3());
         $url3 = 'http://google.com?q=search';
         $isValid4 = $validator->validate($url3);
-        $this->assertTrue($isValid4);
-        
+        $this->assertTrue($isValid4());
+
     }
 
 }
