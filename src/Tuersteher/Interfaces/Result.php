@@ -24,7 +24,6 @@ namespace Tuersteher\Interfaces;
  */
 interface Result
 {
-
     /**
      * __toString
      *
@@ -94,5 +93,4 @@ interface Result
      * @return  void
      */
     public function setMessage($message);
-
 }
