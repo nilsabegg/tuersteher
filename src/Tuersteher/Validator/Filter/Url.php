@@ -72,7 +72,7 @@ class Url extends FilterValidator
     /**
      * isQueryRequired
      *
-     *
+     * 
      *
      * @access public
      * @return boolean
@@ -113,7 +113,7 @@ class Url extends FilterValidator
     /**
      * setQueryRequired
      *
-     * 
+     *
      *
      * @access public
      * @param  boolean  $isRequired
