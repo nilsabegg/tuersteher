@@ -20,7 +20,7 @@ use Tuersteher\Exception\Regex as RegexException;
  * @subpackage  Regex
  * @category    Validation
  */
-abstract class RegexValidator extends Validator
+abstract class Regex extends Validator
 {
 
     /**
