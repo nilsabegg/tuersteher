@@ -21,7 +21,6 @@ use \Tuersteher\Exception\InvalidArgument as InvalidArgumentException;
  * @subpackage  Filter
  * @category    Validation
  * @link        http://php.net/manual/en/book.filter.php    PHP Documentation
- * @todo        Add support for multiple flags.
  */
 abstract class Filter extends Validator
 {
