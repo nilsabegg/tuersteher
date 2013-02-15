@@ -150,7 +150,7 @@ abstract class Validator implements ValidatorInterface
      * @param   string $message
      * @param   string $messageKey
      * @return  void
-     * @throws  \Tuersteher\Exception\Validator
+     * @throws  \Tuersteher\Exception\InvalidArgument
      */
     public function setMessage($message, $messageKey = 'default')
     {
@@ -158,7 +158,7 @@ abstract class Validator implements ValidatorInterface
         if (key_exists($messageKey, $this->messages) == true) {
             $this->messages[$messageKey] = $message;
         } else {
-            throw new ValidatorException();
+            throw new InvalidArgumentException();
         }
 
     }
