@@ -20,5 +20,4 @@ use \Tuersteher\Exception\Result as ResultException;
  */
 class Schema
 {
-
 }

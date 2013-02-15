@@ -45,7 +45,7 @@ interface Validator
      * @return  boolean
      */
     public function isValid($value = '');
-    
+
     /**
      * setResult
      *
