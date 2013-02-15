@@ -15,8 +15,8 @@ class UrlTest extends \PHPUnit_Framework_TestCase
         $isValid1 = $validator->validate($url1);
         $url2 = 'google.com';
         $isValid2 = $validator->validate($url2);
-        $this->assertTrue($isValid1);
-        $this->assertFalse($isValid2);
+        $this->assertTrue($isValid1());
+        $this->assertFalse($isValid2());
 
     }
 
