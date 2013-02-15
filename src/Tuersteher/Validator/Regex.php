@@ -8,6 +8,7 @@ namespace Tuersteher\Validator;
 
 use Tuersteher\Validator\Validator as Validator;
 use Tuersteher\Exception\Regex as RegexException;
+
 /**
  * RegexValidator
  *

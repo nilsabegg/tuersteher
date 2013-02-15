@@ -52,7 +52,7 @@ class Url extends FilterValidator
     );
 
      /**
-     * getPathRequired
+     * isPathRequired
      *
      *
      *
@@ -60,7 +60,7 @@ class Url extends FilterValidator
      * @return boolean
      * @throws \Tuersteher\Exception\Filter
      */
-    public function getPathRequired()
+    public function isPathRequired()
     {
         if (isset($this->options['path_required']) == true) {
             return $this->options['path_required'];
@@ -70,7 +70,7 @@ class Url extends FilterValidator
     }
 
     /**
-     * getQueryRequired
+     * isQueryRequired
      *
      *
      *
@@ -78,7 +78,7 @@ class Url extends FilterValidator
      * @return boolean
      * @throws \Tuersteher\Exception\Filter
      */
-    public function getQueryRequired()
+    public function isQueryRequired()
     {
         if (isset($this->options['query_required']) == true) {
             return true;

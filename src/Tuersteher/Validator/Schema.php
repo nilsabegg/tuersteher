@@ -64,11 +64,11 @@ class Schema
      *
      * @access  public
      * @param   string $name
-     * @param   \Tuersteher\AbstractValidator $validator
+     * @param   \Tuersteher\Interfaces\Validator $validator
      * @throws  \Tuersteher\Exception
      * @return  void
      */
-    public function setValidator($name, \Tuersteher\ValidatorInterface $validator)
+    public function setValidator($name, \Tuersteher\Interfaces\Validator $validator)
     {
 
         if ($name != '') {

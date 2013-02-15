@@ -20,7 +20,7 @@ use Tuersteher\Result\Validator as ValidatorResult;
  */
 class Tuersteher
 {
-    
+
     protected $schemaResult = null;
 
     protected $validatorResult = null;
@@ -63,5 +63,4 @@ class Tuersteher
         return $validator;
 
     }
-
 }
