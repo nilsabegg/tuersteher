@@ -168,7 +168,7 @@ class Validator implements ResultInterface
     public function getMessage()
     {
 
-        $message = $this->createMmessage();
+        $message = $this->createMessage();
 
         return $message;
 
