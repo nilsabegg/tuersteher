@@ -14,7 +14,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($isValid, $result->getIsValid());
         $this->assertEquals($message, $result->getMessage());
         $isValid2 = 324;
-        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
         new \Tuersteher\Result\Validator($isValid2);
 
     }
@@ -28,40 +28,40 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("$result", 'Is not valid.');
         $result->setMessage('Blabla');
         $this->assertEquals("$result", 'Blabla');
-        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
         new \Tuersteher\Result\Validator(true, array());
 
     }
+
+    public function testGetAndSetIsValid()
+    {
+
+        $isValid = true;
+        $result = new \Tuersteher\Result\Validator($isValid);
+        $this->assertEquals($isValid, $result->getIsValid());
+        $isValid2 = false;
+        $result->setIsValid($isValid2);
+        $this->assertEquals($isValid2, $result->getIsValid());
+        $isValid3 = 'dsfsfsddf';
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $result->setIsValid($isValid3);
+
+    }
 //
-//    public function testGetAndSetIsValid()
-//    {
-//
-//        $isValid = true;
-//        $result = new \Tuersteher\Result\Validator($isValid);
-//        $this->assertEquals($isValid, $result->getIsValid());
-//        $isValid2 = false;
-//        $result->setIsValid($isValid2);
-//        $this->assertEquals($isValid2, $result->getIsValid());
-//        $isValid3 = 'dsfsfsddf';
-//        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
-//        $result->setIsValid($isValid3);
-//
-//    }
-//
-//    public function testGetAndSetMessage()
-//    {
-//
-//        $message = 'Valid.';
-//        $result = new \Tuersteher\Result\Validator(true, $message);
-//        $this->assertEquals($message, $result->getMessage());
-//        $message2 = 'Not Valid.';
-//        $result->setMessage($message2);
-//        $this->assertEquals($message2, $result->getMessage());
-//        $message3 = array();
-//        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
-//        $result->setMessage($message3);
-//
-//    }
+    public function testGetAndSetMessage()
+    {
+
+        $message = 'Valid.';
+        $result = new \Tuersteher\Result\Validator(true, $message);
+        $this->assertEquals($message, $result->getMessage());
+        $message2 = 'Not Valid.';
+        $result->setMessage($message2);
+        $this->assertEquals($message2, $result->getMessage());
+        $message3 = array();
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $result->setMessage($message3);
+
+    }
 //
 //    public function testIsValid()
 //    {
