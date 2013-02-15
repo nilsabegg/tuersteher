@@ -6,7 +6,7 @@
 
 namespace Tuersteher\Validator\Regex;
 
-use Tuersteher\Validator\RegexValidator as RegexValidator;
+use Tuersteher\Validator\Regex as RegexValidator;
 
 /**
  * Url
