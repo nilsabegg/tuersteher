@@ -57,8 +57,10 @@ class Validator implements ResultInterface
     public function __construct($isValid = null, $message = '')
     {
 
-        $this->setIsValid($isValid);
-        $this->setIsValid($message);
+        if ($isValid !== null) {
+            $this->setIsValid($isValid);
+        }
+        $this->setMessage($message);
 
     }
 
