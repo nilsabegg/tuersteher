@@ -1,17 +1,19 @@
 <?php
 
- require_once __DIR__ . '/../../src/Tuersteher/ValidatorInterface.php';
- require_once __DIR__ . '/../../src/Tuersteher/Validator.php';
- require_once __DIR__ . '/../../src/Tuersteher/Validator/FilterValidator.php';
+ require_once __DIR__ . '/../../src/Tuersteher/Interfaces/Validator.php';
+ require_once __DIR__ . '/../../src/Tuersteher/Interfaces/Result.php';
+ require_once __DIR__ . '/../../src/Tuersteher/Validator/Validator.php';
+ require_once __DIR__ . '/../../src/Tuersteher/Validator/Filter.php';
  require_once __DIR__ . '/../../src/Tuersteher/Validator/Filter/Url.php';
-
+ require_once __DIR__ . '/../../src/Tuersteher/Result/Validator.php';
 
 
 function validateUrl($url)
 {
 
     $urlValidator = new \Tuersteher\Validator\Filter\Url();
-    $isValidUrl = $urlValidator->isValid($url);
+    $urlValidator->setResult(new \Tuersteher\Result\Validator());
+    $isValidUrl = $urlValidator->validate($url);
     echo '<p>';
     echo $url;
     echo '</p>';
