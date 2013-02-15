@@ -18,7 +18,8 @@ function validateUrl($url)
     echo $url;
     echo '</p>';
     echo '<pre>';
-    var_dump($isValidUrl);
+    var_dump($isValidUrl());
+    var_dump($isValidUrl->isValid());
     echo '</pre>';
 
 }

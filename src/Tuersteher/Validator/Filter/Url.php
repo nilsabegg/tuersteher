@@ -113,7 +113,7 @@ class Url extends FilterValidator
     /**
      * setQueryRequired
      *
-     *
+     * 
      *
      * @access public
      * @param  boolean  $isRequired
