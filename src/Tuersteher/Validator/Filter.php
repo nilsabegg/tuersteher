@@ -93,6 +93,27 @@ abstract class Filter extends Validator
     }
 
     /**
+     * addFlag
+     *
+     * Add flag to the validator.
+     *
+     * @access  public
+     * @link    http://php.net/manual/en/filter.filters.validate.php   PHP Documentation
+     * @param   string  $name
+     * @param   mixed   $flag
+     * @return  void
+     * @throw   \Tuersteher\Exception\InvalidArgument
+     */
+    public function addFlag($name, $flag)
+    {
+        if (key_exists($name, $this->flags) == false) {
+            $this->flags[$name] = $flag;
+        } else {
+            throw new InvalidArgumentException('Flag "' . $name . '" allready exists');
+        }
+    }
+
+    /**
      * getFlag
      *
      * Return the flag of the validator.
