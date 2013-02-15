@@ -55,7 +55,7 @@ interface Validator
      * @param   \Tuersteher\Interfaces\Result   $result
      * @return  void
      */
-    public function setResult($result);
+    public function setResult(\Tuersteher\Interfaces\Result $result);
 
     /**
      * validate
