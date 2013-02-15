@@ -83,7 +83,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
 
         $result2 = new \Tuersteher\Result\Validator();
         $this->setExpectedException('\\Tuersteher\\Exception\\Result');
-        echo "$result2";
+        $fail = "$result2" . 'blabla';
 
     }
 }

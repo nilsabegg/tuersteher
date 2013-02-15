@@ -198,9 +198,9 @@ class Validator implements ResultInterface
 
         if ($this->message != '') {
             $message = $this->message;
-        } elseif ($this->isValid == true) {
+        } elseif ($this->isValid === true) {
             $message = 'Is valid.';
-        } elseif ($this->isValid == false) {
+        } elseif ($this->isValid === false) {
             $message = 'Is not valid.';
         } else {
             throw new ResultException('The result object is missing a message and the actual result');
