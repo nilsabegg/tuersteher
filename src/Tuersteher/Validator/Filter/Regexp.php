@@ -48,5 +48,4 @@ class Regexp extends FilterValidator
     protected $messages = array(
         'default' => 'The input was not valid.'
     );
-
 }

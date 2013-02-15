@@ -48,5 +48,4 @@ class Ip extends FilterValidator
     protected $messages = array(
         'default' => 'The input was not an valid IP address.'
     );
-
 }

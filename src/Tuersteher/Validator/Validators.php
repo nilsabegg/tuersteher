@@ -20,5 +20,4 @@ use Tuersteher\Exception\Schema\Validator as Exception;
  */
 class Schema
 {
-
 }

@@ -304,5 +304,4 @@ abstract class Filter extends Validator
         }
 
     }
-
 }

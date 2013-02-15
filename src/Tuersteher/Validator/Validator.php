@@ -225,5 +225,4 @@ abstract class Validator implements ValidatorInterface
         }
 
     }
-
 }

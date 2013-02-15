@@ -48,5 +48,4 @@ class Integer extends FilterValidator
     protected $messages = array(
         'default' => 'The input was not an integer.'
     );
-
 }

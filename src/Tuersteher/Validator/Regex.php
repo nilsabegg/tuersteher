@@ -144,9 +144,8 @@ abstract class RegexValidator extends Validator
         }  else {
             $this->result = $this->createResult(false, $this->messages['default']);
         }
-        
+
         return $this->result;
 
     }
-
 }

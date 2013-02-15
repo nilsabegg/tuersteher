@@ -48,5 +48,4 @@ class Email extends FilterValidator
     protected $messages = array(
         'default' => 'The input was not an valid E-Mail address.'
     );
-
 }

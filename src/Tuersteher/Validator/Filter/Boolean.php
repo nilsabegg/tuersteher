@@ -48,5 +48,4 @@ class Boolean extends FilterValidator
     protected $messages = array(
         'default' => 'The input was not a boolean.'
     );
-
 }
