@@ -21,8 +21,24 @@ use Tuersteher\Result\Validator as ValidatorResult;
 class Tuersteher
 {
 
+    /**
+     * schemaResult
+     *
+     *
+     *
+     * @access  protected
+     * @var     \Tuersteher\Interfaces\Schema\Result
+     */
     protected $schemaResult = null;
 
+    /**
+     * validatorResult
+     *
+     *
+     *
+     * @access  protected
+     * @var     \Tuersteher\Interfaces\Result
+     */
     protected $validatorResult = null;
 
     /**
@@ -40,6 +56,15 @@ class Tuersteher
 
     }
 
+    /**
+     * __construct
+     *
+     * Constructs the object.
+     *
+     * @access public
+     * @param  \Tuersteher\Interfaces\Schema\Result $result
+     * @return void
+     */
     public function setSchemaResult(\Tuersteher\Interfaces\Schema\Result $result)
     {
 
@@ -47,6 +72,15 @@ class Tuersteher
 
     }
 
+    /**
+     * __construct
+     *
+     * Constructs the object.
+     *
+     * @access public
+     * @param  \Tuersteher\Interfaces\Result    $result
+     * @return void
+     */
     public function setValidatorResult(\Tuersteher\Interfaces\Result $result)
     {
 
@@ -54,6 +88,15 @@ class Tuersteher
 
     }
 
+    /**
+     * __construct
+     *
+     * Constructs the object.
+     *
+     * @access public
+     * @param  string   $className
+     * @return \Tuersteher\Interfaces\Validator
+     */
     public function create($className)
     {
 

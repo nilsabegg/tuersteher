@@ -211,12 +211,12 @@ abstract class Filter extends Validator
     public function validate($value)
     {
 
-        $hasFlag = isset($this->flags[0]);
+        $flagsCount = count($this->flags);
         $optionsCount = count($this->options);
-        if ($hasFlag == true && $optionsCount > 0) {
-            $isValid = filter_var($value, $this->filter, array('options' => $this->options, 'flags' => $this->flags[0]));
-        } elseif ($hasFlag == true) {
-            $isValid = filter_var($value, $this->filter, $this->flags[0]);
+        if ($flagsCount > 0 && $optionsCount > 0) {
+            $isValid = filter_var($value, $this->filter, array('options' => $this->options, 'flags' => array_sum($this->flags)));
+        } elseif ($flagsCount > 0) {
+            $isValid = filter_var($value, $this->filter, array_sum($this->flags));
         } elseif ($optionsCount > 0) {
             $isValid = filter_var($value, $this->filter, array('options' => $this->options));
         } else {
