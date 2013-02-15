@@ -83,7 +83,7 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
         $flag2 = 33;
         $validator->setFlag('flag', $flag2);
         $this->assertEquals($validator->getFlag('flag'), $flag2);
-        $this->setExpectedException('\\Tuersteher\\Exception\\FilterInvalidArgument');
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
         $validator->setFlag('no integer');
 
     }
