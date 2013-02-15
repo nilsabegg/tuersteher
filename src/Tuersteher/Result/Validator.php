@@ -72,14 +72,17 @@ class Validator implements ResultInterface
      *
      * @access  public
      * @return  string
-     * @throws  \Tuersteher\Exception\Result
      */
     public function __toString()
     {
 
-        $message = $this->createMessage();
+        try {
+            $message = $this->createMessage();
+            return $message;
+        } catch (\Tuersteher\Exception\Result $e) {
+            return '';
+        }
 
-        return $message;
 
     }
 
