@@ -22,7 +22,7 @@ use \Tuersteher\Interfaces\Result as ResultInterface;
  */
 class Validator implements ResultInterface
 {
-    
+
     /**
      * isValid
      *
@@ -78,19 +78,14 @@ class Validator implements ResultInterface
      *
      * @access  public
      * @return  string
+     * @throws  \Tuersteher\Exception\Result
      */
     public function __toString()
     {
 
-        if ($this->message != '') {
-            $string = $this->message;
-        } elseif ($this->isValid == true) {
-            $string = 'Is valid.';
-        } elseif ($this->isValid == false) {
-            $string = 'Is not valid.';
-        }
+        $message = $this->createMessage();
 
-        return $string;
+        return $message;
 
     }
 
@@ -112,6 +107,32 @@ class Validator implements ResultInterface
     {
 
         return $this->isValid();
+
+    }
+
+    /**
+     * createResult
+     *
+     *
+     *
+     * @access  public
+     * @return  boolean
+     * @throws  \Tuersteher\Exception\Result
+     */
+    public function createMessage()
+    {
+
+        if ($this->message != '') {
+            $message = $this->message;
+        } elseif ($this->isValid == true) {
+            $message = 'Is valid.';
+        } elseif ($this->isValid == false) {
+            $message = 'Is not valid.';
+        } else {
+            throw new ResultException('The result object is missing a message and the actual result');
+        }
+
+        return $message;
 
     }
 
@@ -147,15 +168,7 @@ class Validator implements ResultInterface
     public function getMessage()
     {
 
-        if ($this->message != '') {
-            $message = $this->message;
-        } elseif ($this->isValid === true) {
-            $message = 'Is valid.';
-        } elseif ($this->isValid === false) {
-            $message = 'Is not valid.';
-        } else {
-            throw new ResultException('The result object is missing a message and the actual result');
-        }
+        $message = $this->createMmessage();
 
         return $message;
 

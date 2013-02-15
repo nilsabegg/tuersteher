@@ -119,6 +119,15 @@ abstract class Validator implements ValidatorInterface
 
     }
 
+    /**
+     * getResult
+     *
+     * Returns the result of the validator.
+     *
+     * @access  public
+     * @return  \Tuersteher\Interfaces\Result
+     * @throws  \Tuersteher\Exception\Validator
+     */
     public function getResult()
     {
 
@@ -127,7 +136,7 @@ abstract class Validator implements ValidatorInterface
         } else {
             throw new ValidatorException('No Result set.');
         }
-        
+
     }
 
     /**
