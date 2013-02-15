@@ -81,9 +81,10 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     public function testNoMessageException()
     {
 
-        $result2 = new \Tuersteher\Result\Validator();
+        $result = new \Tuersteher\Result\Validator();
         $this->setExpectedException('\\Tuersteher\\Exception\\Result');
-        $fail = "$result2" . 'blabla';
+        $noFail = "$result";
+        $result->getMessage();
 
     }
 }
