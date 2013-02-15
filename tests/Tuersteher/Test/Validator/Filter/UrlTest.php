@@ -11,7 +11,7 @@ class UrlTest extends \PHPUnit_Framework_TestCase
         $result = new \Tuersteher\Result\Validator();
         $validator = new \Tuersteher\Validator\Filter\Url();
         $validator->setResult($result);
-        $url1 = 'http://google.com';
+        $url1 = 'http://www.example.org';
         $isValid1 = $validator->validate($url1);
         $url2 = 'google.com';
         $isValid2 = $validator->validate($url2);
