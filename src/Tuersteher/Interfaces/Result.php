@@ -30,7 +30,7 @@ interface Result
      *
      * Returns the string which is used when the
      * result is used as a string.
-     *
+     * It's a shortcut for getMessage().
      * @access  public
      * @return  string
      */
@@ -39,8 +39,9 @@ interface Result
     /**
      * __invoke
      *
-     * Returns the the result is valid or not valid
+     * Returns if the the result is valid or not valid
      * when the result object is used as method.
+     * It's a shortcut for isValid().
      * <code>
      * if ($result()) {
      *  //do blabla
@@ -51,16 +52,6 @@ interface Result
      * @return  boolean
      */
     public function __invoke();
-
-    /**
-     * getIsValid
-     *
-     * Returns the actual result of the result object.
-     *
-     * @access  public
-     * @return  mixed
-     */
-    public function getIsValid();
 
     /**
      * getMessage

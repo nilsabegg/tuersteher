@@ -6,8 +6,9 @@
 
 namespace Tuersteher\Validator;
 
-use Tuersteher\Interfaces\Validator as ValidatorInterface;
-use Tuersteher\Exception\Validator as ValidatorException;
+use \Tuersteher\Exception\InvalidArgument as InvalidArgumentException;
+use \Tuersteher\Exception\Validator as ValidatorException;
+use \Tuersteher\Interfaces\Validator as ValidatorInterface;
 
 /**
  * Validator
@@ -62,7 +63,7 @@ abstract class Validator implements ValidatorInterface
      * @param   string $name
      * @param   string $message
      * @return  void
-     * @throws  \InvalidArgumentException
+     * @throws  \Tuersteher\Exception\InvalidArgument
      */
     public function addMessage($name, $message)
     {
@@ -70,7 +71,7 @@ abstract class Validator implements ValidatorInterface
         if (key_exists($name, $this->messages) == false) {
             $this->messages[$name] = $message;
         } else {
-            throw new \InvalidArgumentException('Message "' . $name . '" allready exists');
+            throw new InvalidArgumentException('Message "' . $name . '" allready exists');
         }
 
     }
@@ -83,7 +84,7 @@ abstract class Validator implements ValidatorInterface
      * @access  public
      * @param   string $name
      * @return  string
-     * @throws  \InvalidArgumentException
+     * @throws  \Tuersteher\Exception\InvalidArgument
      */
     public function getMessage($name = 'default')
     {
@@ -92,7 +93,7 @@ abstract class Validator implements ValidatorInterface
 
             return $this->messages[$name];
         } else {
-            throw new \InvalidArgumentException('Message "' . $name . '" doesn\'t exist');
+            throw new InvalidArgumentException('Message "' . $name . '" doesn\'t exist');
         }
 
     }
@@ -170,7 +171,7 @@ abstract class Validator implements ValidatorInterface
      * @access  public
      * @param   array   $messages
      * @return  void
-     * @throws  \InvalidArgumentException
+     * @throws  \Tuersteher\Exception\InvalidArgument
      */
     public function setMessages($messages)
     {
@@ -178,7 +179,7 @@ abstract class Validator implements ValidatorInterface
         if (is_array($messages) == true) {
             $this->messages = $messages;
         } else {
-            throw new \InvalidArgumentException('The messages are expected as array');
+            throw new InvalidArgumentException('The messages are expected as array');
         }
 
     }
@@ -200,27 +201,6 @@ abstract class Validator implements ValidatorInterface
     }
 
     /**
-     * setResultClassName
-     *
-     * Sets the name of the custom result object for the validator.
-     *
-     * @access  public
-     * @param   string   $className
-     * @return  void
-     * @throws  \InvalidArgumentException
-     */
-    public function setResultClassName($className)
-    {
-
-        if (is_string($className) == true) {
-            $this->resultClass = $className;
-        } else {
-            throw new \InvalidArgumentException('The messages are expected as array');
-        }
-
-    }
-
-    /**
      * createResult
      *
      * Creates the result object which is returned by the validator.
@@ -234,12 +214,8 @@ abstract class Validator implements ValidatorInterface
     protected function createResult($isValid, $message = '')
     {
 
-        if ($this->result == null) {
-            $result = new Result();
-        } else {
-            $result = $this->result;
-        }
         try {
+            $result = $this->result;
             $result->setIsValid($isValid);
             $result->setMessage($message);
 
