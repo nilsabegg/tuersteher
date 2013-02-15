@@ -24,6 +24,7 @@ namespace Tuersteher\Interfaces;
  */
 interface Result
 {
+    
     /**
      * __toString
      *

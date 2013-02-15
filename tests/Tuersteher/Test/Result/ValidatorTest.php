@@ -8,30 +8,30 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     public function testConstruct()
     {
 
-//        $isValid = true;
-//        $message = 'Valid.';
-//        $result = new \Tuersteher\Result\Validator($isValid, $message);
-//        $this->assertEquals($isValid, $result->getIsValid());
-//        $this->assertEquals($message, $result->getMessage());
-//        $isValid2 = 324;
-//        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
-//        new \Tuersteher\Result\Validator($isValid2);
+        $isValid = true;
+        $message = 'Valid.';
+        $result = new \Tuersteher\Result\Validator($isValid, $message);
+        $this->assertEquals($isValid, $result->getIsValid());
+        $this->assertEquals($message, $result->getMessage());
+        $isValid2 = 324;
+        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
+        new \Tuersteher\Result\Validator($isValid2);
 
     }
 
-//    public function testToString()
-//    {
-//
-//        $result = new \Tuersteher\Result\Validator(true);
-//        $this->assertEquals("$result", 'Is valid.');
-//        $result->setIsValid(false);
-//        $this->assertEquals("$result", 'Is not valid.');
-//        $result->setMessage('Blabla');
-//        $this->assertEquals("$result", 'Blabla');
-//        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
-//        new \Tuersteher\Result\Validator(true, array());
-//
-//    }
+    public function testToString()
+    {
+
+        $result = new \Tuersteher\Result\Validator(true);
+        $this->assertEquals("$result", 'Is valid.');
+        $result->setIsValid(false);
+        $this->assertEquals("$result", 'Is not valid.');
+        $result->setMessage('Blabla');
+        $this->assertEquals("$result", 'Blabla');
+        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
+        new \Tuersteher\Result\Validator(true, array());
+
+    }
 //
 //    public function testGetAndSetIsValid()
 //    {

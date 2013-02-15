@@ -6,6 +6,8 @@
 
 namespace Tuersteher;
 
+use Tuersteher\Result\Validator as ValidatorResult;
+
 /**
  * Türsteher
  *
@@ -18,6 +20,10 @@ namespace Tuersteher;
  */
 class Tuersteher
 {
+    
+    protected $schemaResult = null;
+
+    protected $validatorResult = null;
 
     /**
      * __construct
@@ -30,16 +36,32 @@ class Tuersteher
     public function __construct()
     {
 
-
+        $this->validatorResult = new ValidatorResult();
 
     }
 
-
-    public function newValidator($className)
+    public function setSchemaResult(\Tuersteher\Interfaces\Schema\Result $result)
     {
+
+        $this->schemaResult = $result;
+
+    }
+
+    public function setValidatorResult(\Tuersteher\Interfaces\Result $result)
+    {
+
+        $this->validatorResult = $result;
+
+    }
+
+    public function create($className)
+    {
+
         $validator = new $className();
+        $validator->setResult(clone $this->validatorResult);
 
         return $validator;
+
     }
 
 }

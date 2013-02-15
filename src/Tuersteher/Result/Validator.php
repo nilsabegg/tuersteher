@@ -22,7 +22,7 @@ use \Tuersteher\Interfaces\Result as ResultInterface;
  */
 class Validator implements ResultInterface
 {
-
+    
     /**
      * isValid
      *
@@ -222,5 +222,4 @@ class Validator implements ResultInterface
         }
 
     }
-
 }
