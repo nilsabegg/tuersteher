@@ -20,5 +20,4 @@ namespace Tuersteher\Interfaces;
  */
 interface Exception
 {
-
 }

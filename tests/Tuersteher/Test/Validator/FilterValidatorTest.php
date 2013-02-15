@@ -59,7 +59,7 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
         $validator->setOptions($options);
         $this->assertEquals($validator->getOptions(), $options);
         $validator->setOptions(array());
-        $this->setExpectedException('\\Tuersteher\\Exception\\Filter');
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
         $validator->setOptions('no array');
 
     }
@@ -68,8 +68,8 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
     {
 
         $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\Filter');
-        $this->setExpectedException('\\Tuersteher\\Exception\\Filter');
-        $validator->getFlag();
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $validator->getFlag('Pimmeludo');
 
     }
 
@@ -80,7 +80,7 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
         $flag = 22;
         $validator->setFlag('flag', $flag);
         $this->assertEquals($validator->getFlag('flag'), $flag);
-        $this->setExpectedException('\\Tuersteher\\Exception\\Filter');
+        $this->setExpectedException('\\Tuersteher\\Exception\\FilterInvalidArgument');
         $validator->setFlag('no integer');
 
     }

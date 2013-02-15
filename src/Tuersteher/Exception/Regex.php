@@ -21,7 +21,4 @@ use \Tuersteher\Exception\Exception as Exception;
  */
 class Regex extends Exception
 {
-
-
-
 }

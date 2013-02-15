@@ -62,20 +62,20 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $result->setMessage($message3);
 
     }
-//
-//    public function testIsValid()
-//    {
-//
-//        $isValid = true;
-//        $result = new \Tuersteher\Result\Validator($isValid, 'Valid.');
-//        $this->assertEquals($result->isValid(), $isValid);
-//        $isValid2 = false;
-//        $result->setIsValid($isValid2);
-//        $this->assertEquals($isValid2, $result->isValid());
-//        $result2 = new \Tuersteher\Result\Validator();
-//        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
-//        $result2->isValid();
-//
-//    }
+
+    public function testIsValid()
+    {
+
+        $isValid = true;
+        $result = new \Tuersteher\Result\Validator($isValid, 'Valid.');
+        $this->assertEquals($result->isValid(), $isValid);
+        $isValid2 = false;
+        $result->setIsValid($isValid2);
+        $this->assertEquals($isValid2, $result->isValid());
+        $result2 = new \Tuersteher\Result\Validator();
+        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
+        $result2->isValid();
+
+    }
 
 }

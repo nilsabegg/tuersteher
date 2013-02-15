@@ -21,7 +21,4 @@ use \Tuersteher\Interfaces\Exception as ExceptionInterface;
  */
 abstract class Exception extends \Exception implements ExceptionInterface
 {
-
-
-
 }

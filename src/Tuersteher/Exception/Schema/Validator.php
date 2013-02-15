@@ -21,7 +21,4 @@ use \Tuersteher\Exception as Exception;
  */
 class Validator extends Exception
 {
-
-
-
 }
