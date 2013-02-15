@@ -6,7 +6,7 @@
 
 namespace Tuersteher\Validator\Filter;
 
-use Tuersteher\Validator\FilterValidator as FilterValidator;
+use Tuersteher\Validator\Filter as FilterValidator;
 
 /**
  * Email

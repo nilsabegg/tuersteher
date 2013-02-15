@@ -6,7 +6,7 @@
 
 namespace Tuersteher\Validator;
 
-use Tuersteher\Validator as Validator;
+use Tuersteher\Validator\Validator as Validator;
 use Tuersteher\Exception\Regex as RegexException;
 /**
  * RegexValidator
@@ -141,7 +141,7 @@ abstract class RegexValidator extends Validator
         $isValid = preg_match($this->regex, $value);
         if ($isValid != false) {
             $this->result = $this->createResult(true, $this->messages['default']);
-        }  else {
+        } else {
             $this->result = $this->createResult(false, $this->messages['default']);
         }
 

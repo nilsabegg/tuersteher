@@ -6,7 +6,7 @@
 
 namespace Tuersteher\Exception\Schema;
 
-use \Tuersteher\Exception as Exception;
+use \Tuersteher\Exception\Exception as Exception;
 
 /**
  * Validator

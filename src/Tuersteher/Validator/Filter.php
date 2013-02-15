@@ -215,9 +215,9 @@ abstract class Filter extends Validator
         $optionsCount = count($this->options);
         if ($hasFlag == true && $optionsCount > 0) {
             $isValid = filter_var($value, $this->filter, array('options' => $this->options, 'flags' => $this->flags[0]));
-        } else if ($hasFlag == true) {
+        } elseif ($hasFlag == true) {
             $isValid = filter_var($value, $this->filter, $this->flags[0]);
-        } else if ($optionsCount > 0) {
+        } elseif ($optionsCount > 0) {
             $isValid = filter_var($value, $this->filter, array('options' => $this->options));
         } else {
             $isValid = filter_var($value, $this->filter);

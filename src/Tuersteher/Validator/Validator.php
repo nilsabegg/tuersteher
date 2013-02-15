@@ -119,6 +119,17 @@ abstract class Validator implements ValidatorInterface
 
     }
 
+    public function getResult()
+    {
+
+        if (isset($this->result) == true) {
+            return $this->result;
+        } else {
+            throw new ValidatorException('No Result set.');
+        }
+        
+    }
+
     /**
      * isValid
      *

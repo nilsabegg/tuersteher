@@ -6,7 +6,9 @@
 
 namespace Tuersteher\Validator\Filter;
 
-use Tuersteher\Validator\FilterValidator as FilterValidator;
+use \Tuersteher\Exception\Filter as FilterException;
+use \Tuersteher\Exception\InvalidArgument as InvalidArgumentException;
+use \Tuersteher\Validator\Filter as FilterValidator;
 
 /**
  * Url
@@ -49,24 +51,52 @@ class Url extends FilterValidator
         'default' => 'The input was not an URL.'
     );
 
+     /**
+     * getPathRequired
+     *
+     *
+     *
+     * @access public
+     * @return boolean
+     * @throws \Tuersteher\Exception\Filter
+     */
     public function getPathRequired()
     {
         if (isset($this->options['path_required']) == true) {
             return $this->options['path_required'];
         } else {
-            throw new FilterException('');
+            throw new FilterException('The option "path_required" is not set.');
         }
     }
 
+    /**
+     * getQueryRequired
+     *
+     *
+     *
+     * @access public
+     * @return boolean
+     * @throws \Tuersteher\Exception\Filter
+     */
     public function getQueryRequired()
     {
         if (isset($this->options['query_required']) == true) {
-            return $this->options['query_required'];
+            return true;
         } else {
-            throw new FilterException('');
+            throw new FilterException('The option "path_required" is not set.');
         }
     }
 
+    /**
+     * setPathRequired
+     *
+     *
+     *
+     * @access public
+     * @param  boolean  $isRequired
+     * @return void
+     * @throws \Tuersteher\Exception\InvalidArgument
+     */
     public function setPathRequired($isRequired = true)
     {
 
@@ -75,11 +105,21 @@ class Url extends FilterValidator
         } elseif ($isRequired == false) {
             unset($this->flags['path_required']);
         } else {
-            throw new FilterException('');
+            throw new InvalidArgumentException('The passed argument is not a boolean.');
         }
 
     }
 
+    /**
+     * setQueryRequired
+     *
+     *
+     *
+     * @access public
+     * @param  boolean  $isRequired
+     * @return void
+     * @throws \Tuersteher\Exception\InvalidArgument
+     */
     public function setQueryRequired($isRequired = true)
     {
 
@@ -88,7 +128,7 @@ class Url extends FilterValidator
         } elseif ($isRequired == false) {
             unset($this->flags['query_required']);
         } else {
-            throw new FilterException('');
+            throw new InvalidArgumentException('The passed argument is not a boolean.');
         }
 
     }
