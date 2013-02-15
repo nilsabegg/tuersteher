@@ -57,16 +57,8 @@ class Validator implements ResultInterface
     public function __construct($isValid = null, $message = '')
     {
 
-        if (is_bool($isValid) == true || $isValid === null) {
-            $this->isValid = $isValid;
-        } else {
-            throw new InvalidArgumentException('The given result is not a boolean');
-        }
-        if (is_string($message) == true || $message === '') {
-            $this->message = $message;
-        } else {
-            throw new InvalidArgumentException('The given message is not a string.');
-        }
+        $this->setIsValid($isValid);
+        $this->setIsValid($message);
 
     }
 
@@ -107,32 +99,6 @@ class Validator implements ResultInterface
     {
 
         return $this->isValid();
-
-    }
-
-    /**
-     * createResult
-     *
-     *
-     *
-     * @access  public
-     * @return  boolean
-     * @throws  \Tuersteher\Exception\Result
-     */
-    public function createMessage()
-    {
-
-        if ($this->message != '') {
-            $message = $this->message;
-        } elseif ($this->isValid == true) {
-            $message = 'Is valid.';
-        } elseif ($this->isValid == false) {
-            $message = 'Is not valid.';
-        } else {
-            throw new ResultException('The result object is missing a message and the actual result');
-        }
-
-        return $message;
 
     }
 
@@ -207,7 +173,7 @@ class Validator implements ResultInterface
     public function setIsValid($isValid)
     {
 
-        if (is_bool($isValid)) {
+        if ($isValid === false || $isValid === true) {
             $this->isValid = $isValid;
         } else {
             throw new InvalidArgumentException('The given result is not a boolean');
@@ -233,6 +199,32 @@ class Validator implements ResultInterface
         } else {
             throw new InvalidArgumentException('The given message is not a string.');
         }
+
+    }
+
+    /**
+     * createResult
+     *
+     *
+     *
+     * @access  protected
+     * @return  boolean
+     * @throws  \Tuersteher\Exception\Result
+     */
+    protected function createMessage()
+    {
+
+        if ($this->message != '') {
+            $message = $this->message;
+        } elseif ($this->isValid == true) {
+            $message = 'Is valid.';
+        } elseif ($this->isValid == false) {
+            $message = 'Is not valid.';
+        } else {
+            throw new ResultException('The result object is missing a message and the actual result');
+        }
+
+        return $message;
 
     }
 }
