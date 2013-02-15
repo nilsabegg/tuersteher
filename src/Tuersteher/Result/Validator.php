@@ -86,7 +86,7 @@ class Validator implements ResultInterface
             $string = $this->message;
         } elseif ($this->isValid == true) {
             $string = 'Is valid.';
-        } else if ($this->isValid == false) {
+        } elseif ($this->isValid == false) {
             $string = 'Is not valid.';
         }
 
@@ -127,7 +127,7 @@ class Validator implements ResultInterface
     public function getIsValid()
     {
 
-       if ($this->isValid !== null) {
+        if ($this->isValid !== null) {
             return $this->isValid;
         } else {
             throw new ResultException('There is no result set.');
@@ -151,7 +151,7 @@ class Validator implements ResultInterface
             $message = $this->message;
         } elseif ($this->isValid === true) {
             $message = 'Is valid.';
-        } else if ($this->isValid === false) {
+        } elseif ($this->isValid === false) {
             $message = 'Is not valid.';
         } else {
             throw new ResultException('The result object is missing a message and the actual result');
