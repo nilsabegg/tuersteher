@@ -105,26 +105,6 @@ class Validator implements ResultInterface
     }
 
     /**
-     * getIsValid
-     *
-     * Returns the actual result of the result object.
-     *
-     * @access  public
-     * @return  mixed
-     * @throws  \Tuersteher\Exception\Result
-     */
-    public function getIsValid()
-    {
-
-        if ($this->isValid !== null) {
-            return $this->isValid;
-        } else {
-            throw new ResultException('There is no result set.');
-        }
-
-    }
-
-    /**
      * getMessage
      *
      * Returns the message of the result.
