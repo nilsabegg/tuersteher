@@ -34,109 +34,15 @@ abstract class Regex extends Validator
     protected $regex = '';
 
     /**
-     * method
-     *
-     * Specifies the method to execute the
-     * Regular Expression.
-     *
-     * @access  protected
-     * @var     string
-     */
-    protected $method = 'preg';
-
-    /**
-     * getMethod
-     *
-     * Returns the method to execute the
-     * Regular Expression.
-     *
-     * @access  public
-     * @return  string
-     */
-    public function getMethod()
-    {
-
-        return $this->method;
-
-    }
-
-    /**
-     * setMethod
-     *
-     * Set the method to execute the
-     * Regular Expression.
-     *
-     * @access  public
-     * @param   string  $method
-     * @return  void
-     */
-    public function setMethod($method)
-    {
-
-        if ($method == 'preg' || $method == 'filter') {
-            $this->method = $method;
-        } else {
-            throw new RegexException('Method must be "filter" or "preg".');
-        }
-
-    }
-
-    /**
      * validate
      *
      *
-     *
+     * 
+     * @access  public
      * @param   mixed   $value
      * @return  boolean
-     * @throws  \Tuersteher\Validator\Exception
      */
     public function validate($value)
-    {
-
-        if ($this->method == 'preg') {
-            $result = $this->isValidPreg($value);
-        } elseif ($this->method == 'filter') {
-            $result = $this->isValidFilter($value);
-        }
-        $this->result = $result;
-
-        return $this->result;
-
-    }
-
-    /**
-     * isValidFilter
-     *
-     *
-     *
-     * @access  protected
-     * @param   mixed   $value
-     * @return  \Tuersteher\Result
-     */
-    protected function isValidFilter($value)
-    {
-
-        $validator = new \Tuersteher\Validator\Filter\Regexp;
-        $options = array(
-            'regexp' => $this->regex
-        );
-        $validator->setOptions($options);
-        $result = $validator->validate($value);
-
-        return $result;
-
-    }
-
-    /**
-     * isValidPreg
-     *
-     *
-     *
-     * @access  protected
-     * @param   mixed   $value
-     * @return  \Tuersteher\Result
-     */
-    protected function isValidPreg($value)
     {
 
         $isValid = preg_match($this->regex, $value);
