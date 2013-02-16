@@ -37,7 +37,7 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
         $validator = new \Tuersteher\Test\Validator();
         $validator->setResult($result);
         $this->setExpectedException('\\Tuersteher\\Exception\\Validator');
-        $validator->validate('http://google.com');
+        $isValid = $validator->validate('http://google.com');
 
     }
 

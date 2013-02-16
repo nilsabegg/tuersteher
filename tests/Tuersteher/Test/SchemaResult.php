@@ -7,6 +7,7 @@
 namespace Tuersteher\Test;
 
 use \Tuersteher\Exception\Result as ResultException;
+use \Tuersteher\Interfaces\Schema\Result as ResultInterface;
 
 /**
  * Schema
@@ -18,6 +19,7 @@ use \Tuersteher\Exception\Result as ResultException;
  * @package     Türsteher
  * @category    Validation
  */
-class SchemaResult
+class SchemaResult  implements ResultInterface
 {
+
 }

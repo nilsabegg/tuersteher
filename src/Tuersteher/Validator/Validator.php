@@ -242,8 +242,8 @@ abstract class Validator implements ValidatorInterface
             $result->setMessage($message);
 
             return $result;
-        } catch (\Tuersteher\Exception\Result $e) {
-            throw new ValidatorException('\\Tuersteher\\Exception\\Result was thrown and catched.', 0, $e);
+        } catch (\Tuersteher\Exception\InvalidArgument $e) {
+            throw new ValidatorException('\\Tuersteher\\Exception\\InvalidArgument was thrown and catched.', 0, $e);
         }
 
     }
