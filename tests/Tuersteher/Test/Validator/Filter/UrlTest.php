@@ -39,8 +39,11 @@ class UrlTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($isValid5());
         $url4 = 'http://google.com/path/?q=search';
         $isValid6 = $validator->validate($url4);
+        $isValid7 = $validator->isValid();
+        $isValid8 = $validator->isValid($url4);
         $this->assertTrue($isValid6());
-
+        $this->assertTrue($isValid7);
+        $this->assertTrue($isValid8);
         $validator->setQueryRequired(false);
         $queryRequired3 = $validator->isQueryRequired();
         $this->assertFalse($queryRequired3);
@@ -50,7 +53,7 @@ class UrlTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($pathRequired3);
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
         $validator->setPathRequired(array());
-        
+
     }
 
     public function testSetQueryRequiredException()
