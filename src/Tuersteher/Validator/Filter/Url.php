@@ -60,7 +60,7 @@ class Url extends FilterValidator
      */
     public function isPathRequired()
     {
-        if (isset($this->options['path_required']) == true) {
+        if (isset($this->flags['path_required']) == true) {
             return true;
         } else {
             return false;
@@ -77,7 +77,7 @@ class Url extends FilterValidator
      */
     public function isQueryRequired()
     {
-        if (isset($this->options['query_required']) == true) {
+        if (isset($this->flags['query_required']) == true) {
             return true;
         } else {
             return false;
