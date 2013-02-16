@@ -64,12 +64,32 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
 
     }
 
+    public function testAddFlag()
+    {
+
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\Filter');
+        $flag = 22;
+        $validator->addFlag('flag', $flag);
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $validator->addFlag('flag', $flag);
+
+    }
+
     public function testGetFlag()
     {
 
         $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\Filter');
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
         $validator->getFlag('Pimmeludo');
+
+    }
+
+    public function testGetFlags()
+    {
+
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\Filter');
+        $this->setExpectedException('\\Tuersteher\\Exception\\Filter');
+        $validator->getFlags();
 
     }
 
@@ -85,6 +105,21 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($validator->getFlag('flag'), $flag2);
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
         $validator->setFlag('no flag', 'flag');
+
+    }
+
+    public function testSetFlags()
+    {
+
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\Filter');
+        $flags = array(
+            'filter1' => 111,
+            'filter2' => 222,
+        );
+        $validator->setFlags($flags);
+        $this->assertEquals($flags, $this->getFlags());
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $validator->setFlags('no array');
 
     }
 

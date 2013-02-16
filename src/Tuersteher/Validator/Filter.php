@@ -147,8 +147,8 @@ abstract class Filter extends Validator
     public function getFlags()
     {
 
-        if (count($this->options) > 0) {
-            return $this->options;
+        if (count($this->flags) > 0) {
+            return $this->flags;
         } else {
             throw new FilterException('No options set.');
         }
