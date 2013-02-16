@@ -50,4 +50,12 @@ class FloatTest extends \PHPUnit_Framework_TestCase
 
     }
 
+    public function testGetDecimalSeperator()
+    {
+        $result = new \Tuersteher\Result\Validator();
+        $validator = new \Tuersteher\Validator\Filter\Float();
+        $validator->setResult($result);
+        $this->setExpectedException('\\Tuersteher\\Exception\\Filter');
+        $validator->getDecimalSeperator();
+    }
 }
