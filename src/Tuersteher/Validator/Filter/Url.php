@@ -6,7 +6,6 @@
 
 namespace Tuersteher\Validator\Filter;
 
-use \Tuersteher\Exception\Filter as FilterException;
 use \Tuersteher\Exception\InvalidArgument as InvalidArgumentException;
 use \Tuersteher\Validator\Filter as FilterValidator;
 
@@ -58,32 +57,30 @@ class Url extends FilterValidator
      *
      * @access public
      * @return boolean
-     * @throws \Tuersteher\Exception\Filter
      */
     public function isPathRequired()
     {
         if (isset($this->options['path_required']) == true) {
-            return $this->options['path_required'];
+            return true;
         } else {
-            throw new FilterException('The option "path_required" is not set.');
+            return false;
         }
     }
 
     /**
      * isQueryRequired
      *
-     * 
+     *
      *
      * @access public
      * @return boolean
-     * @throws \Tuersteher\Exception\Filter
      */
     public function isQueryRequired()
     {
         if (isset($this->options['query_required']) == true) {
             return true;
         } else {
-            throw new FilterException('The option "path_required" is not set.');
+            return false;
         }
     }
 
