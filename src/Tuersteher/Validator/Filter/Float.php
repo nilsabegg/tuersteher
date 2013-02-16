@@ -6,7 +6,9 @@
 
 namespace Tuersteher\Validator\Filter;
 
-use Tuersteher\Validator\Filter as FilterValidator;
+use \Tuersteher\Exception\Filter as FilterException;
+use \Tuersteher\Validator\Filter as FilterValidator;
+use \Tuersteher\Exception\InvalidArgument as InvalidArgumentException;
 
 /**
  * Email
