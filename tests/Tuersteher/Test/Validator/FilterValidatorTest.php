@@ -117,7 +117,7 @@ class FilterValidatorTest extends \PHPUnit_Framework_TestCase
             'filter2' => 222,
         );
         $validator->setFlags($flags);
-        $this->assertEquals($flags, $this->getFlags());
+        $this->assertEquals($flags, $validator->getFlags());
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
         $validator->setFlags('no array');
 
