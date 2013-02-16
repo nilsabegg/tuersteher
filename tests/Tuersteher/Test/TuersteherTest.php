@@ -33,7 +33,7 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
     public function testResultBadExtendedValidator()
     {
 
-        $result = new \Tuersteher\Test\ValidatorResult();
+        $result = new \Tuersteher\Result\Validator();
         $validator = new \Tuersteher\Test\Validator();
         $validator->setResult($result);
         $this->setExpectedException('\\Tuersteher\\Exception\\Validator');
