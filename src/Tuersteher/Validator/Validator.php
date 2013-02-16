@@ -32,7 +32,9 @@ abstract class Validator implements ValidatorInterface
      * @access  protected
      * @var     array
      */
-    protected $messages = array();
+    protected $messages = array(
+        'default' => 'The input was not valid.'
+    );
 
     /**
      * result
