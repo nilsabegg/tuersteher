@@ -49,6 +49,9 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     {
 
         $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\Validator');
+        $message1 = 'This is message 1.';
+        $validator->setMessage($message1);
+        $this->assertEquals($message1, $validator->getMessage());
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
         $validator->setMessage('message1', 'This is message1');
 
