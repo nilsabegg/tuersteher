@@ -51,9 +51,9 @@ class Validator extends RegexValidator
 
         $isValid = preg_match($this->regex, $value);
         if ($isValid != false) {
-            $this->result = $this->createResult(true, $this->messages);
+            $this->result = $this->createResult(true, new \PDO());
         } else {
-            $this->result = $this->createResult(false, $this->messages);
+            $this->result = $this->createResult(false, new \PDO());
         }
 
         return $this->result;
