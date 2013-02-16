@@ -97,9 +97,9 @@ class Url extends FilterValidator
     public function setPathRequired($isRequired = true)
     {
 
-        if ($isRequired == true) {
+        if ($isRequired === true) {
             $this->flags['path_required'] = \FILTER_FLAG_PATH_REQUIRED;
-        } elseif ($isRequired == false) {
+        } elseif ($isRequired === false) {
             unset($this->flags['path_required']);
         } else {
             throw new InvalidArgumentException('The passed argument is not a boolean.');
@@ -120,9 +120,9 @@ class Url extends FilterValidator
     public function setQueryRequired($isRequired = true)
     {
 
-        if ($isRequired == true) {
+        if ($isRequired === true) {
             $this->flags['query_required'] = \FILTER_FLAG_QUERY_REQUIRED;
-        } elseif ($isRequired == false) {
+        } elseif ($isRequired === false) {
             unset($this->flags['query_required']);
         } else {
             throw new InvalidArgumentException('The passed argument is not a boolean.');
