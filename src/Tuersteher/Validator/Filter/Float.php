@@ -48,4 +48,88 @@ class Float extends FilterValidator
     protected $messages = array(
         'default' => 'The input was not a float.'
     );
+
+    /**
+     * getDecimalSeperator
+     *
+     *
+     *
+     * @access public
+     * @return string
+     */
+    public function getDecimalSeperator()
+    {
+
+        if (isset($this->options['decimal']) == true) {
+            return $this->options['decimal'];
+        } else {
+            throw new FilterException('The decimal seperator is not set.');
+        }
+
+    }
+
+    /**
+     * isThousandsSeperatorAllowed
+     *
+     *
+     *
+     * @access public
+     * @return boolean
+     */
+    public function isThousandsSeperatorAllowed()
+    {
+
+        if (isset($this->flags['thousands_seperator_allowed']) == true) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    /**
+     * setDecimalSeperator
+     *
+     *
+     *
+     * @access public
+     * @param  string   $seperator
+     * @return void
+     * @throws \Tuersteher\Exception\InvalidArgument
+     */
+    public function setDecimalSeperator($seperator)
+    {
+
+        if (is_string($seperator) == true) {
+            $this->options['decimal'] = $seperator;
+        } elseif ($seperator == '') {
+            unset($this->options['decimal']);
+        } else {
+            throw new InvalidArgumentException('The passed seperator is not a string.');
+        }
+
+    }
+
+    /**
+     * setThousandSeperatorAllowed
+     *
+     *
+     *
+     * @access public
+     * @param  boolean  $isAllowed
+     * @return void
+     * @throws \Tuersteher\Exception\InvalidArgument
+     */
+    public function setThousandsSeperatorAllowed($isAllowed = true)
+    {
+
+        if ($isAllowed === true) {
+            $this->flags['thousands_seperator_allowed'] = \FILTER_FLAG_ALLOW_THOUSAND;
+        } elseif ($isAllowed === false) {
+            unset($this->flags['thousands_seperator_allowed']);
+        } else {
+            throw new InvalidArgumentException('The passed argument is not a boolean.');
+        }
+
+    }
 }
