@@ -102,10 +102,10 @@ class Float extends FilterValidator
     public function setDecimalSeperator($seperator)
     {
 
-        if (is_string($seperator) == true) {
-            $this->options['decimal'] = $seperator;
-        } elseif ($seperator == '') {
+        if ($seperator == '') {
             unset($this->options['decimal']);
+        } elseif (is_string($seperator) == true) {
+            $this->options['decimal'] = $seperator;
         } else {
             throw new InvalidArgumentException('The passed seperator is not a string.');
         }
