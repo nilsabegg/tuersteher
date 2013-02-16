@@ -31,7 +31,7 @@ class UrlTest extends \PHPUnit_Framework_TestCase
 
         $pathRequired = $validator->isPathRequired();
         $this->assertFalse($pathRequired);
-        $validator->setQueryRequired(true);
+        $validator->setPathRequired(true);
         $pathRequired2 = $validator->isPathRequired();
         $this->assertTrue($pathRequired2);
         $isValid5 = $validator->validate($url3);

@@ -236,7 +236,6 @@ abstract class Validator implements ValidatorInterface
 
         try {
             $result = clone $this->result;
-            print_r($isValid);
             $result->setIsValid($isValid);
             $result->setMessage($message);
 
