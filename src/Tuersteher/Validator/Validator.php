@@ -73,7 +73,7 @@ abstract class Validator implements ValidatorInterface
         if (key_exists($name, $this->messages) == false) {
             $this->messages[$name] = $message;
         } else {
-            throw new InvalidArgumentException('Message "' . $name . '" allready exists');
+            throw new InvalidArgumentException('Message "' . $name . '" allready exists.');
         }
 
     }
@@ -95,7 +95,7 @@ abstract class Validator implements ValidatorInterface
 
             return $this->messages[$name];
         } else {
-            throw new InvalidArgumentException('Message "' . $name . '" doesn\'t exist');
+            throw new InvalidArgumentException('Message "' . $name . '" doesn\'t exist.');
         }
 
     }
@@ -201,7 +201,7 @@ abstract class Validator implements ValidatorInterface
         if (is_array($messages) == true) {
             $this->messages = $messages;
         } else {
-            throw new InvalidArgumentException('The messages are expected as array');
+            throw new InvalidArgumentException('The messages are expected as array.');
         }
 
     }
