@@ -28,7 +28,7 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
 
     public function testGetAndSetResult()
     {
-        
+
         $result1 = new \Tuersteher\Result\Validator(true);
         $result2 = new \Tuersteher\Result\Validator(false);
         $result = new \Tuersteher\Result\Schema();
@@ -40,7 +40,31 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
         $result->addResult('result1', $result1);
 
     }
+    public function testGetResultException()
+    {
 
+        $result = new \Tuersteher\Result\Schema();
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $result->getResult('result1');
+
+    }
+    public function testGetResultsException()
+    {
+
+        $result = new \Tuersteher\Result\Schema();
+        $this->setExpectedException('\\Tuersteher\\Exception\\Validator');
+        $result->getResults();
+
+    }
+    public function testSetResultException()
+    {
+
+        $result = new \Tuersteher\Result\Schema();
+        $result1 = new \Tuersteher\Result\Validator(true);
+        $this->setExpectedException('\\Tuersteher\\Exception\\Validator');
+        $result->setResult('result1', $result1);
+
+    }
     public function testIsValid()
     {
 
