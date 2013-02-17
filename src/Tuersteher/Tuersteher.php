@@ -106,4 +106,32 @@ class Tuersteher
         return $validator;
 
     }
+
+    public function createSchemaFromYaml($parsedYamlArray)
+    {
+
+        $schema = new \Tuersteher\Validator\Schema();
+        $schema->setResult(clone $this->schemaResult);
+        foreach ($parsedYamlArray as $validatorName => $validatorSettings) {
+            $validator = $this->createValidatorFromYaml($validatorSettings);
+            $schema->addValidator($validatorName, $validator);
+        }
+
+    }
+
+    protected function createValidatorFromYaml($validatorSettings)
+    {
+        $validator = new $validatorSettings['class'];
+        $validator->setResult(clone $this->validatorResult);
+        foreach ($validatorSettings as $settingName => $setting) {
+            if ($settingName == 'messages') {
+                $validator->setMessages($setting);
+            } elseif ($settingName == 'options') {
+                foreach ($setting as $optionName => $option) {
+                    $methodName = 'set' . ucfirst($optionName);
+                    $validator->$methodName($option);
+                }
+            }
+        }
+    }
 }
