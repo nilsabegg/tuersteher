@@ -6,8 +6,8 @@
 
 namespace Tuersteher\Validator;
 
-use Tuersteher\Exception as Exception;
-
+use \Tuersteher\Exception as Exception;
+use \Tuersteher\Validator\Schema as Validator;
 /**
  * ValidationSchema
  *
@@ -18,7 +18,7 @@ use Tuersteher\Exception as Exception;
  * @package Türsteher
  * @category Validation
  */
-class Schema
+class Schema extends Validator
 {
 
     /**
@@ -56,7 +56,7 @@ class Schema
         }
 
     }
-    
+
     /**
      * addValidator
      *
