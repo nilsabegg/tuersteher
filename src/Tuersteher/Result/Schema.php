@@ -6,6 +6,7 @@
 
 namespace Tuersteher\Result;
 
+use \Tuersteher\Exception\InvalidArgument as InvalidArgumentException;
 use \Tuersteher\Exception\Result as ResultException;
 use \Tuersteher\Interfaces\Schema\Result as SchemaResultInterface;
 use \Tuersteher\Result\Validator as ValidatorResult;
