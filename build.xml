@@ -2,10 +2,10 @@
 
 <project name="name-of-project" default="build">
  <target name="build"
-   depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpunit,phpdoc,phpcb,phpdoc-error"/>
+   depends="composer,prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpunit,phpdoc,phpcb,phpdoc-error"/>
 
  <target name="build-parallel"
-   depends="prepare,lint,tools-parallel,phpcb,phpunit"/>
+   depends="composer,prepare,lint,tools-parallel,phpcb,phpunit"/>
 
  <target name="tools-parallel" description="Run tools in parallel">
   <parallel threadCount="2">
@@ -37,6 +37,12 @@
   <mkdir dir="${basedir}/build/coverage"/>
   <mkdir dir="${basedir}/build/pdepend"/>
   <mkdir dir="${basedir}/build/doc"/>
+ </target>
+
+ <target name="composer" description="Install dependencies for Unit Tests">
+   <exec executable="composer">
+     <arg line="install" />
+   </exec>
  </target>
 
  <target name="lint" description="Perform syntax check of sourcecode files">
