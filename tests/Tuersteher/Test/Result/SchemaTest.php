@@ -20,9 +20,9 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($isValid, $result->isValid());
         $this->assertEquals($message, $result->getMessage());
         $this->assertEquals($results, $result->getResults());
-        $isValid2 = 324;
+        $results2 = 324;
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
-        new \Tuersteher\Result\Validator($isValid2);
+        new \Tuersteher\Result\Validator($isValid, $message, $results2);
 
     }
 
