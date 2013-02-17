@@ -26,6 +26,29 @@ class Schema extends ValidatorResult implements SchemaResultInterface
     protected $results = array(
 
     );
+    /**
+     * __construct
+     *
+     * Constructs the object.
+     *
+     * @access public
+     * @param  boolean  $isValid
+     * @param  string   $message
+     * @return void
+     * @throws \Tuersteher\Exception\InvalidArgument
+     */
+    public function __construct($isValid = null, $message = '', $results = null)
+    {
+
+        if ($isValid !== null) {
+            $this->setIsValid($isValid);
+        }
+        $this->setMessage($message);
+        if ($results != null) {
+            $this->setResults($results);
+        }
+
+    }
 
     public function addResult($name, \Tuersteher\Interfaces\Result $result)
     {
