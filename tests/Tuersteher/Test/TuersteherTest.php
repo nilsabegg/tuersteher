@@ -18,7 +18,17 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf($className, $validator);
 
     }
-
+    public function testSchema()
+    {
+        $tuersteher = new \Tuersteher\Tuersteher();
+        $validatorResult = new \Tuersteher\Test\ValidatorResult();
+        $tuersteher->setValidatorResult($validatorResult);
+        $schemaResult = new \Tuersteher\Test\SchemaResult();
+        $tuersteher->setSchemaResult($schemaResult);
+        $className = '\\Tuersteher\\Validator\\Filter\\Url';
+        $validator = $tuersteher->create($className);
+        $this->assertInstanceOf($className, $validator);
+    }
     public function testMessagesBadExtendedValidator()
     {
 
