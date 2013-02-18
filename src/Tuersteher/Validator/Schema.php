@@ -136,22 +136,23 @@ class Schema extends Validator
      *
      *
      * @access  public
+     * @param   string $key
      * @param   string $name
      * @param   \Tuersteher\Interfaces\Validator $validator
      * @return  void
      * @throws  \Tuersteher\Exception\InvalidArgument
      */
-    public function setValidator($name, \Tuersteher\Interfaces\Validator $validator)
+    public function setValidator($key, $name, \Tuersteher\Interfaces\Validator $validator)
     {
 
-        if ($name != '') {
-            if (key_exists($name, $this->validators) == true) {
-                $this->validators[$name] = $validator;
+        if ($key != '' && $name != '') {
+            if (key_exists($name, $this->validators[$key]) == true) {
+                $this->validators[$key][$name] = $validator;
             } else {
-                throw new InvalidArgumentException('Validator doesn\'t exists.');
+                throw new InvalidArgumentException('Validator doesn\'t exist.');
             }
         } else {
-            throw new InvalidArgumentException('No name for Validator given.');
+            throw new InvalidArgumentException('No key or name for Validator given.');
         }
 
     }
