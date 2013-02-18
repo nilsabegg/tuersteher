@@ -146,7 +146,7 @@ class Schema extends Validator
     {
 
         if ($key != '' && $name != '') {
-            if (key_exists($name, $this->validators[$key]) == true) {
+            if (isset($this->validators[$key][$name]) == true) {
                 $this->validators[$key][$name] = $validator;
             } else {
                 throw new InvalidArgumentException('Validator doesn\'t exist.');
