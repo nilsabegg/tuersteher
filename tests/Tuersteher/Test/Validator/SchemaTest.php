@@ -1,6 +1,6 @@
 <?php
 
-namespace Tuersteher\Test\Result;
+namespace Tuersteher\Test\Validator;
 
 class SchemaTest extends \PHPUnit_Framework_TestCase
 {
