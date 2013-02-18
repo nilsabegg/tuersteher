@@ -42,7 +42,7 @@ class Schema extends ValidatorResult implements SchemaResultInterface
     {
 
         if ($isValid !== null) {
-            $this->setIsValid($isValid);
+            $this->setValid($isValid);
         }
         $this->setMessage($message);
         if ($results != null) {
