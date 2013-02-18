@@ -151,6 +151,18 @@ abstract class Validator implements ValidatorInterface
 
     }
 
+    /**
+     * isNullAllowed
+     *
+     * Returns if the validated value of the validator
+     * is allowed to be null.<br>
+     * This is only used when the validator is added
+     * to a schema.
+     *
+     * @access  public
+     * @return  boolean
+     * @throws  \Tuersteher\Exception\InvalidArgument
+     */
     public function isNullAllowed()
     {
 
@@ -180,6 +192,7 @@ abstract class Validator implements ValidatorInterface
         }
 
     }
+
     /**
      * setMessage
      *
@@ -223,6 +236,19 @@ abstract class Validator implements ValidatorInterface
 
     }
 
+    /**
+     * setNullAllowed
+     *
+     * Sets if the validated value of the validator
+     * is allowed to be null.<br>
+     * This is only used when the validator is added
+     * to a schema.
+     *
+     * @access  public
+     * @param   boolean $nullAllowed
+     * @return  void
+     * @throws  \Tuersteher\Exception\InvalidArgument
+     */
     public function setNullAllowed($nullAllowed)
     {
 

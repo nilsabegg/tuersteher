@@ -44,7 +44,7 @@ class Schema extends ValidatorResult implements SchemaResultInterface
      * @access public
      * @param  boolean  $isValid
      * @param  string   $message
-     * @param  mixed    $results
+     * @param  mixed    $results    An array where each value is an instance of \Tuersteher\Interfaces\Result.
      * @return void
      * @throws \Tuersteher\Exception\InvalidArgument
      */
@@ -61,28 +61,58 @@ class Schema extends ValidatorResult implements SchemaResultInterface
 
     }
 
-    public function addResult($name, \Tuersteher\Interfaces\Result $result)
+    /**
+     * addResult
+     *
+     * Adds the result for a validator key.
+     *
+     * @access  public
+     * @param   string $key
+     * @param   \Tuersteher\Interfaces\Result $result
+     * @return  void
+     * @throws  \Tuersteher\Exception\InvalidArgument
+     */
+    public function addResult($key, \Tuersteher\Interfaces\Result $result)
     {
 
-        if (key_exists($name, $this->results) == false) {
-            $this->results[$name] = $result;
+        if (key_exists($key, $this->results) == false) {
+            $this->results[$key] = $result;
         } else {
-            throw new InvalidArgumentException('Result "' . $name . '" allready exists.');
+            throw new InvalidArgumentException('Result "' . $key . '" allready exists.');
         }
 
     }
 
-    public function getResult($name)
+    /**
+     * getResult
+     *
+     * Returns the result for a validator key.
+     *
+     * @access  public
+     * @param   string $key
+     * @return  \Tuersteher\Interfaces\Result
+     * @throws  \Tuersteher\Exception\InvalidArgument
+     */
+    public function getResult($key)
     {
 
-        if (key_exists($name, $this->results) == true) {
-            return $this->results[$name];
+        if (key_exists($key, $this->results) == true) {
+            return $this->results[$key];
         } else {
-            throw new InvalidArgumentException('Result "' . $name . '" doesn\'t exist.');
+            throw new InvalidArgumentException('Result "' . $key . '" doesn\'t exist.');
         }
 
     }
 
+    /**
+     * getResults
+     *
+     * Returns the results for each validator.
+     *
+     * @access  public
+     * @return  mixed   An array where each value is an instance of \Tuersteher\Interfaces\Result.
+     * @throws  \Tuersteher\Exception\InvalidArgument
+     */
     public function getResults()
     {
 

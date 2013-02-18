@@ -11,7 +11,7 @@ use Tuersteher\Result\Validator as ValidatorResult;
 /**
  * Türsteher
  *
- * This class validates if a given value is a URL.
+ * This class is the main class of the Türsteher library.
  *
  * @author  Nils Abegg <rueckgrat@nilsabegg.de>
  * @version 0.1
@@ -107,6 +107,15 @@ class Tuersteher
 
     }
 
+    /**
+     * createSchemaFromYaml
+     *
+     * Creates a validation schema from a parsed YAML file.
+     *
+     * @access  public
+     * @param   mixed $parsedYamlArray
+     * @return  \Tuersteher\Interfaces\Schema\Validator
+     */
     public function createSchemaFromYaml($parsedYamlArray)
     {
 
@@ -119,6 +128,15 @@ class Tuersteher
 
     }
 
+    /**
+     * createValidatorFromYaml
+     *
+     * Creates a validator from a parsed YAML file.
+     *
+     * @access  public
+     * @param   mixed $validatorSettings
+     * @return  \Tuersteher\Interfaces\Validator
+     */
     protected function createValidatorFromYaml($validatorSettings)
     {
         $validator = new $validatorSettings['class'];
