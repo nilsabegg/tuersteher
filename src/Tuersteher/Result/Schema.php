@@ -24,9 +24,18 @@ use \Tuersteher\Result\Validator as ValidatorResult;
 class Schema extends ValidatorResult implements SchemaResultInterface
 {
 
+    /**
+     * results
+     *
+     * Holds the result objects of the schema in an array.
+     *
+     * @access protected
+     * @var    mixed
+     */
     protected $results = array(
 
     );
+
     /**
      * __construct
      *
@@ -35,6 +44,7 @@ class Schema extends ValidatorResult implements SchemaResultInterface
      * @access public
      * @param  boolean  $isValid
      * @param  string   $message
+     * @param  mixed    $results
      * @return void
      * @throws \Tuersteher\Exception\InvalidArgument
      */
@@ -84,17 +94,39 @@ class Schema extends ValidatorResult implements SchemaResultInterface
 
     }
 
-    public function setResult($name, \Tuersteher\Interfaces\Result $result)
+    /**
+     * setResult
+     *
+     * Sets the result for a validator key.
+     *
+     * @access  public
+     * @param   string $name
+     * @param   \Tuersteher\Interfaces\Result $result
+     * @return  void
+     * @throws  \Tuersteher\Exception\InvalidArgument
+     */
+    public function setResult($key, \Tuersteher\Interfaces\Result $result)
     {
 
-        if (key_exists($name, $this->results) == true) {
-            $this->results[$name] = $result;
+        if (key_exists($key, $this->results) == true) {
+            $this->results[$key] = $result;
         } else {
-            throw new InvalidArgumentException('Result "' . $name . '" doesn\'t exist.');
+            throw new InvalidArgumentException('Result "' . $key . '" doesn\'t exist.');
         }
 
     }
 
+    /**
+     * setResults
+     *
+     * Sets the results of each validator for the
+     * result of the schema.
+     *
+     * @access  public
+     * @param   mixed $results An array where each value is an instance of \Tuersteher\Interfaces\Result.
+     * @return  void
+     * @throws  \Tuersteher\Exception\InvalidArgument
+     */
     public function setResults($results)
     {
 

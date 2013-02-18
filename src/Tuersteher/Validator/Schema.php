@@ -31,7 +31,7 @@ class Schema extends Validator
      * @var     array
      */
     protected $validators = array();
-    
+
     /**
      * messages
      *
@@ -75,13 +75,27 @@ class Schema extends Validator
 
     }
 
+    /**
+     * getValidator
+     *
+     * Adds a Validator to the Schema. You can add
+     * several validators to one key.
+     *
+     * @access  public
+     * @param   string $key
+     * @param   string $validatorName
+     * @return  \Tuersteher\Interfaces\Validator
+     * @throws  \Tuersteher\Exception\InvalidArgument
+     */
     public function getValidator($key, $name = null)
     {
 
         if ($name == null && key_exists($key, $this->validators) == true) {
-            return $this->validators[$key];
+            return $this->validators[$key][0];
+        } elseif (key_exists($name, $this->validators[$key]) == true) {
+            return $this->validators[$key][$name];
         } else {
-            throw new InvalidArgumentException('Validator "' . $name . '" doesn\'t exist.');
+            throw new InvalidArgumentException('Validator "' . $name . '" for key "' . $key . '" doesn\'t exist.');
         }
 
     }
@@ -92,7 +106,7 @@ class Schema extends Validator
      * Returns the all validators if no key is passed,
      * or all the validators for one key.
      *
-     * @access protected
+     * @access public
      * @param  string $key
      * @return mixed
      * @throws \Tuersteher\Exception\InvalidArgument
@@ -123,8 +137,8 @@ class Schema extends Validator
      * @access  public
      * @param   string $name
      * @param   \Tuersteher\Interfaces\Validator $validator
-     * @throws  \Tuersteher\Exception
      * @return  void
+     * @throws  \Tuersteher\Exception\InvalidArgument
      */
     public function setValidator($name, \Tuersteher\Interfaces\Validator $validator)
     {
@@ -141,6 +155,16 @@ class Schema extends Validator
 
     }
 
+    /**
+     * setValidators
+     *
+     *
+     *
+     * @access  public
+     * @param   mixed $validators
+     * @return  void
+     * @throws  \Tuersteher\Exception\InvalidArgument
+     */
     public function setValidators($validators)
     {
 
@@ -167,8 +191,14 @@ class Schema extends Validator
         $hasError = false;
         if (is_array($values) == true && count($values) > 0) {
             foreach ($values as $key => $value) {
+                $results = array();
                 if ($value != null) {
-                    $this->validators[$key]->validate($value);
+                    foreach ($this->validators[$key] as $validatorName => $validator) {
+                        $results[] = $validator->validate($value);
+                    }
+                    foreach ($results as $result) {
+
+                    }
                 } else {
 
                 }
