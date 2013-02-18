@@ -12,7 +12,7 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
         $validator2 = new \Tuersteher\Validator\Regex\Url();
         $schema = new \Tuersteher\Validator\Schema();
         $schema->addValidator('url', 'filter', $validator);
-        $this->assertEquals($schema->getValidator('url'), $validator);
+        $this->assertEquals($schema->getValidator('url', 'filter'), $validator);
         $schema->addValidator('url', 'regex', $validator2);
         $this->assertEquals($schema->getValidator('url', 'regex'), $validator2);
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
