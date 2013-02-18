@@ -59,7 +59,7 @@ class Validator implements ResultInterface
     {
 
         if ($isValid !== null) {
-            $this->setIsValid($isValid);
+            $this->setValid($isValid);
         }
         $this->setMessage($message);
 
