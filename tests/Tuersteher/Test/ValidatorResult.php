@@ -19,7 +19,7 @@ class ValidatorResult implements ResultInterface
     public function __construct($isValid = null, $message = '')
     {
 
-        $this->setIsValid($isValid);
+        $this->setValid($isValid);
         $this->setMessage($message);
 
     }
@@ -60,7 +60,7 @@ class ValidatorResult implements ResultInterface
 
     }
 
-    public function setIsValid($isValid)
+    public function setValid($isValid)
     {
 
         $this->isValid = $isValid;
