@@ -24,6 +24,16 @@ abstract class Validator implements ValidatorInterface
 {
 
     /**
+     * nullAllowed
+     *
+     * The value to be validated can be null if this is set to true.
+     *
+     * @access protected
+     * @var    boolean
+     */
+    protected $nullAllowed = false;
+
+    /**
      * messages
      *
      * Holds the messages for for invalid input in
@@ -141,6 +151,13 @@ abstract class Validator implements ValidatorInterface
 
     }
 
+    public function isNullAllowed()
+    {
+
+        return $this->nullAllowed;
+
+    }
+
     /**
      * isValid
      *
@@ -206,6 +223,17 @@ abstract class Validator implements ValidatorInterface
 
     }
 
+    public function setNullAllowed($nullAllowed)
+    {
+
+        if (is_bool($nullAllowed) === true) {
+            $this->nullAllowed = $nullAllowed;
+        } else {
+            throw new \InvalidArgumentException();
+        }
+
+    }
+
     /**
      * setResult
      *
@@ -238,7 +266,7 @@ abstract class Validator implements ValidatorInterface
 
         try {
             $result = clone $this->result;
-            $result->setIsValid($isValid);
+            $result->setValid($isValid);
             $result->setMessage($message);
 
             return $result;

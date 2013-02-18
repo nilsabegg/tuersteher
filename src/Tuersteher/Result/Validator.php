@@ -19,6 +19,7 @@ use \Tuersteher\Interfaces\Result as ResultInterface;
  * @version     0.1
  * @package     Türsteher
  * @category    Validation
+ * @todo        Make the object accessible as array.
  */
 class Validator implements ResultInterface
 {
@@ -31,7 +32,7 @@ class Validator implements ResultInterface
      * @access  protected
      * @var     boolean
      */
-    protected $isValid = null;
+    protected $valid = null;
 
     /**
      * message
@@ -137,8 +138,8 @@ class Validator implements ResultInterface
     public function isValid()
     {
 
-        if ($this->isValid !== null) {
-            return $this->isValid;
+        if ($this->valid !== null) {
+            return $this->valid;
         } else {
             throw new ResultException('There is no result set.');
         }
@@ -146,22 +147,22 @@ class Validator implements ResultInterface
     }
 
     /**
-     * setIsValid
+     * setValid
      *
      * Set the actual result of the result object.
      *
      * @access  public
-     * @param   boolean $isValid
+     * @param   boolean $valid
      * @return  void
      * @throws  \Tuersteher\Exception\InvalidArgument
      */
-    public function setIsValid($isValid)
+    public function setValid($valid)
     {
 
-        if ($isValid === false || $isValid === true) {
-            $this->isValid = $isValid;
+        if ($valid === false || $valid === true) {
+            $this->valid = $valid;
         } else {
-            throw new InvalidArgumentException('The given result is not a boolean');
+            throw new InvalidArgumentException('The given value is not a boolean');
         }
 
     }
@@ -201,9 +202,9 @@ class Validator implements ResultInterface
 
         if ($this->message != '') {
             $message = $this->message;
-        } elseif ($this->isValid === true) {
+        } elseif ($this->valid === true) {
             $message = 'Is valid.';
-        } elseif ($this->isValid === false) {
+        } elseif ($this->valid === false) {
             $message = 'Is not valid.';
         } else {
             throw new ResultException('The result object is missing a message and the actual result');

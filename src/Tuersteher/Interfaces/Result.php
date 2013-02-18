@@ -24,7 +24,7 @@ namespace Tuersteher\Interfaces;
  */
 interface Result
 {
-    
+
     /**
      * __toString
      *
@@ -74,15 +74,15 @@ interface Result
     public function isValid();
 
     /**
-     * setIsValid
+     * setValid
      *
      * Set the actual result of the result object.
      *
      * @access  public
-     * @param   boolean $isValid
+     * @param   boolean $valid
      * @return  void
      */
-    public function setIsValid($isValid);
+    public function setValid($valid);
 
     /**
      * setMessage

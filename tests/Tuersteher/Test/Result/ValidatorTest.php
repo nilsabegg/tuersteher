@@ -24,7 +24,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
 
         $result = new \Tuersteher\Result\Validator(true);
         $this->assertEquals("$result", 'Is valid.');
-        $result->setIsValid(false);
+        $result->setValid(false);
         $this->assertEquals("$result", 'Is not valid.');
         $result->setMessage('Blabla');
         $this->assertEquals("$result", 'Blabla');
@@ -40,11 +40,11 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $result = new \Tuersteher\Result\Validator($isValid);
         $this->assertEquals($isValid, $result->isValid());
         $isValid2 = false;
-        $result->setIsValid($isValid2);
+        $result->setValid($isValid2);
         $this->assertEquals($isValid2, $result->isValid());
         $isValid3 = 'dsfsfsddf';
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
-        $result->setIsValid($isValid3);
+        $result->setValid($isValid3);
 
     }
 //
@@ -70,7 +70,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $result = new \Tuersteher\Result\Validator($isValid, 'Valid.');
         $this->assertEquals($result->isValid(), $isValid);
         $isValid2 = false;
-        $result->setIsValid($isValid2);
+        $result->setValid($isValid2);
         $this->assertEquals($isValid2, $result->isValid());
         $result2 = new \Tuersteher\Result\Validator();
         $this->setExpectedException('\\Tuersteher\\Exception\\Result');
