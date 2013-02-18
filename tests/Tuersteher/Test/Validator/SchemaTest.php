@@ -12,12 +12,22 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
         $validator2 = new \Tuersteher\Validator\Regex\Url();
         $schema = new \Tuersteher\Validator\Schema();
         $schema->addValidator('url', 'filter', $validator);
+        $this->assertEquals($schema->getValidator('url'), $validator);
         $schema->addValidator('url', 'regex', $validator2);
+        $this->assertEquals($schema->getValidator('url', 'regex'), $validator2);
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
         $schema->addValidator('url', 'filter', $validator);
 
     }
+    public function testAddValidatorException()
+    {
 
+        $validator = new \Tuersteher\Validator\Filter\Url();
+        $schema = new \Tuersteher\Validator\Schema();
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $schema->addValidator('', '', $validator);
+
+    }
     public function testGetAndSetResult()
     {
 
@@ -54,6 +64,14 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
         $schema = new \Tuersteher\Validator\Schema();
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
         $schema->setValidator('1', '1', $validator);
+
+    }
+    public function testSetValidatorException2()
+    {
+        $validator = new \Tuersteher\Validator\Regex\Url();
+        $schema = new \Tuersteher\Validator\Schema();
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $schema->setValidator('', '', $validator);
 
     }
 
