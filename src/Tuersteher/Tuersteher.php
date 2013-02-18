@@ -121,9 +121,11 @@ class Tuersteher
 
         $schema = new \Tuersteher\Validator\Schema();
         $schema->setResult(clone $this->schemaResult);
-        foreach ($parsedYamlArray as $validatorName => $validatorSettings) {
-            $validator = $this->createValidatorFromYaml($validatorSettings);
-            $schema->addValidator($validatorName, $validator);
+        foreach ($parsedYamlArray as $validatorKey => $validators) {
+            foreach ($validators as $validatorName => $validatorSettings) {
+                $validator = $this->createValidatorFromYaml($validatorSettings);
+                $schema->addValidator($validatorKey, $validatorName, $validator);
+            }
         }
 
     }
