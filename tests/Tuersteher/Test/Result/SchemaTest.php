@@ -72,7 +72,7 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
         $result = new \Tuersteher\Result\Schema($isValid, 'Valid.');
         $this->assertEquals($result->isValid(), $isValid);
         $isValid2 = false;
-        $result->setIsValid($isValid2);
+        $result->setValid($isValid2);
         $this->assertEquals($isValid2, $result->isValid());
         $result2 = new \Tuersteher\Result\Schema();
         $this->setExpectedException('\\Tuersteher\\Exception\\Result');
