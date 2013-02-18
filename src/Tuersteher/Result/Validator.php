@@ -191,10 +191,10 @@ class Validator implements ResultInterface
     /**
      * createResult
      *
-     *
+     * Creates the Message for the result of the validator.
      *
      * @access  protected
-     * @return  boolean
+     * @return  string
      * @throws  \Tuersteher\Exception\Result
      */
     protected function createMessage()

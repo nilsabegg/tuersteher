@@ -7,6 +7,7 @@
 namespace Tuersteher\Interfaces\Schema;
 
 use \Tuersteher\Interfaces\Result as ValidatorResult;
+
 /**
  * ValidatorInterface
  *
@@ -25,5 +26,4 @@ use \Tuersteher\Interfaces\Result as ValidatorResult;
  */
 interface Result extends ValidatorResult
 {
-  
 }
