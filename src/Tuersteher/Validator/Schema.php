@@ -9,6 +9,7 @@ namespace Tuersteher\Validator;
 use \Tuersteher\Exception\InvalidArgument as InvalidArgumentException;
 use \Tuersteher\Exception\Schema\Validator as SchemaValidatorException;
 use \Tuersteher\Validator\Validator as Validator;
+
 /**
  * ValidationSchema
  *
@@ -61,7 +62,7 @@ class Schema extends Validator
     public function addValidator($key, $validatorName, \Tuersteher\Interfaces\Validator $validator)
     {
 
-        if ($key != '' && $validatorName != '' ) {
+        if ($key != '' && $validatorName != '') {
             if (key_exists($key, $this->validators) == false) {
                 $this->validators[$key][$validatorName] = $validator;
             } elseif (key_exists($validatorName, $this->validators[$key]) == false) {
@@ -83,7 +84,7 @@ class Schema extends Validator
      *
      * @access  public
      * @param   string $key
-     * @param   string $validatorName
+     * @param   string $name
      * @return  \Tuersteher\Interfaces\Validator
      * @throws  \Tuersteher\Exception\InvalidArgument
      */
@@ -182,7 +183,7 @@ class Schema extends Validator
      * Checks if the input is valid.
      *
      * @access  public
-     * @param   mixed   $value
+     * @param   mixed   $values
      * @return  \Tuersteher\Result\Schema
      */
     public function validate($values)

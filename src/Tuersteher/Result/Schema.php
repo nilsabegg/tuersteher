@@ -100,7 +100,7 @@ class Schema extends ValidatorResult implements SchemaResultInterface
      * Sets the result for a validator key.
      *
      * @access  public
-     * @param   string $name
+     * @param   string $key
      * @param   \Tuersteher\Interfaces\Result $result
      * @return  void
      * @throws  \Tuersteher\Exception\InvalidArgument
