@@ -53,9 +53,14 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
     public function testGetResultsException()
     {
 
-        $result = new \Tuersteher\Result\Schema();
-        $this->setExpectedException('\\Tuersteher\\Exception\\Result');
-        $result->getResults();
+        $validator = new \Tuersteher\Validator\Filter\Url();
+        $validator2 = new \Tuersteher\Validator\Regex\Url();
+        $schema = new \Tuersteher\Validator\Schema();
+        $validators = array($validator, $validator2);
+        $schema->setValidators($validators);
+        $this->assertEquals($schema->getValidators(), $validators);
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $schema->setValidators($validator);
 
     }
     public function testSetValidatorException()
