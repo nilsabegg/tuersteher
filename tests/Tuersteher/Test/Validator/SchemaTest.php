@@ -11,12 +11,10 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
         $validator = new \Tuersteher\Validator\Filter\Url();
         $validator2 = new \Tuersteher\Validator\Regex\Url();
         $schema = new \Tuersteher\Validator\Schema();
-        $schema->addValidator('url', 'filter', $validator);
-        $this->assertEquals($schema->getValidator('url', 'filter'), $validator);
-        $schema->addValidator('url', 'regex', $validator2);
-        $this->assertEquals($schema->getValidator('url', 'regex'), $validator2);
+        $schema->addValidator('url', $validator);
+        $this->assertEquals($schema->getValidator('url'), $validator);
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
-        $schema->addValidator('url', 'filter', $validator);
+        $schema->addValidator('url', $validator);
 
     }
     public function testAddValidatorException()
@@ -25,7 +23,7 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
         $validator = new \Tuersteher\Validator\Filter\Url();
         $schema = new \Tuersteher\Validator\Schema();
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
-        $schema->addValidator('', '', $validator);
+        $schema->addValidator('', $validator);
 
     }
     public function testGetAndSetResult()
@@ -68,7 +66,7 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
         $validator = new \Tuersteher\Validator\Regex\Url();
         $schema = new \Tuersteher\Validator\Schema();
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
-        $schema->setValidator('1', '1', $validator);
+        $schema->setValidator('1', $validator);
 
     }
     public function testSetValidatorException2()
@@ -76,7 +74,7 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
         $validator = new \Tuersteher\Validator\Regex\Url();
         $schema = new \Tuersteher\Validator\Schema();
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
-        $schema->setValidator('', '', $validator);
+        $schema->setValidator('', $validator);
 
     }
 
