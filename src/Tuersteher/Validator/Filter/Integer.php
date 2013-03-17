@@ -126,7 +126,7 @@ class Integer extends FilterValidator
         if ($min == '') {
             unset($this->options['min']);
         } elseif (is_int($min) == true) {
-            $this->options['min'] = $max;
+            $this->options['min'] = $min;
         } else {
             throw new InvalidArgumentException('The passed minimum value is not an integer.');
         }
