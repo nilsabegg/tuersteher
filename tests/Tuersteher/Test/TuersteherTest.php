@@ -11,6 +11,10 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
         $yamlParser = new \Symfony\Component\Yaml\Parser();
         $yaml = $yamlParser->parse(file_get_contents(__DIR__ . '/testSchema.yml'));
         $tuersteher = new \Tuersteher\Tuersteher();
+        $validatorResult = new \Tuersteher\Test\ValidatorResult();
+        $tuersteher->setValidatorResult($validatorResult);
+        $schemaResult = new \Tuersteher\Test\SchemaResult();
+        $tuersteher->setSchemaResult($schemaResult);
         $schema = $tuersteher->createSchemaFromYaml($yaml);
         $this->assertInstanceOf('\\Tuerster\\Validator\\Schema', $schema);
 
