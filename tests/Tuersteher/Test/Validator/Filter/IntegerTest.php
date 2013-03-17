@@ -23,13 +23,13 @@ class IntegerTest extends \PHPUnit_Framework_TestCase
         $validator->setMin(6);
         $integer4 = 4;
         $isValid4 = $validator->validate($integer4);
-//        $this->assertFalse($isValid4());
+        $this->assertFalse($isValid4());
         $validator->setMax(220);
         $isValid5 = $validator->validate($integer2);
         $this->assertFalse($isValid5());
         $integer5 = 200;
         $isValid6 = $validator->validate($integer5);
-        $this->assertFalse($isValid6());
+        $this->assertTrue($isValid6());
 
     }
 
