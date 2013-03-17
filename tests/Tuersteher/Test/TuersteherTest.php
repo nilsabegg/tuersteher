@@ -5,6 +5,16 @@ namespace Tuersteher\Test;
 class TuersteherTest extends \PHPUnit_Framework_TestCase
 {
 
+    public function testCreateSchemaFromYaml()
+    {
+
+        $yamlParser = new \Symfony\Component\Yaml\Parser();
+        $yaml = $yamlParser->parse(file_get_contents('./testSchema.yml'));
+        $tuersteher = new \Tuersteher\Tuersteher();
+        $schema = $tuersteher->createSchemaFromYaml($yaml);
+        $this->assertInstanceOf('\\Tuerster\\Validator\\Schema', $schema);
+
+    }
     public function testTuersteher()
     {
 

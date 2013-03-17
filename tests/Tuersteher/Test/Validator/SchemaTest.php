@@ -50,7 +50,7 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
         $result->getResult('result1');
 
     }
-    public function testGetResultsException()
+    public function testSetValidatorsException()
     {
 
         $validator = new \Tuersteher\Validator\Filter\Url();

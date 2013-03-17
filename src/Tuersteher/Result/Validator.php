@@ -16,7 +16,7 @@ use \Tuersteher\Interfaces\Result as ResultInterface;
  * This class is a result of a Türsteher validator.
  *
  * @author      Nils Abegg <rueckgrat@nilsabegg.de>
- * @version     0.1
+ * @version     0.2
  * @package     Türsteher
  * @category    Validation
  * @todo        Make the object accessible as array.
