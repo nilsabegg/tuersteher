@@ -9,7 +9,7 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
     {
 
         $yamlParser = new \Symfony\Component\Yaml\Parser();
-        $yaml = $yamlParser->parse(file_get_contents('./testSchema.yml'));
+        $yaml = $yamlParser->parse(file_get_contents(__DIR__ . '/testSchema.yml'));
         $tuersteher = new \Tuersteher\Tuersteher();
         $schema = $tuersteher->createSchemaFromYaml($yaml);
         $this->assertInstanceOf('\\Tuerster\\Validator\\Schema', $schema);
