@@ -60,8 +60,8 @@ class Integer extends FilterValidator
     public function getMax()
     {
 
-        if (isset($this->options['max']) == true) {
-            return $this->options['max'];
+        if (isset($this->options['max_range']) == true) {
+            return $this->options['max_range'];
         } else {
             throw new FilterException('The maximum value is not set.');
         }
@@ -79,8 +79,8 @@ class Integer extends FilterValidator
     public function getMin()
     {
 
-        if (isset($this->options['min']) == true) {
-            return $this->options['min'];
+        if (isset($this->options['min_range']) == true) {
+            return $this->options['min_range'];
         } else {
             throw new FilterException('The minimum value is not set.');
         }
@@ -101,9 +101,9 @@ class Integer extends FilterValidator
     {
 
         if ($max == '') {
-            unset($this->options['max']);
+            unset($this->options['max_range']);
         } elseif (is_int($max) == true) {
-            $this->options['max'] = $max;
+            $this->options['max_range'] = $max;
         } else {
             throw new InvalidArgumentException('The passed maximum value is not an integer.');
         }
@@ -124,9 +124,9 @@ class Integer extends FilterValidator
     {
 
         if ($min == '') {
-            unset($this->options['min']);
+            unset($this->options['min_range']);
         } elseif (is_int($min) == true) {
-            $this->options['min'] = $min;
+            $this->options['min_range'] = $min;
         } else {
             throw new InvalidArgumentException('The passed minimum value is not an integer.');
         }
