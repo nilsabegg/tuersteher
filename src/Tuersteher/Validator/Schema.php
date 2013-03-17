@@ -54,19 +54,16 @@ class Schema extends Validator
      *
      * @access  public
      * @param   string $key
-     * @param   string $validatorName
      * @param   \Tuersteher\Interfaces\Validator $validator
      * @return  void
      * @throws  \Tuersteher\Exception\InvalidArgument
      */
-    public function addValidator($key, $validatorName, \Tuersteher\Interfaces\Validator $validator)
+    public function addValidator($key, \Tuersteher\Interfaces\Validator $validator)
     {
 
-        if ($key != '' && $validatorName != '') {
+        if ($key != '') {
             if (key_exists($key, $this->validators) == false) {
-                $this->validators[$key][$validatorName] = $validator;
-            } elseif (key_exists($validatorName, $this->validators[$key]) == false) {
-                $this->validators[$key][$validatorName] = $validator;
+                $this->validators[$key] = $validator;
             } else {
                 throw new InvalidArgumentException('Validator allready added.');
             }
@@ -84,19 +81,16 @@ class Schema extends Validator
      *
      * @access  public
      * @param   string $key
-     * @param   string $name
      * @return  \Tuersteher\Interfaces\Validator
      * @throws  \Tuersteher\Exception\InvalidArgument
      */
-    public function getValidator($key, $name = null)
+    public function getValidator($key)
     {
 
-        if ($name == null && key_exists($key, $this->validators) == true) {
-            return $this->validators[$key][0];
-        } elseif (key_exists($name, $this->validators[$key]) == true) {
-            return $this->validators[$key][$name];
+        if (key_exists($key, $this->validators) == true) {
+            return $this->validators[$key];
         } else {
-            throw new InvalidArgumentException('Validator "' . $name . '" for key "' . $key . '" doesn\'t exist.');
+            throw new InvalidArgumentException('Validator "' . $key . '" doesn\'t exist.');
         }
 
     }
@@ -137,17 +131,16 @@ class Schema extends Validator
      *
      * @access  public
      * @param   string $key
-     * @param   string $name
      * @param   \Tuersteher\Interfaces\Validator $validator
      * @return  void
      * @throws  \Tuersteher\Exception\InvalidArgument
      */
-    public function setValidator($key, $name, \Tuersteher\Interfaces\Validator $validator)
+    public function setValidator($key, \Tuersteher\Interfaces\Validator $validator)
     {
 
-        if ($key != '' && $name != '') {
-            if (isset($this->validators[$key][$name]) == true) {
-                $this->validators[$key][$name] = $validator;
+        if ($key != '') {
+            if (isset($this->validators[$key]) == true) {
+                $this->validators[$key] = $validator;
             } else {
                 throw new InvalidArgumentException('Validator doesn\'t exist.');
             }
@@ -196,14 +189,26 @@ class Schema extends Validator
                 $results = array();
                 if ($value != null) {
                     foreach ($this->validators[$key] as $validatorName => $validator) {
-                        $results[] = $validator->validate($value);
-                    }
-                    foreach ($results as $result) {
-
+                        $result = $validator->validate($value);
+                        $results[$key] = $result;
+                        if ($result() == false) {
+                            $hasError = false;
+                        }
                     }
                 } else {
-
+                    foreach ($this->validators[$key] as $validatorName => $validator) {
+                        // empty message
+                        $nullAllowed = $validator->isNullAllowed();
+                        if ($nullAllowed == false) {
+                            $hasError = true;
+                        }
+                    }
                 }
+            }
+            if ($hasError == false) {
+                $result = $this->createResult($hasError, $messages['default']);
+            } else {
+                $result = $this->createResult($hasError, $messages['default']);
             }
         } else {
             throw new InvalidArgumentException('The passed value is not an array or the array is empty.');

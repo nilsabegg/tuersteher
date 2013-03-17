@@ -1,21 +1,18 @@
 url:
-  url:
-    class: \Tuersteher\Validator\Filter\Url
-    messages:
-      invalid: This is not an URL with query.
-    options:
-      queryRequired: true
+  class: \Tuersteher\Validator\Filter\Url
+  messages:
+    invalid: This is not an URL with query.
+  options:
+    queryRequired: true
 email:
-  email:
-    class: \Tuersteher\Validator\Filter\Email
-    messages:
-      invalid: This is not a valid E-Mail address.
+  class: \Tuersteher\Validator\Filter\Email
+  messages:
+    invalid: This is not a valid E-Mail address.
 age:
-  integer:
-    class: \Tuersteher\Validator\Filter\Integer
-    messages:
-      invalid: The age must be between 18 and 110 years.
-    options:
-      min: 18
-      max: 110
+  class: \Tuersteher\Validator\Filter\Integer
+  messages:
+    invalid: The age must be between 18 and 110 years.
+  options:
+    min: 18
+    max: 110
 
