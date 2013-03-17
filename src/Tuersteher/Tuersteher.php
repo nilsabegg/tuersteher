@@ -141,7 +141,7 @@ class Tuersteher
      */
     protected function createValidatorFromYaml($validatorSettings)
     {
-        $validator = new $validatorSettings['class'];
+        $validator = new $validatorSettings['class']();
         $validator->setResult(clone $this->validatorResult);
         foreach ($validatorSettings as $settingName => $setting) {
             if ($settingName == 'messages') {
