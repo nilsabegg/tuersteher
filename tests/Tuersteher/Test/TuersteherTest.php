@@ -22,8 +22,15 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
             'email' => 'test@example.org',
             'age' => '50'
         );
-        $result = $schema->validate($values);
-        $this->assertTrue($result());
+        $isValid1 = $schema->validate($values);
+        $this->assertTrue($isValid1());
+        $values2 = array(
+            'url' => 'http://google.com',
+            'email' => 'keineemailadresse',
+            'age' => '5'
+        );
+        $isValid2 = $schema->validate($values2);
+        $this->assertFalse($isValid2());
 
     }
     public function testTuersteher()

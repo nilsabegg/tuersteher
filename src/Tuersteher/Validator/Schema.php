@@ -204,6 +204,7 @@ class Schema extends Validator
 
             }
             $result->setResults($results);
+            
             return $result;
         } else {
             throw new InvalidArgumentException('The passed value is not an array or the array is empty.');
