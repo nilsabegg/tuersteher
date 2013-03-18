@@ -198,11 +198,12 @@ class Schema extends Validator
                 }
             }
             if ($hasError == false) {
-                $result = $this->createResult(true, $this->messages['default'], $results);
+                $result = $this->createResult(true, $this->messages['default']);
             } else {
-                $result = $this->createResult(false, $this->messages['default'], $results);
-            }
+                $result = $this->createResult(false, $this->messages['default']);
 
+            }
+            $result->setResults($results);
             return $result;
         } else {
             throw new InvalidArgumentException('The passed value is not an array or the array is empty.');
