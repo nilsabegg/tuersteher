@@ -255,7 +255,7 @@ abstract class Validator implements ValidatorInterface
         if (is_bool($required) == true) {
             $this->required = $required;
         } else {
-            throw new \InvalidArgumentException('The input is not a boolean.');
+            throw new InvalidArgumentException('The input is not a boolean.');
         }
 
     }

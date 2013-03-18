@@ -66,7 +66,14 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $validator->setMessages($messages);
 
     }
+    public function testSetRequired()
+    {
 
+        $validator = $this->getMockForAbstractClass('\\Tuersteher\\Validator\\Validator');
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $validator->setRequired('message1');
+
+    }
     public function testGetResult()
     {
 
