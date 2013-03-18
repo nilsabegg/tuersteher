@@ -43,7 +43,7 @@ class Schema extends Validator
      * @var     array
      */
     protected $messages = array(
-
+        'default' => 'One or more values are invalid.'
     );
 
     /**
@@ -194,14 +194,16 @@ class Schema extends Validator
                         $hasError = true;
                     }
                 } else {
-
+                    // null allowed
                 }
             }
             if ($hasError == false) {
-                $result = $this->createResult($hasError, $messages['default'], $results);
+                $result = $this->createResult(true, $this->messages['default'], $results);
             } else {
-                $result = $this->createResult($hasError, $messages['default'], $results);
+                $result = $this->createResult(false, $this->messages['default'], $results);
             }
+
+            return $result;
         } else {
             throw new InvalidArgumentException('The passed value is not an array or the array is empty.');
         }
