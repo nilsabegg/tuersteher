@@ -17,6 +17,13 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
         $tuersteher->setSchemaResult($schemaResult);
         $schema = $tuersteher->createSchemaFromYaml($yaml);
         $this->assertInstanceOf('\\Tuersteher\\Validator\\Schema', $schema);
+        $values = array(
+            'url' => 'http://google.com?q=bla',
+            'email' => 'test@example.org',
+            'age' => '50'
+        );
+        $result = $schema->validate($values);
+        $this->assertTrue($result());
 
     }
     public function testTuersteher()

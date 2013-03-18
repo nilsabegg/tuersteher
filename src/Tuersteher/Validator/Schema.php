@@ -185,30 +185,22 @@ class Schema extends Validator
 
         $hasError = false;
         if (is_array($values) == true && count($values) > 0) {
+            $results = array();
             foreach ($values as $key => $value) {
-                $results = array();
                 if ($value != null) {
-                    foreach ($this->validators[$key] as $validatorName => $validator) {
-                        $result = $validator->validate($value);
-                        $results[$key] = $result;
-                        if ($result() == false) {
-                            $hasError = false;
-                        }
+                    $result = $this->validators[$key]->validate($value);
+                    $results[$key] = $result;
+                    if ($result() == false) {
+                        $hasError = true;
                     }
                 } else {
-                    foreach ($this->validators[$key] as $validatorName => $validator) {
-                        // empty message
-                        $nullAllowed = $validator->isNullAllowed();
-                        if ($nullAllowed == false) {
-                            $hasError = true;
-                        }
-                    }
+
                 }
             }
             if ($hasError == false) {
-                $result = $this->createResult($hasError, $messages['default']);
+                $result = $this->createResult($hasError, $messages['default'], $results);
             } else {
-                $result = $this->createResult($hasError, $messages['default']);
+                $result = $this->createResult($hasError, $messages['default'], $results);
             }
         } else {
             throw new InvalidArgumentException('The passed value is not an array or the array is empty.');
