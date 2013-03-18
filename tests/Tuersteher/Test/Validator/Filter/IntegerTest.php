@@ -38,5 +38,50 @@ class IntegerTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($isValid8());
 
     }
+    public function testGetMaxException()
+    {
 
+        $result = new \Tuersteher\Result\Validator();
+        $validator = new \Tuersteher\Validator\Filter\Integer();
+        $validator->setResult($result);
+        $validator->setMax(10);
+        $this->assertEquals(10, $validator->getMax());
+        $validator->setMax('');
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $validator->getMax();
+
+    }
+    public function testGetMinException()
+    {
+
+        $result = new \Tuersteher\Result\Validator();
+        $validator = new \Tuersteher\Validator\Filter\Integer();
+        $validator->setResult($result);
+        $validator->setMin(10);
+        $this->assertEquals(10, $validator->getMin());
+        $validator->setMin('');
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $validator->getMin();
+
+    }
+    public function testSetMaxException()
+    {
+
+        $result = new \Tuersteher\Result\Validator();
+        $validator = new \Tuersteher\Validator\Filter\Integer();
+        $validator->setResult($result);
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $validator->setMax('notaninteger');
+
+    }
+    public function testSetMinException()
+    {
+
+        $result = new \Tuersteher\Result\Validator();
+        $validator = new \Tuersteher\Validator\Filter\Integer();
+        $validator->setResult($result);
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $validator->setMin('notaninteger');
+
+    }
 }

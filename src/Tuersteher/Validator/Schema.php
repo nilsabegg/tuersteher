@@ -68,7 +68,7 @@ class Schema extends Validator
                 throw new InvalidArgumentException('Validator allready added.');
             }
         } else {
-            throw new InvalidArgumentException('No key or name for Validator given.');
+            throw new InvalidArgumentException('No key for Validator given.');
         }
 
     }
@@ -145,7 +145,7 @@ class Schema extends Validator
                 throw new InvalidArgumentException('Validator doesn\'t exist.');
             }
         } else {
-            throw new InvalidArgumentException('No key or name for Validator given.');
+            throw new InvalidArgumentException('No key for Validator given.');
         }
 
     }
@@ -201,10 +201,9 @@ class Schema extends Validator
                 $result = $this->createResult(true, $this->messages['default']);
             } else {
                 $result = $this->createResult(false, $this->messages['default']);
-
             }
             $result->setResults($results);
-            
+
             return $result;
         } else {
             throw new InvalidArgumentException('The passed value is not an array or the array is empty.');
