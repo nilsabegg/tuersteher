@@ -4,7 +4,7 @@ url:
     default: This is not an URL with query.
   options:
     queryRequired: true
-    required: false;
+    required: false
 email:
   class: \Tuersteher\Validator\Filter\Email
   messages:
