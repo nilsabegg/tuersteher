@@ -47,7 +47,7 @@ class IntegerTest extends \PHPUnit_Framework_TestCase
         $validator->setMax(10);
         $this->assertEquals(10, $validator->getMax());
         $validator->setMax('');
-        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $this->setExpectedException('\\Tuersteher\\Exception\\Filter');
         $validator->getMax();
 
     }
@@ -60,7 +60,7 @@ class IntegerTest extends \PHPUnit_Framework_TestCase
         $validator->setMin(10);
         $this->assertEquals(10, $validator->getMin());
         $validator->setMin('');
-        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $this->setExpectedException('\\Tuersteher\\Exception\\Filter');
         $validator->getMin();
 
     }
