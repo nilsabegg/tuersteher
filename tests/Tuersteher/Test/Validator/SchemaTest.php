@@ -77,5 +77,23 @@ class SchemaTest extends \PHPUnit_Framework_TestCase
         $schema->setValidator('', $validator);
 
     }
+    public function testSetValidator()
+    {
+        $validator = new \Tuersteher\Validator\Regex\Url();
+        $validator2 = new \Tuersteher\Validator\Filter\Url();
+        $schema = new \Tuersteher\Validator\Schema();
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $schema->setValidator('1', $validator);
+        $schema->setValidator('1', $validator2);
+
+    }
+    public function testGetValidatorException2()
+    {
+
+        $schema = new \Tuersteher\Validator\Schema();
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $schema->getValidator('validator1');
+
+    }
 
 }

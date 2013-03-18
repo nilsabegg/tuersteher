@@ -107,19 +107,13 @@ class Schema extends Validator
      * @throws \Tuersteher\Exception\InvalidArgument
      * @throws \Tuersteher\Exception\Schema\Validator
      */
-    public function getValidators($key = null)
+    public function getValidators()
     {
 
-        if ($key === null) {
-            if (count($this->validators) > 0) {
-                return $this->validators;
-            } else {
-                throw new SchemaValidatorException('No Validators set.');
-            }
-        } elseif (key_exists($key, $this->validators) == true) {
-                return $this->validators[$key];
+        if (count($this->validators) > 0) {
+            return $this->validators;
         } else {
-            throw new InvalidArgumentException('There is no validator for key "' . $key . '".');
+            throw new SchemaValidatorException('No Validators set.');
         }
 
     }
