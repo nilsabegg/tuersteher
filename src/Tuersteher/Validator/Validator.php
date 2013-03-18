@@ -31,7 +31,7 @@ abstract class Validator implements ValidatorInterface
      * @access protected
      * @var    boolean
      */
-    protected $required = false;
+    protected $required = true;
 
     /**
      * messages

@@ -186,7 +186,9 @@ class Schema extends Validator
                         $hasError = true;
                     }
                 } else {
-                    // null allowed
+                    if ($this->validators[$key]->isRequired() == true) {
+                        $hasError = true;
+                    }
                 }
             }
             if ($hasError == false) {
