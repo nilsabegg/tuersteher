@@ -178,15 +178,15 @@ class Schema extends Validator
         $hasError = false;
         if (is_array($values) == true && count($values) > 0) {
             $results = array();
-            foreach ($values as $key => $value) {
-                if ($value != null) {
-                    $result = $this->validators[$key]->validate($value);
+            foreach ($this->validators as $key => $validator) {
+                if (key_exists($key, $values) == true) {
+                    $result = $validator->validate($values[$key]);
                     $results[$key] = $result;
                     if ($result() == false) {
                         $hasError = true;
                     }
                 } else {
-                    if ($this->validators[$key]->isRequired() == true) {
+                    if ($validator->isRequired() == true) {
                         $hasError = true;
                     }
                 }

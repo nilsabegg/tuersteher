@@ -44,7 +44,7 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
             'age' => '50'
         );
         $isValid4 = $schema->validate($values4);
-        $this->assertFalse($isValid4());
+        $this->assertTrue($isValid4());
 
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
         $schema->validate($this);
