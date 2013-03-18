@@ -102,7 +102,6 @@ class Schema extends Validator
      * or all the validators for one key.
      *
      * @access public
-     * @param  string $key
      * @return mixed
      * @throws \Tuersteher\Exception\InvalidArgument
      * @throws \Tuersteher\Exception\Schema\Validator
