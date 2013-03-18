@@ -36,6 +36,7 @@ class IntegerTest extends \PHPUnit_Framework_TestCase
         $validator->SetMin(null);
         $isValid8 = $validator->validate($integer4);
         $this->assertTrue($isValid8());
+       
 
     }
     public function testGetMaxException()

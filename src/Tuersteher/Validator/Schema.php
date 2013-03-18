@@ -103,7 +103,6 @@ class Schema extends Validator
      *
      * @access public
      * @return mixed
-     * @throws \Tuersteher\Exception\InvalidArgument
      * @throws \Tuersteher\Exception\Schema\Validator
      */
     public function getValidators()

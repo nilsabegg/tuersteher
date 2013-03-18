@@ -24,14 +24,14 @@ abstract class Validator implements ValidatorInterface
 {
 
     /**
-     * nullAllowed
+     * required
      *
      * The value to be validated can be null if this is set to true.
      *
      * @access protected
      * @var    boolean
      */
-    protected $nullAllowed = false;
+    protected $required = false;
 
     /**
      * messages
@@ -152,7 +152,7 @@ abstract class Validator implements ValidatorInterface
     }
 
     /**
-     * isNullAllowed
+     * isRequired
      *
      * Returns if the validated value of the validator
      * is allowed to be null.<br>
@@ -163,10 +163,10 @@ abstract class Validator implements ValidatorInterface
      * @return  boolean
      * @throws  \Tuersteher\Exception\InvalidArgument
      */
-    public function isNullAllowed()
+    public function isRequired()
     {
 
-        return $this->nullAllowed;
+        return $this->required;
 
     }
 
@@ -237,7 +237,7 @@ abstract class Validator implements ValidatorInterface
     }
 
     /**
-     * setNullAllowed
+     * setRequired
      *
      * Sets if the validated value of the validator
      * is allowed to be null.<br>
@@ -245,15 +245,15 @@ abstract class Validator implements ValidatorInterface
      * to a schema.
      *
      * @access  public
-     * @param   boolean $nullAllowed
+     * @param   boolean $required
      * @return  void
      * @throws  \Tuersteher\Exception\InvalidArgument
      */
-    public function setNullAllowed($nullAllowed)
+    public function setRequired($required)
     {
 
-        if (is_bool($nullAllowed) === true) {
-            $this->nullAllowed = $nullAllowed;
+        if (is_bool($required) === true) {
+            $this->required = $required;
         } else {
             throw new \InvalidArgumentException();
         }
