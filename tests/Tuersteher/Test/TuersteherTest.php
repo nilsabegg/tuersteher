@@ -32,6 +32,9 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
         $isValid2 = $schema->validate($values2);
         $this->assertFalse($isValid2());
 
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $schema->validate($this);
+
     }
     public function testTuersteher()
     {
