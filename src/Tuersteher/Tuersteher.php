@@ -7,6 +7,7 @@
 namespace Tuersteher;
 
 use Tuersteher\Validator\Schema as SchemaValidator;
+use Tuersteher\Result\Schema as SchemaResult;
 use Tuersteher\Result\Validator as ValidatorResult;
 
 /**
