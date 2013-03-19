@@ -6,6 +6,7 @@
 
 namespace Tuersteher;
 
+use Tuersteher\Validator\Schema as SchemaValidator;
 use Tuersteher\Result\Validator as ValidatorResult;
 
 /**
@@ -20,6 +21,16 @@ use Tuersteher\Result\Validator as ValidatorResult;
  */
 class Tuersteher
 {
+
+    /**
+     * schema
+     *
+     *
+     *
+     * @access protected
+     * @var    \Tuersteher\Interfaces\Schema\Validator
+     */
+    protected $schema = null;
 
     /**
      * schemaResult
@@ -52,7 +63,32 @@ class Tuersteher
     public function __construct()
     {
 
+        $this->schemaResult = new SchemaResult();
         $this->validatorResult = new ValidatorResult();
+
+    }
+
+    /**
+     * add
+     *
+     * Adds a validator to the curren schema. If there is
+     * no schema yet, the method will create it.
+     *
+     * @access public
+     * @param  string $key
+     * @param  string $className
+     * @return \Tuersteher\Validator\Validator
+     */
+    public function add($key, $className)
+    {
+
+        if ($this->schema == null) {
+            $this->schema = new SchemaValidator();
+        }
+        $validator = new $className();
+        $this->schema->addValidator($key, $validator);
+
+        return $validator;
 
     }
 
@@ -127,6 +163,22 @@ class Tuersteher
         }
 
         return $schema;
+
+    }
+
+    /**
+     * validate
+     *
+     *
+     *
+     * @access public
+     * @param mixed $values
+     * @return
+     */
+    public function validate($values)
+    {
+
+        $this->schema->validate($values);
 
     }
 

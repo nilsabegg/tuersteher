@@ -90,6 +90,40 @@ class Integer extends FilterValidator
     }
 
     /**
+     * isOctalAllowed
+     *
+     *
+     *
+     * @access public
+     * @return boolean
+     */
+    public function isHexAllowed()
+    {
+        if (isset($this->flags['hex_allowed']) == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * isOctalAllowed
+     *
+     *
+     *
+     * @access public
+     * @return boolean
+     */
+    public function isOctalAllowed()
+    {
+        if (isset($this->flags['octal_allowed']) == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * setMax
      *
      *
@@ -133,5 +167,49 @@ class Integer extends FilterValidator
             throw new InvalidArgumentException('The passed minimum value is not an integer.');
         }
 
+    }
+
+    /**
+     * setHexAllowed
+     *
+     *
+     *
+     * @access public
+     * @param  boolean  $hexAllowed
+     * @return void
+     * @throws \Tuersteher\Exception\InvalidArgument
+     */
+    public function setHexAllowed($hexAllowed = true)
+    {
+
+        if ($hexAllowed === true) {
+            $this->flags['hex_allowed'] = \FILTER_FLAG_ALLOW_HEX;
+        } elseif ($hexAllowed === false) {
+            unset($this->flags['hex_allowed']);
+        } else {
+            throw new InvalidArgumentException('The passed argument is not a boolean.');
+        }
+    }
+
+    /**
+     * setOctalAllowed
+     *
+     *
+     *
+     * @access public
+     * @param  boolean  $octalAllowed
+     * @return void
+     * @throws \Tuersteher\Exception\InvalidArgument
+     */
+    public function setOctalAllowed($octalAllowed = true)
+    {
+
+        if ($octalAllowed === true) {
+            $this->flags['octal_allowed'] = \FILTER_FLAG_ALLOW_OCTAL;
+        } elseif ($octalAllowed === false) {
+            unset($this->flags['octal_allowed']);
+        } else {
+            throw new InvalidArgumentException('The passed argument is not a boolean.');
+        }
     }
 }
