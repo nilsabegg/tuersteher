@@ -63,7 +63,7 @@ class Schema extends Validator
         $this->addValidator($key, $validator);
 
     }
-    
+
     /**
      * addValidator
      *
@@ -76,14 +76,24 @@ class Schema extends Validator
      * @return  void
      * @throws  \Tuersteher\Exception\InvalidArgument
      */
-    public function addValidator($key, \Tuersteher\Interfaces\Validator $validator)
+    public function addValidator($key, \Tuersteher\Interfaces\Validator $validator, $setKey = null)
     {
 
         if ($key != '') {
-            if (key_exists($key, $this->validators) == false) {
-                $this->validators[$key] = $validator;
-            } else {
-                throw new InvalidArgumentException('Validator allready added.');
+            if (is_a($validator, '\Tuersteher\Validator\Set') != true && $setKey !== null ) {
+                if (key_exists($key, $this->validators) == false) {
+                    $this->validators[$key] = $validator;
+                } else {
+                    throw new InvalidArgumentException('Validator allready added.');
+                }
+            } elseif (is_a($validator, '\Tuersteher\Validator\Set') == true && $setKey !== null ) {
+                if (key_exists($key, $this->validators) == false) {
+                    $this->validators[$key] = $validator;
+                } else {
+                    throw new InvalidArgumentException('Validator allready added.');
+                }
+            }else {
+                throw new InvalidArgumentException('No key for the validator set given.');
             }
         } else {
             throw new InvalidArgumentException('No key for Validator given.');
