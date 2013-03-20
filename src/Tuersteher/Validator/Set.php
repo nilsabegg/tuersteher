@@ -23,4 +23,48 @@ use \Tuersteher\Validator\Schema as SchemaValidator;
 class Set extends SchemaValidator
 {
 
+    public function add($key, \Tuersteher\Interfaces\Validator $validator)
+    {
+
+        $this->addValidator($key, $validator);
+
+    }
+
+    /**
+     * validate
+     *
+     * Checks if the input is valid.
+     *
+     * @access  public
+     * @param   mixed   $values
+     * @return  \Tuersteher\Result\Set
+     */
+    public function validate($value)
+    {
+
+        $hasError = false;
+        $results = array();
+        foreach ($this->validators as $key => $validator) {
+            if ($value != null) {
+                $result = $validator->validate($value);
+                $results[$key] = $result;
+                if ($result() == false) {
+                    $hasError = true;
+                }
+            } else {
+                if ($validator->isRequired() == true) {
+                    $hasError = true;
+                }
+            }
+        }
+        if ($hasError == false) {
+            $result = $this->createResult(true, $this->messages['default']);
+        } else {
+            $result = $this->createResult(false, $this->messages['default']);
+        }
+        $result->setResults($results);
+
+        return $result;
+
+    }
 }

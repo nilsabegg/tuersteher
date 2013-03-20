@@ -83,7 +83,7 @@ class Tuersteher
      * @param  string $className
      * @return \Tuersteher\Validator\Validator
      */
-    public function add($key, $className)
+    public function add($key, $classNameOrKey2, $className = '')
     {
 
         if ($this->schema == null) {

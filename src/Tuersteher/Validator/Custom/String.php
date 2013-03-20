@@ -47,7 +47,7 @@ class String extends Validator
      * @return \Tuersteher\Validator\Custom\String
      * @throws \Tuersteher\Exception\InvalidArgument
      */
-    public function setMaxLength($maxLength)
+    public function maxLength($maxLength)
     {
 
         if (is_integer($maxLength) == true) {
@@ -71,6 +71,6 @@ class String extends Validator
      */
     public function validate($value)
     {
-        
+
     }
 }

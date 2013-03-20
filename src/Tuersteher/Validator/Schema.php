@@ -47,6 +47,24 @@ class Schema extends Validator
     );
 
     /**
+     * add
+     *
+     * This is a shortcut for addValidator.
+     *
+     * @access  public
+     * @param   string $key
+     * @param   \Tuersteher\Interfaces\Validator $validator
+     * @return  void
+     * @throws  \Tuersteher\Exception\InvalidArgument
+     */
+    public function add($key, \Tuersteher\Interfaces\Validator $validator)
+    {
+
+        $this->addValidator($key, $validator);
+
+    }
+    
+    /**
      * addValidator
      *
      * Adds a Validator to the Schema. You can add
