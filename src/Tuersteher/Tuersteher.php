@@ -7,6 +7,7 @@
 namespace Tuersteher;
 
 use Tuersteher\Validator\Schema as SchemaValidator;
+use Tuersteher\Validator\Set as SetValidator;
 use Tuersteher\Result\Schema as SchemaResult;
 use Tuersteher\Result\Validator as ValidatorResult;
 
@@ -22,6 +23,8 @@ use Tuersteher\Result\Validator as ValidatorResult;
  */
 class Tuersteher
 {
+
+    protected $result = null;
 
     /**
      * schema
@@ -87,7 +90,20 @@ class Tuersteher
             $this->schema = new SchemaValidator();
         }
         $validator = new $className();
-        $this->schema->addValidator($key, $validator);
+        try {
+            $currentValidator = $this->schema->getValidator($key);
+            if (is_a($currentValidator, '\Tuersteher\Validator\Set') == true) {
+                $currentValidator->addValidator($validator);
+                $this->schema->setValidator($key, $currentValidator);
+            } elseif (is_a($currentValidator, '\Tuersteher\Validator\Validator') == true) {
+                $setValidator = new SetValidator();
+                $setValidator->addValidator($currentValidator);
+                $setValidator->addValidator($validator);
+                $this->schema->setValidator($key, $setValidator);
+            }
+        } catch(\Tuersteher\Exception\InvalidArgument $exception) {
+            $this->schema->addValidator($key, $validator);
+        }
 
         return $validator;
 
