@@ -80,28 +80,19 @@ class Schema extends Validator
     {
 
         if ($key != '') {
+            if (key_exists($key, $this->validators) == true) {
+                throw new InvalidArgumentException('Validator "' . $key . '" allready added.');
+            }
             // add validator to this schema
             if (is_a($validator, '\Tuersteher\Validator\Set') == false && $setKey === null) {
-                if (key_exists($key, $this->validators) == false) {
-                    $this->validators[$key] = $validator;
-                } else {
-                    throw new InvalidArgumentException('Validator "' . $key . '" allready added.');
-                }
+                $this->validators[$key] = $validator;
             // add validator to an existing set
             } elseif (is_a($validator, '\Tuersteher\Validator\Set') == true && $setKey !== null) {
-                if (key_exists($key, $this->validators) == false) {
-                    $this->validators[$key]->addValidator($setKey, $validator);
-                } else {
-                    throw new InvalidArgumentException('Validator "' . $key . '" allready added.');
-                }
+                $this->validators[$key]->addValidator($setKey, $validator);
             // add validator to new set
             } elseif (is_a($validator, '\Tuersteher\Validator\Set') == false && $setKey !== null) {
-                if (key_exists($key, $this->validators) == false) {
-                    $this->validators[$key] = new $this->setClass();
-                    $this->validators[$key]->addValidator($setKey, $validator);
-                } else {
-                    throw new InvalidArgumentException('Validator allready added.');
-                }
+                $this->validators[$key] = new $this->setClass();
+                $this->validators[$key]->addValidator($setKey, $validator);
             }else {
                 throw new InvalidArgumentException('No key for the validator set given.');
             }
