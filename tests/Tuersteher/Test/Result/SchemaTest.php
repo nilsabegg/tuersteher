@@ -4,7 +4,7 @@ namespace Tuersteher\Test\Result;
 
 class SchemaTest extends \Tuersteher\Test\Result\ValidatorTest
 {
-    protected $resultClass = '\\\Tuersteher\\Result\\Schema';
+    protected $resultClass = '\\Tuersteher\\Result\\Schema';
 
     public function testConstruct()
     {
