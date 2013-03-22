@@ -246,7 +246,7 @@ class Tuersteher
     public function validate($values)
     {
 
-        $this->schema->validate($values);
+        return $this->schema->validate($values);
 
     }
 
