@@ -71,6 +71,6 @@ class String extends Validator
      */
     public function validate($value)
     {
-
+        return $this->createResult(true, 'Dummy valid Result.');
     }
 }
