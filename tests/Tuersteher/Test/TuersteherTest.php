@@ -74,6 +74,16 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
         $validator = $tuersteher->create($className);
         $this->assertInstanceOf($className, $validator);
     }
+    public function testFluentInterface()
+    {
+
+        $tuersteher = new \Tuersteher\Tuersteher();
+        $tuersteher->add('name', '\\Tuersteher\\Validator\\Filter\\Url')->setQueryRequired();
+        $tuersteher->addValidator('name', '\\Tuersteher\\Validator\\Custom\\String')->MaxLength(50);
+        $className = '\\Tuersteher\\Validator\\Set';
+        $this->assertInstanceOf($className, $tuersteher->getValidator('name'));
+
+    }
     public function testMessagesBadExtendedValidator()
     {
 
