@@ -58,10 +58,11 @@ class Tuersteher
      */
     protected $setResult = null;
 
-    protected $validatorMapping = array(
+    protected $validatorMaps = array(
         'String' => '\\Tuersteher\\Validator\\Custom\\String',
         'Url' => '\\Tuersteher\\Validator\\Filter\\Url',
     );
+
     /**
      * validatorResult
      *
@@ -92,7 +93,7 @@ class Tuersteher
     /**
      * __call
      *
-     * 
+     *
      *
      * @access public
      * @param  string $name
@@ -103,9 +104,9 @@ class Tuersteher
     public function __call($name, $arguments)
     {
 
-        if (substr($name, 0, 2) == 'is' && key_exists(substr($name, 2), $this->validatorMapping) == true) {
-            $validator = new $this->validatorMapping[substr($name, 2)]();
-        } elseif (substr($name, 0, 2) == 'is' && key_exists(substr($name, 2), $this->validatorMapping) == false) {
+        if (substr($name, 0, 2) == 'is' && key_exists(substr($name, 2), $this->validatorMaps) == true) {
+            $validator = new $this->validatorMaps[substr($name, 2)]();
+        } elseif (substr($name, 0, 2) == 'is' && key_exists(substr($name, 2), $this->validatorMaps) == false) {
             throw new InvalidArgumentException('There is no validator with the name "' . substr($name, 2) . '".');
         } else {
             throw new InvalidArgumentException('Unknown function "' . $name . '" called.');
@@ -137,12 +138,15 @@ class Tuersteher
         try {
             $currentValidator = $this->schema->getValidator($key);
             if (is_a($currentValidator, '\Tuersteher\Validator\Set') == true) {
-                $currentValidator->addValidator($validator);
+                $validators = $currentValidator->getValidators();
+                $maxKey = max(array_keys($validators));
+                $newKey = $maxKey + 1;
+                $currentValidator->addValidator($newKey, $validator);
                 $this->schema->setValidator($key, $currentValidator);
             } elseif (is_a($currentValidator, '\Tuersteher\Validator\Validator') == true) {
                 $setValidator = new SetValidator();
-                $setValidator->addValidator($currentValidator);
-                $setValidator->addValidator($validator);
+                $setValidator->addValidator(1, $currentValidator);
+                $setValidator->addValidator(2, $validator);
                 $this->schema->setValidator($key, $setValidator);
             }
         } catch (\Tuersteher\Exception\InvalidArgument $exception) {
