@@ -2,8 +2,9 @@
 
 namespace Tuersteher\Test\Result;
 
-class SchemaTest extends \PHPUnit_Framework_TestCase
+class SchemaTest extends \Tuersteher\Test\Result\ValidatorTest
 {
+    protected $resultClass = '\\\Tuersteher\\Result\\Schema';
 
     public function testConstruct()
     {
