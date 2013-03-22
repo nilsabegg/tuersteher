@@ -147,7 +147,7 @@ class Tuersteher
                 $this->schema->setValidator($key, $currentValidator);
             } elseif (is_a($currentValidator, '\Tuersteher\Validator\Validator') == true) {
                 $setValidator = new SetValidator();
-                $setValidator->setResult(clone $this->schemaResult);
+                $setValidator->setResult(clone $this->setResult);
                 $setValidator->addValidator(1, $currentValidator);
                 $setValidator->addValidator(2, $validator);
                 $this->schema->setValidator($key, $setValidator);
