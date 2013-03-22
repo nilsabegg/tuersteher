@@ -33,9 +33,7 @@ class Schema extends ValidatorResult implements SchemaResultInterface
      * @access protected
      * @var    mixed
      */
-    protected $results = array(
-
-    );
+    protected $results = array();
 
     /**
      * __construct
@@ -70,7 +68,7 @@ class Schema extends ValidatorResult implements SchemaResultInterface
      * @access  public
      * @param   string $key
      * @param   \Tuersteher\Interfaces\Result $result
-     * @return  void
+     * @return  \Tuersteher\Result\Schema
      * @throws  \Tuersteher\Exception\InvalidArgument
      */
     public function addResult($key, \Tuersteher\Interfaces\Result $result)
@@ -81,6 +79,8 @@ class Schema extends ValidatorResult implements SchemaResultInterface
         } else {
             throw new InvalidArgumentException('Result "' . $key . '" allready exists.');
         }
+
+        return $this;
 
     }
 
@@ -108,7 +108,7 @@ class Schema extends ValidatorResult implements SchemaResultInterface
     /**
      * getResults
      *
-     * Returns the results for each validator.
+     * Returns the results for the schema.
      *
      * @access  public
      * @return  mixed   An array where each value is an instance of \Tuersteher\Interfaces\Result.
@@ -133,7 +133,7 @@ class Schema extends ValidatorResult implements SchemaResultInterface
      * @access  public
      * @param   string $key
      * @param   \Tuersteher\Interfaces\Result $result
-     * @return  void
+     * @return  \Tuersteher\Result\Schema
      * @throws  \Tuersteher\Exception\InvalidArgument
      */
     public function setResult($key, \Tuersteher\Interfaces\Result $result)
@@ -145,6 +145,8 @@ class Schema extends ValidatorResult implements SchemaResultInterface
             throw new InvalidArgumentException('Result "' . $key . '" doesn\'t exist.');
         }
 
+        return $this;
+
     }
 
     /**
@@ -155,7 +157,7 @@ class Schema extends ValidatorResult implements SchemaResultInterface
      *
      * @access  public
      * @param   mixed $results An array where each value is an instance of \Tuersteher\Interfaces\Result.
-     * @return  void
+     * @return  \Tuersteher\Result\Schema
      * @throws  \Tuersteher\Exception\InvalidArgument
      */
     public function setResults($results)
@@ -167,5 +169,6 @@ class Schema extends ValidatorResult implements SchemaResultInterface
             throw new InvalidArgumentException('The results are expected as array.');
         }
 
+        return $this;
     }
 }
