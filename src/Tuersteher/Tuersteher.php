@@ -9,6 +9,7 @@ namespace Tuersteher;
 use Tuersteher\Validator\Schema as SchemaValidator;
 use Tuersteher\Validator\Set as SetValidator;
 use Tuersteher\Result\Schema as SchemaResult;
+use Tuersteher\Result\Set as SetResult;
 use Tuersteher\Result\Validator as ValidatorResult;
 
 /**
