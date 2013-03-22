@@ -60,11 +60,13 @@ class Url extends FilterValidator
      */
     public function isPathRequired()
     {
+
         if (isset($this->flags['path_required']) == true) {
             return true;
         } else {
             return false;
         }
+
     }
 
     /**
@@ -77,11 +79,13 @@ class Url extends FilterValidator
      */
     public function isQueryRequired()
     {
+
         if (isset($this->flags['query_required']) == true) {
             return true;
         } else {
             return false;
         }
+
     }
 
     /**
@@ -104,6 +108,8 @@ class Url extends FilterValidator
         } else {
             throw new InvalidArgumentException('The passed argument is not a boolean.');
         }
+
+        return $this;
 
     }
 
@@ -128,5 +134,7 @@ class Url extends FilterValidator
             throw new InvalidArgumentException('The passed argument is not a boolean.');
         }
 
+        return $this;
+        
     }
 }
