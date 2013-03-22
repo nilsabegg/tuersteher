@@ -14,12 +14,13 @@ use \Tuersteher\Result\Validator as ValidatorResult;
 /**
  * Schema
  *
- * This class validates if a given value is a URL.
+ * This class is a result of a Türsteher schema validator.
  *
- * @author      Nils Abegg <rueckgrat@nilsabegg.de>
- * @version     0.1
+ * @author      Nils Abegg <tuersteher@nilsabegg.de>
+ * @version     0.2
  * @package     Türsteher
  * @category    Validation
+ * @todo        Make the object accessible as array.
  */
 class Schema extends ValidatorResult implements SchemaResultInterface
 {
