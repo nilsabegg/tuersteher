@@ -90,14 +90,22 @@ class Tuersteher
     }
 
     /**
+     * __call
      *
+     * 
+     *
+     * @access public
+     * @param  string $name
+     * @param  mixed  $arguments
+     * @return \Tuersteher\Interfaces\Validator
+     * @throws \Tuersteher\Exception\InvalidArgument
      */
     public function __call($name, $arguments)
     {
 
         if (substr($name, 0, 2) == 'is' && key_exists(substr($name, 2), $this->validatorMapping) == true) {
             $validator = new $this->validatorMapping[substr($name, 2)]();
-        } elseif(substr($name, 0, 2) == 'is' && key_exists(substr($name, 2), $this->validatorMapping) == false) {
+        } elseif (substr($name, 0, 2) == 'is' && key_exists(substr($name, 2), $this->validatorMapping) == false) {
             throw new InvalidArgumentException('There is no validator with the name "' . substr($name, 2) . '".');
         } else {
             throw new InvalidArgumentException('Unknown function "' . $name . '" called.');
@@ -137,7 +145,7 @@ class Tuersteher
                 $setValidator->addValidator($validator);
                 $this->schema->setValidator($key, $setValidator);
             }
-        } catch(\Tuersteher\Exception\InvalidArgument $exception) {
+        } catch (\Tuersteher\Exception\InvalidArgument $exception) {
             $this->schema->addValidator($key, $validator);
         }
 
