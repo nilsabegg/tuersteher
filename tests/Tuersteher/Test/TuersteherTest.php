@@ -74,7 +74,6 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
         $validator = $tuersteher->create($className);
         $this->assertInstanceOf($className, $validator);
     }
-
     public function testFluentInterface()
     {
 

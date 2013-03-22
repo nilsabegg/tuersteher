@@ -17,14 +17,22 @@ class SchemaTest extends \Tuersteher\Test\Result\ValidatorTest
             'result1' => $result1,
             'result2' => $result2
         );
-        $result = new \Tuersteher\Result\Schema($isValid, $message, $results);
+        $result = new $this->resultClass($isValid, $message, $results);
         $this->assertEquals($isValid, $result->isValid());
         $this->assertEquals($message, $result->getMessage());
         $this->assertEquals($results, $result->getResults());
+
+    }
+
+    public function testConstructException3()
+    {
+
+        $isValid = true;
+        $message = 'Valid.';
         $results2 = 324;
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
-        new \Tuersteher\Result\Schema($isValid, $message, $results2);
-
+        new $this->resultClass($isValid, $message, $results2);
+        
     }
 
     public function testGetAndSetResult()

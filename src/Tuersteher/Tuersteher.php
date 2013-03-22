@@ -47,6 +47,20 @@ class Tuersteher
     protected $schemaResult = null;
 
     /**
+     * setResult
+     *
+     *
+     *
+     * @access  protected
+     * @var     \Tuersteher\Interfaces\Schema\Result
+     */
+    protected $setResult = null;
+
+    protected $validatorMapping = array(
+        'String' => '\\Tuersteher\\Validator\\Custom\\String',
+        'Url' => '\\Tuersteher\\Validator\\Filter\\Url',
+    );
+    /**
      * validatorResult
      *
      *
@@ -68,7 +82,26 @@ class Tuersteher
     {
 
         $this->schemaResult = new SchemaResult();
+        $this->setResult = new SetResult();
         $this->validatorResult = new ValidatorResult();
+
+    }
+
+    /**
+     *
+     */
+    public function __call($name, $arguments)
+    {
+
+        if (substr($name, 0, 2) == 'is' && key_exists(substr($name, 2), $this->validatorMapping) == true) {
+            $validator = new $this->validatorMapping[substr($name, 2)]();
+        } elseif(substr($name, 0, 2) == 'is' && key_exists(substr($name, 2), $this->validatorMapping) == false) {
+            throw new InvalidArgumentException('There is no validator with the name "' . substr($name, 2) . '".');
+        } else {
+            throw new InvalidArgumentException('Unknown function "' . $name . '" called.');
+        }
+
+        return $validator;
 
     }
 
