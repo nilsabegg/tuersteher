@@ -5,16 +5,16 @@ namespace Tuersteher\Test;
 class TuersteherTest extends \PHPUnit_Framework_TestCase
 {
 
-    public function testFluentInterface()
-    {
-
-        $tuersteher = new \Tuersteher\Tuersteher();
-        $tuersteher->add('name', '\\Tuersteher\\Validator\\Filter\\Url')->setQueryRequired();
-        $tuersteher->add('name', '\\Tuersteher\\Validator\\Custom\\String')->maxLength(50);
-        $className = '\\Tuersteher\\Validator\\Set';
-        $this->assertInstanceOf($className, $tuersteher->getValidator('name'));
-
-    }
+//    public function testFluentInterface()
+//    {
+//
+//        $tuersteher = new \Tuersteher\Tuersteher();
+//        $tuersteher->add('name', '\\Tuersteher\\Validator\\Filter\\Url')->setQueryRequired();
+//        $tuersteher->add('name', '\\Tuersteher\\Validator\\Custom\\String')->maxLength(50);
+//        $className = '\\Tuersteher\\Validator\\Set';
+//        $this->assertInstanceOf($className, $tuersteher->getValidator('name'));
+//
+//    }
 
     public function testFluentValidator()
     {
