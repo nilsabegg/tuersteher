@@ -13,41 +13,23 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $result = new \Tuersteher\Result\Validator($isValid, $message);
         $this->assertEquals($isValid, $result->isValid());
         $this->assertEquals($message, $result->getMessage());
-
-    }
-
-    public function testConstructException()
-    {
-
-        $isValid = 324;
+        $isValid2 = 324;
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
-        new \Tuersteher\Result\Validator($isValid);
-
-    }
-
-    public function testConstructException2()
-    {
-
-        $isValid = true;
-        $message = array();
-        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
-        new \Tuersteher\Result\Validator($isValid, $message);
+        new \Tuersteher\Result\Validator($isValid2);
 
     }
 
     public function testToString()
     {
 
-        $result = new \Tuersteher\Result\Validator();
-
-        $result->setValid(true);
+        $result = new \Tuersteher\Result\Validator(true);
         $this->assertEquals("$result", 'Is valid.');
-
         $result->setValid(false);
         $this->assertEquals("$result", 'Is not valid.');
-
         $result->setMessage('Blabla');
         $this->assertEquals("$result", 'Blabla');
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        new \Tuersteher\Result\Validator(true, array());
 
     }
 
@@ -85,21 +67,14 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     {
 
         $isValid = true;
-        $result = new \Tuersteher\Result\Validator($isValid);
-        $this->assertEquals($isValid, $result->isValid());
-
+        $result = new \Tuersteher\Result\Validator($isValid, 'Valid.');
+        $this->assertEquals($result->isValid(), $isValid);
         $isValid2 = false;
         $result->setValid($isValid2);
         $this->assertEquals($isValid2, $result->isValid());
-
-    }
-
-    public function testIsValidException()
-    {
-        
-        $result = new \Tuersteher\Result\Validator();
+        $result2 = new \Tuersteher\Result\Validator();
         $this->setExpectedException('\\Tuersteher\\Exception\\Result');
-        $result->isValid();
+        $result2->isValid();
 
     }
 

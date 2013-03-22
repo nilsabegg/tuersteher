@@ -24,6 +24,16 @@ class Schema extends Validator
 {
 
     /**
+     * setClass
+     *
+     * Holds the class name of the set validator object.
+     *
+     * @access  protected
+     * @var     string
+     */
+    protected $setClass = '\\Tuersteher\\Validator\\Set';
+
+    /**
      * validators
      *
      * Holds the validators in an array.
@@ -83,13 +93,10 @@ class Schema extends Validator
             if (key_exists($key, $this->validators) == true) {
                 throw new InvalidArgumentException('Validator "' . $key . '" allready added.');
             }
-            // add validator to this schema
             if (is_a($validator, '\Tuersteher\Validator\Set') == false && $setKey === null) {
                 $this->validators[$key] = $validator;
-            // add validator to an existing set
             } elseif (is_a($validator, '\Tuersteher\Validator\Set') == true && $setKey !== null) {
                 $this->validators[$key]->addValidator($setKey, $validator);
-            // add validator to new set
             } elseif (is_a($validator, '\Tuersteher\Validator\Set') == false && $setKey !== null) {
                 $this->validators[$key] = new $this->setClass();
                 $this->validators[$key]->addValidator($setKey, $validator);

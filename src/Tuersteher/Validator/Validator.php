@@ -62,7 +62,7 @@ abstract class Validator implements ValidatorInterface
      * Holds the class name of the result object.
      *
      * @access  protected
-     * @var     \Tuersteher\Interfaces\Result
+     * @var     string
      */
     protected $resultClass = '\\Tuersteher\\Result\\Validator';
 
