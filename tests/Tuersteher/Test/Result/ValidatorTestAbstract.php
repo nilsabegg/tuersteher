@@ -5,8 +5,6 @@ namespace Tuersteher\Test\Result;
 class ValidatorTestAbstract extends \PHPUnit_Framework_TestCase
 {
 
-    protected $resultClass = '\\Tuersteher\\Result\\Validator';
-
     public function testConstruct()
     {
 
