@@ -41,7 +41,7 @@ class Set extends SchemaValidator
             if ($value != null) {
                 $result = $validator->validate($value);
                 $results[$key] = $result;
-                if ($result() == false) {
+                if ($result->isValid() == false) {
                     $hasError = true;
                 }
             } else {
