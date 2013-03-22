@@ -101,6 +101,7 @@ class Tuersteher
         } else {
             throw new InvalidArgumentException('Unknown function "' . $name . '" called.');
         }
+        $validator->setResult(clone $this->validatorResult);
 
         return $validator;
 
