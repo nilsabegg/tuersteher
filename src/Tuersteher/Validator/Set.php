@@ -23,13 +23,6 @@ use \Tuersteher\Validator\Schema as SchemaValidator;
 class Set extends SchemaValidator
 {
 
-    public function add($key, \Tuersteher\Interfaces\Validator $validator)
-    {
-
-        $this->addValidator($key, $validator);
-
-    }
-
     /**
      * validate
      *

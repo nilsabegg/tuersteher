@@ -80,15 +80,25 @@ class Schema extends Validator
     {
 
         if ($key != '') {
-            if (is_a($validator, '\Tuersteher\Validator\Set') != true && $setKey !== null ) {
+            // add validator to this schema
+            if (is_a($validator, '\Tuersteher\Validator\Set') == false && $setKey === null) {
                 if (key_exists($key, $this->validators) == false) {
                     $this->validators[$key] = $validator;
                 } else {
-                    throw new InvalidArgumentException('Validator allready added.');
+                    throw new InvalidArgumentException('Validator "' . $key . '" allready added.');
                 }
-            } elseif (is_a($validator, '\Tuersteher\Validator\Set') == true && $setKey !== null ) {
+            // add validator to an existing set
+            } elseif (is_a($validator, '\Tuersteher\Validator\Set') == true && $setKey !== null) {
                 if (key_exists($key, $this->validators) == false) {
-                    $this->validators[$key] = $validator;
+                    $this->validators[$key]->addValidator($setKey, $validator);
+                } else {
+                    throw new InvalidArgumentException('Validator "' . $key . '" allready added.');
+                }
+            // add validator to new set
+            } elseif (is_a($validator, '\Tuersteher\Validator\Set') == false && $setKey !== null) {
+                if (key_exists($key, $this->validators) == false) {
+                    $this->validators[$key] = new $this->setClass();
+                    $this->validators[$key]->addValidator($setKey, $validator);
                 } else {
                     throw new InvalidArgumentException('Validator allready added.');
                 }
@@ -177,7 +187,7 @@ class Schema extends Validator
      *
      * @access  public
      * @param   mixed $validators
-     * @return  void
+     * @return  \Tuersteher\Validator\Schema
      * @throws  \Tuersteher\Exception\InvalidArgument
      */
     public function setValidators($validators)
@@ -188,6 +198,8 @@ class Schema extends Validator
         } else {
             throw new InvalidArgumentException('The validators are expected as array.');
         }
+
+        return $this;
 
     }
 

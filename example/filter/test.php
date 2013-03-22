@@ -1,9 +1,6 @@
 <?php
-echo FILTER_FLAG_QUERY_REQUIRED . '<br>';
-echo FILTER_FLAG_PATH_REQUIRED . '<br>';
-echo FILTER_FLAG_QUERY_REQUIRED | FILTER_FLAG_PATH_REQUIRED . '<br>';
-echo 0 | FILTER_FLAG_QUERY_REQUIRED | FILTER_FLAG_PATH_REQUIRED . '<br>';
 
-
-$array = array(FILTER_FLAG_QUERY_REQUIRED,FILTER_FLAG_PATH_REQUIRED);
-echo array_sum($array);
+$tuersteher = new Tuersteher();
+$tuersteher->add('email', 'email', '\Tuersteher\Validator\Filter\Email');
+$tuersteher->add('email', 'string', '\Tuersteher\Validator\Custom\String')->maxLength(20);
+$tuersteher->validate('nils@web.de');
