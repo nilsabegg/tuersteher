@@ -41,7 +41,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $result = new \Tuersteher\Result\Validator();
 
         $isValid = true;
-        $result->setValid($isValid2);
+        $result->setValid($isValid);
         $this->assertEquals($isValid, $result->isValid());
 
         $isValid2 = false;
