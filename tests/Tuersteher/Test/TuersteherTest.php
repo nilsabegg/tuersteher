@@ -5,18 +5,18 @@ namespace Tuersteher\Test;
 class TuersteherTest extends \PHPUnit_Framework_TestCase
 {
 
-//    public function testFluentInterface()
-//    {
-//
-//        $tuersteher = new \Tuersteher\Tuersteher();
-//        $tuersteher->add('name', '\\Tuersteher\\Validator\\Filter\\Url')->setQueryRequired();
-//        $tuersteher->add('name', '\\Tuersteher\\Validator\\Custom\\String')->maxLength(50);
-//        $className = '\\Tuersteher\\Validator\\Set';
-//        $this->assertInstanceOf($className, $tuersteher->getValidator('name'));
-//
-//    }
+    public function testAdd()
+    {
 
-    public function testFluentValidator()
+        $tuersteher = new \Tuersteher\Tuersteher();
+        $tuersteher->add('name', '\\Tuersteher\\Validator\\Filter\\Url')->setQueryRequired();
+        $tuersteher->add('name', '\\Tuersteher\\Validator\\Custom\\String')->maxLength(50);
+        $className = '\\Tuersteher\\Validator\\Set';
+        $this->assertInstanceOf($className, $tuersteher->getValidator('name'));
+
+    }
+
+    public function testCall()
     {
 
         $tuersteher = new \Tuersteher\Tuersteher();
@@ -29,4 +29,21 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
 
     }
 
+    public function testCallException()
+    {
+
+        $tuersteher = new \Tuersteher\Tuersteher();
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $tuersteher->noFunction();
+
+    }
+
+    public function testCallException2()
+    {
+
+        $tuersteher = new \Tuersteher\Tuersteher();
+        $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
+        $tuersteher->isTuersteher();
+
+    }
 }
