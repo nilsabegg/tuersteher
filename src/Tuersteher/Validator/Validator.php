@@ -157,7 +157,7 @@ abstract class Validator implements ValidatorInterface
     {
 
         if ($not === true || $not === false) {
-            $this->not($not);
+            $this->not = $not;
         } else {
 
         }
