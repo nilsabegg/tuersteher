@@ -11,12 +11,12 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
         $tuersteher = new \Tuersteher\Tuersteher();
         $tuersteher->add('name', '\\Tuersteher\\Validator\\Filter\\Url')->setQueryRequired();
         $tuersteher->add('name', '\\Tuersteher\\Validator\\Custom\\String')->maxLength(50);
-
+        $tuersteher->add('name', '\\Tuersteher\\Validator\\Filter\\Integer')->isNot();
         $result = $tuersteher->validate(array('name' => 'http://google.com?q=123'));
         $this->assertTrue($result());
 
-//        $result2 = $tuersteher->validate(array('name' => 'http://goooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooogle.com?q=123'));
-//        $this->assertFalse($result2());
+        $result2 = $tuersteher->validate(array('name' => 'http://google.com'));
+        $this->assertFalse($result2());
 
     }
 

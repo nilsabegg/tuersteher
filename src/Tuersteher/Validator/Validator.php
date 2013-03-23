@@ -46,6 +46,8 @@ abstract class Validator implements ValidatorInterface
         'default' => 'The input was not valid.'
     );
 
+    protected $not = false;
+
     /**
      * result
      *
@@ -151,6 +153,16 @@ abstract class Validator implements ValidatorInterface
 
     }
 
+    public function isNot($not = true)
+    {
+
+        if ($not === true || $not === false) {
+            $this->not($not);
+        } else {
+
+        }
+
+    }
     /**
      * isRequired
      *
@@ -292,7 +304,9 @@ abstract class Validator implements ValidatorInterface
 
         try {
             $result = clone $this->result;
-            $result->setValid($isValid);
+            if ($this->not == true) {
+                $result->setValid(!$isValid);
+            }
             $result->setMessage($message);
 
             return $result;
