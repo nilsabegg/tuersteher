@@ -2,7 +2,7 @@
 
 namespace Tuersteher\Test\Validator;
 
-class SchemaTest extends \PHPUnit_Framework_TestCase
+class SchemaTest extends \Tuersteher\Test\Validator\ValidatorTest
 {
 
     public function testAddValidator()
