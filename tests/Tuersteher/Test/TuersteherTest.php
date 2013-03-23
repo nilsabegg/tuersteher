@@ -17,7 +17,7 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($result());
 
         $values = array(
-            'name' => 'http://google.com?q=123',
+            'name' => 'http://google.com',
             'email' => 'noEmail'
             );
         $result2 = $tuersteher->validate($values);
