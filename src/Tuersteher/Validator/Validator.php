@@ -175,9 +175,14 @@ abstract class Validator implements ValidatorInterface
      * @return  boolean
      * @throws  \Tuersteher\Exception\InvalidArgument
      */
-    public function isRequired()
+    public function isRequired($required = '')
     {
 
+        if ($required === false) {
+            $this->required = $required;
+        } elseif ($required === true) {
+            $this->required  = $required;
+        }
         return $this->required;
 
     }
