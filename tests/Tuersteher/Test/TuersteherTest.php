@@ -16,6 +16,7 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
         $result = $tuersteher->validate(array('name' => 'http://google.com?q=123'));
         $this->assertTrue($result());
 
+        $tuersteher->add('integer', '\\Tuersteher\\Validator\\Filter\\Integer');
         $values = array(
             'name' => 'http://google.com',
             'email' => 'noEmail'
