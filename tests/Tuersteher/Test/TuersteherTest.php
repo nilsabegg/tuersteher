@@ -15,8 +15,12 @@ class TuersteherTest extends \PHPUnit_Framework_TestCase
         $tuersteher->add('email', '\\Tuersteher\\Validator\\Filter\\Email')->isRequired(false);
         $result = $tuersteher->validate(array('name' => 'http://google.com?q=123'));
         $this->assertTrue($result());
-
-        $result2 = $tuersteher->validate(array('name' => 'http://google.com'));
+        
+        $values = array(
+            'name' => 'http://google.com?q=123',
+            'email' => 'noEmail'
+            );
+        $result2 = $tuersteher->validate($values);
         $this->assertFalse($result2());
 
     }
