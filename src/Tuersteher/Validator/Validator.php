@@ -163,7 +163,18 @@ abstract class Validator implements ValidatorInterface
         }
 
     }
-    
+
+    public function isNotRequired($required = false)
+    {
+
+        if ($required === true || $required === false) {
+            $this->required = $required;
+        }
+
+        return $this;
+
+    }
+
     /**
      * isRequired
      *
@@ -176,14 +187,9 @@ abstract class Validator implements ValidatorInterface
      * @return  boolean
      * @throws  \Tuersteher\Exception\InvalidArgument
      */
-    public function isRequired($required = '')
+    public function isRequired()
     {
 
-        if ($required === false) {
-            $this->required = $required;
-        } elseif ($required === true) {
-            $this->required  = $required;
-        }
         return $this->required;
 
     }
