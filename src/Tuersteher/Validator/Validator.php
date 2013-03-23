@@ -304,7 +304,9 @@ abstract class Validator implements ValidatorInterface
 
         try {
             $result = clone $this->result;
-            if ($this->not == true) {
+            if ($this->not === false) {
+                $result->setValid($isValid);
+            } else {
                 $result->setValid(!$isValid);
             }
             $result->setMessage($message);
