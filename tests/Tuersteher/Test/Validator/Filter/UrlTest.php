@@ -51,6 +51,13 @@ class UrlTest extends \PHPUnit_Framework_TestCase
         $validator->setPathRequired(false);
         $pathRequired3 = $validator->isPathRequired();
         $this->assertFalse($pathRequired3);
+
+    }
+
+    public function testSetPathRequiredException()
+    {
+
+        $validator = new \Tuersteher\Validator\Filter\Url();
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
         $validator->setPathRequired(array());
 
@@ -59,9 +66,7 @@ class UrlTest extends \PHPUnit_Framework_TestCase
     public function testSetQueryRequiredException()
     {
 
-        $result = new \Tuersteher\Result\Validator();
         $validator = new \Tuersteher\Validator\Filter\Url();
-        $validator->setResult($result);
         $this->setExpectedException('\\Tuersteher\\Exception\\InvalidArgument');
         $validator->setQueryRequired(array());
 
