@@ -26,6 +26,8 @@ use Tuersteher\Result\Validator as ValidatorResult;
 class Tuersteher
 {
 
+    protected $locale = 'de_DE';
+
     protected $result = null;
 
     /**

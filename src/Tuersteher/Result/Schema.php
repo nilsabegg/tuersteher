@@ -170,5 +170,6 @@ class Schema extends ValidatorResult implements SchemaResultInterface
         }
 
         return $this;
+        
     }
 }

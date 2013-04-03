@@ -24,6 +24,14 @@ use Tuersteher\Validator\Validator as Validator;
 class String extends Validator
 {
 
+    protected $options = array(
+        'maxLength' => array(
+            'length' => null
+        ),
+        'minLength' => array(
+            'length' => null
+        )
+    );
     /**
      * messages
      *
@@ -37,8 +45,13 @@ class String extends Validator
         'default' => 'The input was not a boolean.'
     );
 
+    protected $methods = array(
+        'maxLength' => false,
+        'minLength' => false
+    );
+
     /**
-     * setMaxLength
+     * maxLength
      *
      *
      *
@@ -51,11 +64,46 @@ class String extends Validator
     {
 
         if (is_integer($maxLength) == true) {
+            $this->methods['maxLength'] = true;
+            $this->options['maxLength']['length'] = $maxLength;
+
             return $this;
         } elseif ($maxLength == '') {
+            $this->methods['maxLength'] = false;
+            $this->options['maxLength']['length'] = null;
 
+            return $this;
         } else {
-            throw new \InvalidArgumentException();
+            throw new \InvalidArgumentException('The maximum length has to be an integer.');
+        }
+
+    }
+
+    /**
+     * minLength
+     *
+     *
+     *
+     * @access public
+     * @param  integer $minLength
+     * @return \Tuersteher\Validator\Custom\String
+     * @throws \Tuersteher\Exception\InvalidArgument
+     */
+    public function minLength($minLength)
+    {
+
+        if (is_integer($minLength) == true) {
+            $this->methods['minLength'] = true;
+            $this->options['minLength']['length'] = $minLength;
+
+            return $this;
+        } elseif ($minLength == '') {
+            $this->methods['minLength'] = false;
+            $this->options['minLength']['length'] = null;
+
+            return $this;
+        } else {
+            throw new \InvalidArgumentException('The minimum length has to be an integer.');
         }
 
     }
@@ -71,6 +119,37 @@ class String extends Validator
      */
     public function validate($value)
     {
+
+        $hasError = false;
+        foreach ($this->methods as $methodName => $isActive) {
+            if ($isActive == true) {
+                $validationMethodName = 'validate' . ucfirst($methodName);
+                $hasError = $this->$validationMethodName($value);
+            }
+        }
         return $this->createResult(true, 'Dummy valid Result.');
+
+    }
+
+    protected function validateMaxLength($value)
+    {
+
+        if (strlen($value) <= $this->options['maxLenght']['length']) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    protected function validateMinLength($value)
+    {
+
+        if (strlen($value) >= $this->options['minLenght']['length']) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }
