@@ -6,7 +6,7 @@
 
 namespace Tuersteher;
 
-use \Tuersteher\Exception\InvalidArgument as InvalidArgumentException;
+use Tuersteher\Exception\InvalidArgument as InvalidArgumentException;
 use Tuersteher\Validator\Schema as SchemaValidator;
 use Tuersteher\Validator\Set as SetValidator;
 use Tuersteher\Result\Schema as SchemaResult;

@@ -7,7 +7,7 @@
 namespace Tuersteher\Interfaces;
 
 /**
- * ValidatorInterface
+ * ResultInterface
  *
  * This is the interface for the results of a Türsteher validator.
  *
@@ -17,9 +17,8 @@ namespace Tuersteher\Interfaces;
  * with Türsteher.
  *
  * @author      Nils Abegg <rueckgrat@nilsabegg.de>
- * @version     0.1
+ * @version     0.2
  * @package     Türsteher
- * @subpackage  Result
  * @category    Validation
  */
 interface Result

@@ -6,9 +6,9 @@
 
 namespace Tuersteher\Result;
 
-use \Tuersteher\Exception\InvalidArgument as InvalidArgumentException;
-use \Tuersteher\Exception\Result as ResultException;
-use \Tuersteher\Interfaces\Result as ResultInterface;
+use Tuersteher\Exception\InvalidArgument as InvalidArgumentException;
+use Tuersteher\Exception\Result as ResultException;
+use Tuersteher\Interfaces\Result as ResultInterface;
 
 /**
  * Validator
@@ -19,13 +19,13 @@ use \Tuersteher\Interfaces\Result as ResultInterface;
  * @version     0.2
  * @package     Türsteher
  * @category    Validation
- * @todo        Make the object accessible as array.
+ * @todo        Inject input.
  */
 class Validator implements ResultInterface
 {
 
     protected $input = null;
-    
+
     /**
      * message
      *

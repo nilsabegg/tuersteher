@@ -17,9 +17,8 @@ namespace Tuersteher\Interfaces;
  * with Türsteher.
  *
  * @author      Nils Abegg <rueckgrat@nilsabegg.de>
- * @version     0.1
+ * @version     0.2
  * @package     Türsteher
- * @subpackage  Validator
  * @category    Validation
  */
 interface Validator
