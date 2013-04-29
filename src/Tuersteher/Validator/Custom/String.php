@@ -26,10 +26,10 @@ class String extends Validator
 
     protected $options = array(
         'maxLength' => array(
-            'length' => null
+            'length' => 255
         ),
         'minLength' => array(
-            'length' => null
+            'length' => 0
         )
     );
     /**
