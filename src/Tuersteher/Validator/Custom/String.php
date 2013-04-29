@@ -134,7 +134,7 @@ class String extends Validator
     protected function validateMaxLength($value)
     {
 
-        if (strlen($value) <= $this->options['maxLenght']['length']) {
+        if (strlen($value) <= $this->options['maxLength']['length']) {
             return true;
         } else {
             return false;
@@ -145,7 +145,7 @@ class String extends Validator
     protected function validateMinLength($value)
     {
 
-        if (strlen($value) >= $this->options['minLenght']['length']) {
+        if (strlen($value) >= $this->options['minLength']['length']) {
             return true;
         } else {
             return false;
