@@ -1,5 +1,5 @@
 <phpdox xmlns="http://phpdox.net/config">
-    <project name="Türsteher" source="src" workdir="build/phpdox">
+    <project name="Türsteher" source="../src" workdir="phpdox">
         <collector publiconly="false">
             <include mask="*.php" />
         </collector>
