@@ -49,7 +49,7 @@
     <property name="prepare.done" value="true"/>
 </target>
 
-<target name="composer" description="Install dependencies for Unit Tests" unless="composer.done">
+<target name="composer" description="Install dependencies for Unit Tests" unless="composer.done" depends="prepare">
     <exec executable="composer">
         <arg line="install" />
     </exec>
